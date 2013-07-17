@@ -1,0 +1,8 @@
+ofxBox2d
+ofxControlPanel
+ofxMultiTouch
+ofxNetwork
+ofxTuio
+ofxTween
+ofxUI
+ofxXmlSettings

@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+		<RootNamespace>BCAA</RootNamespace>
+		<Keyword>Win32Proj</Keyword>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Label="ExtensionSettings" />
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs2010\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\..\libs\openFrameworksCompiled\project\vs2010\openFrameworksDebug.props" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup>
+		<_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+		<OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bin\</OutDir>
+		<IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj\$(Configuration)\</IntDir>
+		<LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+		<GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+		<OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bin\</OutDir>
+		<IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj\$(Configuration)\</IntDir>
+		<LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+		<TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)_debug</TargetName>
+		<TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<MinimalRebuild>true</MinimalRebuild>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<PrecompiledHeader />
+			<WarningLevel>Level3</WarningLevel>
+			<DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\openFrameworks\addons\ofxBox2d\libs;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints;..\..\openFrameworks\addons\ofxBox2d\libs\triangle;..\..\openFrameworks\addons\ofxBox2d\src;..\..\openFrameworks\addons\ofxControlPanel\libs;..\..\openFrameworks\addons\ofxControlPanel\src;..\..\openFrameworks\addons\ofxMultiTouch\libs;..\..\openFrameworks\addons\ofxMultiTouch\src;..\..\openFrameworks\addons\ofxNetwork\libs;..\..\openFrameworks\addons\ofxNetwork\src;..\..\openFrameworks\addons\ofxTuio\libs;..\..\openFrameworks\addons\ofxTuio\src;..\..\openFrameworks\addons\ofxTween\libs;..\..\openFrameworks\addons\ofxTween\src;..\..\openFrameworks\addons\ofxTween\src\Easings;..\..\openFrameworks\addons\ofxUI\libs;..\..\openFrameworks\addons\ofxUI\src;..\..\openFrameworks\addons\ofxXmlSettings\libs;..\..\openFrameworks\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+		</ClCompile>
+		<Link>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<ProgramDatabaseFile>$(TargetDir)$(TargetName)_debugInfo.pdb</ProgramDatabaseFile>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<DataExecutionPrevention />
+			<TargetMachine>MachineX86</TargetMachine>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<PrecompiledHeader />
+			<WarningLevel>Level3</WarningLevel>
+			<DebugInformationFormat />
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\openFrameworks\addons\ofxBox2d\libs;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts;..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints;..\..\openFrameworks\addons\ofxBox2d\libs\triangle;..\..\openFrameworks\addons\ofxBox2d\src;..\..\openFrameworks\addons\ofxControlPanel\libs;..\..\openFrameworks\addons\ofxControlPanel\src;..\..\openFrameworks\addons\ofxMultiTouch\libs;..\..\openFrameworks\addons\ofxMultiTouch\src;..\..\openFrameworks\addons\ofxNetwork\libs;..\..\openFrameworks\addons\ofxNetwork\src;..\..\openFrameworks\addons\ofxTuio\libs;..\..\openFrameworks\addons\ofxTuio\src;..\..\openFrameworks\addons\ofxTween\libs;..\..\openFrameworks\addons\ofxTween\src;..\..\openFrameworks\addons\ofxTween\src\Easings;..\..\openFrameworks\addons\ofxUI\libs;..\..\openFrameworks\addons\ofxUI\src;..\..\openFrameworks\addons\ofxXmlSettings\libs;..\..\openFrameworks\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<DataExecutionPrevention />
+			<TargetMachine>MachineX86</TargetMachine>
+			<LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="src\main.cpp" />
+		<ClCompile Include="src\testApp.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2d.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dBaseShape.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dCircle.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dPolygon.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dRect.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2BroadPhase.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2CollideCircle.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2CollidePolygon.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2Collision.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2Distance.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2DynamicTree.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2TimeOfImpact.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes\b2CircleShape.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes\b2PolygonShape.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2BlockAllocator.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2Math.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2Settings.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2StackAllocator.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2Body.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2ContactManager.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2Fixture.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2Island.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2World.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2WorldCallbacks.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2CircleContact.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2Contact.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2ContactSolver.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2PolygonContact.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2TOISolver.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2DistanceJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2FrictionJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2GearJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2Joint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2LineJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2MouseJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2PulleyJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxBox2d\libs\triangle\del_impl.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiBaseObject.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiCallback.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiCallbackValue.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiColor.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTextBase.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiType2DSlider.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeButtonSlider.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeChartPlotter.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeCustom.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeDrawable.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeFileLister.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeLabel.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeLogger.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeMultiToggle.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypePanel.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeSlider.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeText.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeTextDropDown.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeTextInput.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeToggle.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeVairableLister.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeVideo.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiValue.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\ofxControlPanel.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\simpleColor.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\simpleFileLister.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxControlPanel\src\simpleLogger.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxMultiTouch\src\ofxMultiTouch.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasing.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingBack.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingBounce.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingCirc.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingCubic.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingElastic.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingExpo.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingLinear.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingQuad.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingQuart.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingQuint.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingSine.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxTween\src\ofxTween.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+		<ClCompile Include="..\..\openFrameworks\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\testApp.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2d.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dBaseShape.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dCircle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dContactListener.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dPolygon.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dPolygonUtils.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dRect.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dRender.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\src\ofxBox2dUtils.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Box2D.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2BroadPhase.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2Collision.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2Distance.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2DynamicTree.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\b2TimeOfImpact.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes\b2CircleShape.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes\b2PolygonShape.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Collision\Shapes\b2Shape.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2BlockAllocator.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2Math.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2Settings.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Common\b2StackAllocator.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2Body.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2ContactManager.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2Fixture.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2Island.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2TimeStep.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2World.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\b2WorldCallbacks.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2CircleContact.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2Contact.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2ContactSolver.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2PolygonContact.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts\b2TOISolver.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2DistanceJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2FrictionJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2GearJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2Joint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2LineJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2MouseJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2PrismaticJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2PulleyJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2RevoluteJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\Box2D\Dynamics\Joints\b2WeldJoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\triangle\assert.hpp" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\triangle\del_interface.hpp" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\triangle\dpoint.hpp" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\triangle\triangle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxBox2d\libs\triangle\triangle_impl.hpp" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiBaseObject.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiCallback.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiCallbackValue.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiColor.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiCustomImpl.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiIncludes.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTextBase.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiType2DSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeButtonSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeChartPlotter.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeCustom.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeDrawable.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeFileLister.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeLabel.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeLogger.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeMultiToggle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypePanel.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeText.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeTextDropDown.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeTextInput.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeToggle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeVairableLister.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiTypeVideo.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiValue.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiVariablePointer.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\guiXmlValue.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\ofxAutoControlPanel.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\ofxControlPanel.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\simpleColor.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\simpleFileLister.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxControlPanel\src\simpleLogger.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxMultiTouch\src\ofxMultiTouch.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxMultiTouch\src\ofxMultiTouchListener.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxNetwork.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxNetworkUtils.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxTCPClient.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxTCPManager.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxTCPServer.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxNetwork\src\ofxUDPManager.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTuio\src\ofxTuio.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTuio\src\ofxTuioClient.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTuio\src\ofxTuioContainer.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTuio\src\ofxTuioCursor.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTuio\src\ofxTuioObject.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTuio\src\ofxTuioPoint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\easing_terms_of_use.html" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasing.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingBack.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingBounce.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingCirc.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingCubic.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingElastic.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingExpo.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingLinear.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingQuad.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingQuart.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingQuint.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\Easings\ofxEasingSine.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxTween\src\ofxTween.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUI.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUI2DGraph.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUI2DPad.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIBaseDraws.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIBiLabelSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIButton.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUICanvas.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUICircleSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUICustomImageButton.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIDropDownList.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIEventArgs.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIFPS.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIFPSSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIImage.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIImageButton.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIImageSampler.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIImageSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIImageToggle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUILabel.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUILabelButton.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUILabelToggle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIMinimalSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIMovingGraph.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIMultiImageButton.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIMultiImageSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIMultiImageToggle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUINumberDialer.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIOFWrapper.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIRadio.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIRangeSlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIRectangle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIRotarySlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIScrollableCanvas.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUISlider.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUISpacer.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUISpectrum.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUISuperCanvas.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUITabBar.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUITextArea.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUITextInput.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIToggle.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIToggleMatrix.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIUtils.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIValuePlotter.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIWaveform.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIWidget.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxUI\src\ofxUIWidgetWithLabel.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+		<ClInclude Include="..\..\openFrameworks\addons\ofxXmlSettings\libs\tinyxml.h" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs2010\openframeworksLib.vcxproj">
+			<Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+		</ProjectReference>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ImportGroup Label="ExtensionTargets" />
+</Project>
