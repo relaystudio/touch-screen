@@ -13,6 +13,26 @@
 #include "ofMain.h"
 #include "ofxNetwork.h"
 #include "ofxXmlSettings.h"
+#include "ofxAutoControlPanel.h"
+
+enum ValueType{
+    DEBUG = 0,
+    FULLSCREEN = 1
+    
+};
+
+
+class Settings {
+
+
+    
+public:
+    Settings();
+    ~Settings();
+    
+    int getValue(ValueType _title); //0-255
+    void setValue(ValueType _title, int _value);
+};
 
 
 #endif /* defined(__BCAA__settings__) */
