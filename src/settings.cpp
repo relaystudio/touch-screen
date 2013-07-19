@@ -8,6 +8,18 @@
 
 #include "settings.h"
 
+Settings::Settings(string _path){
+    
+}
+
+Settings::Settings(){
+    
+}
+
+Settings::~Settings() {
+    
+}
+
 int Settings::getValue(ValueType _title) {
     // to Implement 
     return 0;

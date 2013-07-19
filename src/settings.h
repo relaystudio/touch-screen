@@ -23,12 +23,14 @@ enum ValueType{
 
 
 class Settings {
-
-
     
 public:
+    Settings(string _path);
     Settings();
     ~Settings();
+    
+    bool loadSettings();
+    bool saveSettings();
     
     int getValue(ValueType _title); //0-255
     void setValue(ValueType _title, int _value);

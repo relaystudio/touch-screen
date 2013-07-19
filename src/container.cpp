@@ -19,13 +19,20 @@ Container::~Container() {
 }
 
 void Container::update() {
-    
+    container->begin();
+    ofBackgroundGradient(70,120);
+    ofDrawBitmapString("TEST CONTRAINER", ofGetWidth()/3, ofGetHeight()/2);
+    container->end();
 }
 
 void Container::draw() {
-    
+    container->draw(loc.x, loc.y);
 }
 
+
+///////////////////////////////////////////////////////
+////////////////////// Settings ///////////////////////
+///////////////////////////////////////////////////////
 void Container::addPage(Page * _page) {
     pages.push_back(_page);
     ofLog() << "Loading page " << _page->getName() << " to " << getName();
