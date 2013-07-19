@@ -9,6 +9,7 @@
 #include "touch.h"
 
 Touch::Touch(int _port) {
+    ofLog() << "Starting Tuio Client";
     tuioClient.start(_port);
     
     ofAddListener(tuioClient.cursorAdded,this,&Touch::tuioAdded);

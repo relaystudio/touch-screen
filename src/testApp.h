@@ -10,6 +10,7 @@ class testApp : public ofBaseApp{
 
 	public:
 		void setup();
+        void end();
 		void update();
 		void draw();
 
@@ -23,6 +24,6 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-        Touch touch;
+        Touch * touch;
 
 };
