@@ -6,7 +6,9 @@ void testApp::setup(){
     ofEnableSmoothing();
     
     touch = new Touch(3333);
-    testContainer = new Container();
+//    testContainer = new Container();
+    home = new HomeContainer();
+    
 }
 
 
@@ -17,12 +19,14 @@ void testApp::end() {
 //--------------------------------------------------------------
 void testApp::update(){
     touch->update();
-    testContainer->update();
+    home->update();
+   // testContainer->update();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    testContainer->draw();
+//    testContainer->draw();
+    home->draw();
     touch->draw();
 }
 

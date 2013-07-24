@@ -3,7 +3,7 @@
 ## Project setup and requirements
 - ofxOsc
 - ofxNetwork (for ofxOsc)
-- ofxControlPanel (req: Kyle McDonald's ofxAutoControlPanel fork)
+- ofxControlPanel (req: https://github.com/kylemcdonald/ofxControlPanel )
 - ofxBox2d
 - ofxTuio
 - ofxTween (maybe)

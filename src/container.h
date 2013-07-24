@@ -26,7 +26,7 @@ public:
     void prev(); // Prev page
     void submit(); // Submit form from page (called by page)
     
-    void jump(int Pageid); // Jumpt to page
+    void jump(int _pageid); // Jumpt to page
     
     void draw();
     void update();
@@ -40,6 +40,8 @@ public:
 private:
     ofFbo * container;
     vector<Page*> pages;
+    
+    Page * currentPage;
     
     ofPoint loc;
     ofVec2f size;

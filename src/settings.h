@@ -16,8 +16,8 @@
 #include "ofxAutoControlPanel.h"
 
 enum ValueType{
-    DEBUG = 0,
-    FULLSCREEN = 1
+    DEBUG,
+    FULLSCREEN
     
 };
 
@@ -25,9 +25,16 @@ enum ValueType{
 class Settings {
     
 public:
+    
+    static Settings * getSettings(string _path);
+    
+
+private:
     Settings(string _path);
     Settings();
     ~Settings();
+
+    static Settings * settings;
     
     bool loadSettings();
     bool saveSettings();

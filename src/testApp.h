@@ -7,6 +7,7 @@
 #include "touch.h"
 
 #include "container.h"
+#include "homeContainer.h"
 
 class testApp : public ofBaseApp{
 
@@ -28,4 +29,7 @@ class testApp : public ofBaseApp{
 
         Touch * touch;
         Container * testContainer;
+    
+        HomeContainer * home;
+        
 };

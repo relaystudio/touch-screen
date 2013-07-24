@@ -73,6 +73,9 @@
 		83CE0D601799863500653581 /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D501799863500653581 /* ofxOscMessage.cpp */; };
 		83CE0D611799863500653581 /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D521799863500653581 /* ofxOscReceiver.cpp */; };
 		83CE0D621799863500653581 /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D541799863500653581 /* ofxOscSender.cpp */; };
+		83CE0D67179D86A200653581 /* homeContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D65179D86A200653581 /* homeContainer.cpp */; };
+		83CE0D6A179D86AA00653581 /* homePage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D68179D86AA00653581 /* homePage.cpp */; };
+		83CE0D6D179D86B100653581 /* attractPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D6B179D86B100653581 /* attractPage.cpp */; };
 		84cac9dd0bdda18e214515f5c9fcd772 /* ofxEasingQuart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2eb862f5f9a0ec032644c16bb656d08f /* ofxEasingQuart.cpp */; };
 		8dc96bdec59fd6398f1981664d6b335c /* guiTypeCustom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = abe3febb276b62a31fe4525439ccc4e9 /* guiTypeCustom.cpp */; };
 		8ed274efb3259c333dd46793216e1abd /* b2FrictionJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24f6d3301ee74a288e9262bf1b31cc9f /* b2FrictionJoint.cpp */; };
@@ -340,6 +343,12 @@
 		83CE0D541799863500653581 /* ofxOscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOscSender.cpp; sourceTree = "<group>"; };
 		83CE0D551799863500653581 /* ofxOscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOscSender.h; sourceTree = "<group>"; };
 		83CE0D631799965D00653581 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		83CE0D65179D86A200653581 /* homeContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = homeContainer.cpp; sourceTree = "<group>"; };
+		83CE0D66179D86A200653581 /* homeContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeContainer.h; sourceTree = "<group>"; };
+		83CE0D68179D86AA00653581 /* homePage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = homePage.cpp; sourceTree = "<group>"; };
+		83CE0D69179D86AA00653581 /* homePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homePage.h; sourceTree = "<group>"; };
+		83CE0D6B179D86B100653581 /* attractPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attractPage.cpp; sourceTree = "<group>"; };
+		83CE0D6C179D86B100653581 /* attractPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attractPage.h; sourceTree = "<group>"; };
 		8697543d8170c4490bcf350c94ec76db /* guiTypeButtonSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = guiTypeButtonSlider.h; path = ../../openFrameworks/addons/ofxControlPanel/src/guiTypeButtonSlider.h; sourceTree = SOURCE_ROOT; };
 		86d575ffe0abbf1dadfacf3b0b80909e /* del_interface.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = del_interface.hpp; path = ../../openFrameworks/addons/ofxBox2d/libs/triangle/del_interface.hpp; sourceTree = SOURCE_ROOT; };
 		8774a7dd6e6ff9076281041a93f18e05 /* guiCallback.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = guiCallback.cpp; path = ../../openFrameworks/addons/ofxControlPanel/src/guiCallback.cpp; sourceTree = SOURCE_ROOT; };
@@ -833,6 +842,19 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		83CE0D64179D865900653581 /* homeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				83CE0D65179D86A200653581 /* homeContainer.cpp */,
+				83CE0D66179D86A200653581 /* homeContainer.h */,
+				83CE0D68179D86AA00653581 /* homePage.cpp */,
+				83CE0D69179D86AA00653581 /* homePage.h */,
+				83CE0D6B179D86B100653581 /* attractPage.cpp */,
+				83CE0D6C179D86B100653581 /* attractPage.h */,
+			);
+			name = homeScreen;
+			sourceTree = "<group>";
+		};
 		9618c0a0c8712e53cedb090cd5c3f89b /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
@@ -955,6 +977,7 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				83CE0D64179D865900653581 /* homeScreen */,
 				839175CA1796F1D00054F2F4 /* service */,
 				839175C91796F1B10054F2F4 /* interface */,
 			);
@@ -1381,6 +1404,9 @@
 				83CE0D601799863500653581 /* ofxOscMessage.cpp in Sources */,
 				83CE0D611799863500653581 /* ofxOscReceiver.cpp in Sources */,
 				83CE0D621799863500653581 /* ofxOscSender.cpp in Sources */,
+				83CE0D67179D86A200653581 /* homeContainer.cpp in Sources */,
+				83CE0D6A179D86AA00653581 /* homePage.cpp in Sources */,
+				83CE0D6D179D86B100653581 /* attractPage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
