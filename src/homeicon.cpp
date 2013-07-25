@@ -10,8 +10,10 @@
 
 HomeIcon::HomeIcon(string _title,
                    string _apiPath, string _iconPath) {
-    
-    
+    title = _title;
+    apiPath = _apiPath;
+    iconPath = _iconPath;
+    radius = 20;
 }
 
 HomeIcon::~HomeIcon() {
@@ -20,19 +22,19 @@ HomeIcon::~HomeIcon() {
 
 void HomeIcon::draw() {
     if(!isBody()) return;
-	
 	ofPushMatrix();
+    ofPushStyle();
+    ofDrawBitmapString(title, getPosition().x, getPosition().y);
 	ofTranslate(getPosition().x, getPosition().y, 0);
 	ofRotate(getRotation(), 0, 0, 1);
-	ofCircle(0, 0, 10);
+	ofCircle(0, 0, radius);
 	
-	ofLine(0, 0, 30, 0);
+	ofLine(0, 0, radius * 2, 0);
     if(isSleeping()) {
         ofSetColor(255, 100);
         ofCircle(0, 0, radius);
     }
     ofPopStyle();
-    
 	ofPopMatrix();
 }
 

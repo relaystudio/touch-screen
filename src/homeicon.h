@@ -30,11 +30,11 @@ private:
     
     int fetchTimer(); // Get timer from connection
     
-    ofVec2f loc, acc, vel;
+    
     int radius, activityTimer;
     bool active;
     
-    string _title, _apiPath, _iconPath;
+    string title, apiPath, iconPath;
     Container * container;
     
 };
