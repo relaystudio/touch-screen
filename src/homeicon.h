@@ -14,9 +14,9 @@
 #include "ofxBox2d.h"
 #include "container.h"
 
-class HomeIcon : private ofxBox2dCircle {
+class HomeIcon : public ofxBox2dCircle {
 public:
-    HomeIcon(Container * _container, string _title,
+    HomeIcon(string _title,
              string _apiPath, string _iconPath);
     ~HomeIcon();
     

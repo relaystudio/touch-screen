@@ -4,6 +4,7 @@
 void testApp::setup(){
     ofSetLogLevel(OF_LOG_VERBOSE);
     ofEnableSmoothing();
+    ofSetVerticalSync(true);
     
     touch = new Touch(3333);
 //    testContainer = new Container();
@@ -20,12 +21,10 @@ void testApp::end() {
 void testApp::update(){
     touch->update();
     home->update();
-   // testContainer->update();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-//    testContainer->draw();
     home->draw();
     touch->draw();
 }
@@ -38,7 +37,8 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
+    if(key == 'f')
+        ofGetWindowMode() != OF_FULLSCREEN ? ofSetFullscreen(true) : ofSetFullscreen(false);
 }
 
 //--------------------------------------------------------------

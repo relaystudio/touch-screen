@@ -12,6 +12,7 @@
 #include <iostream>
 #include "container.h"
 #include "homeicon.h"
+#include "ofxBox2d.h"
 
 class HomeContainer : public Container {
   
@@ -20,9 +21,20 @@ class HomeContainer : public Container {
     HomeContainer();
     ~HomeContainer();
     
+    void update();
+    void draw();
+    
     private:
-    vector<HomeIcon> * icons;
-    const int iconNumber = 3;
+    ofFbo * container;
+    
+    HomeIcon * house;
+    HomeIcon * car;
+    HomeIcon * travel;
+    HomeIcon * membership;
+    
+    const int iconNumber = 4;
+    
+    ofxBox2d * box2d;
     
     Container * testContainer;
 };

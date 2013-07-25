@@ -8,7 +8,7 @@
 
 #include "homeicon.h"
 
-HomeIcon::HomeIcon(Container * _container, string _title,
+HomeIcon::HomeIcon(string _title,
                    string _apiPath, string _iconPath) {
     
     
@@ -19,7 +19,21 @@ HomeIcon::~HomeIcon() {
 }
 
 void HomeIcon::draw() {
+    if(!isBody()) return;
+	
+	ofPushMatrix();
+	ofTranslate(getPosition().x, getPosition().y, 0);
+	ofRotate(getRotation(), 0, 0, 1);
+	ofCircle(0, 0, 10);
+	
+	ofLine(0, 0, 30, 0);
+    if(isSleeping()) {
+        ofSetColor(255, 100);
+        ofCircle(0, 0, radius);
+    }
+    ofPopStyle();
     
+	ofPopMatrix();
 }
 
 void HomeIcon::update() {
