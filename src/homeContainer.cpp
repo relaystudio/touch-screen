@@ -13,6 +13,12 @@ HomeContainer::HomeContainer() {
     container = new ofFbo();
     container->allocate(ofGetWidth(),ofGetHeight());
     
+    int iconWidth = 150; // Radius
+    
+    float density = 4.0;
+    float bounce = .3;
+    float friction = 1.1;
+    
     box2d = new ofxBox2d();
     box2d->init();
 	box2d->setGravity(0, 0);
@@ -20,23 +26,22 @@ HomeContainer::HomeContainer() {
     box2d->createBounds(0,0,container->getWidth(), container->getHeight());
     box2d->registerGrabbing();
     
-    int iconWidth = 150; // Radius
     
     house = new HomeIcon("House", "/api/home", "img/icon_home.png");
-    house->setPhysics(3.0, 0.53, 0.9);
-    house->setup(box2d->getWorld(), ofRandom(0,container->getWidth()), ofRandom(0,container->getHeight()), iconWidth);
+    house->setPhysics(density, bounce, friction);
+    house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
     car = new HomeIcon("Car", "/api/car", "img/icon_auto.png");
-    car->setPhysics(3.0, 0.53, 0.9);
-    car->setup(box2d->getWorld(), ofRandom(0,container->getWidth()), ofRandom(0,container->getHeight()), iconWidth);
+    car->setPhysics(density, bounce, friction);
+    car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
     travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png");
-    travel->setPhysics(3.0, 0.53, 0.9);
-    travel->setup(box2d->getWorld(), ofRandom(0,container->getWidth()), ofRandom(0,container->getHeight()), iconWidth);
+    travel->setPhysics(density, bounce, friction);
+    travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
     membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png");
-    membership->setPhysics(3.0, 0.53, 0.9);
-    membership->setup(box2d->getWorld(), ofRandom(0,container->getWidth()), ofRandom(0,container->getHeight()), iconWidth);
+    membership->setPhysics(density, bounce, friction);
+    membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
 
     
 }
@@ -46,6 +51,18 @@ HomeContainer::~HomeContainer() {
 }
 
 void HomeContainer::addForces() {
+    house->addRepulsionForce(membership->getPosition(),0.1);
+    house->addRepulsionForce(car->getPosition(), 0.1);
+    house->addRepulsionForce(travel->getPosition(), 0.1);
+    
+    car->addRepulsionForce(house->getPosition(),0.1);
+    car->addRepulsionForce(membership->getPosition(), 0.1);
+    car->addRepulsionForce(travel->getPosition(), 0.1);
+    
+    travel->addRepulsionForce(house->getPosition(),0.1);
+    travel->addRepulsionForce(car->getPosition(), 0.1);
+    travel->addRepulsionForce(membership->getPosition(), 0.1);
+    
     membership->addRepulsionForce(house->getPosition(),0.1);
     membership->addRepulsionForce(car->getPosition(), 0.1);
     membership->addRepulsionForce(travel->getPosition(), 0.1);

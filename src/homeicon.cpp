@@ -35,7 +35,7 @@ void HomeIcon::draw() {
 	ofPushMatrix();
     ofPushStyle();
     ofEnableAlphaBlending();
-    ofTranslate(getPosition());
+    ofTranslate(getPosition().x-150, getPosition().y-150);
     bg->draw(0,0);
     ring->draw(0,0);
     icon->draw(0,0);
