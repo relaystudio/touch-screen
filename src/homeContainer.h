@@ -36,7 +36,7 @@ class HomeContainer : public Container {
     HomeIcon * travel;
     HomeIcon * membership;
     
-    const int iconNumber = 4;
+    int iconNumber;
     
     ofxBox2d * box2d;
     
