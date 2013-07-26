@@ -13,7 +13,7 @@
 #include "ofMain.h"
 #include "ofxTuio.h"
 
-class Touch {
+class Touch :  public ofEventArgs  {
     
 public:
     Touch();
@@ -22,6 +22,7 @@ public:
     
     
     vector<ofPoint> * getPoints();
+    ofPoint * getPoint();
     
     void update(); // Recieve msg
     void draw(); // draw cursor (debug)

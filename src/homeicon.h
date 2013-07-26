@@ -25,7 +25,6 @@ public:
     
     bool isActive();
     
-    
 private:
     
     int fetchTimer(); // Get timer from connection

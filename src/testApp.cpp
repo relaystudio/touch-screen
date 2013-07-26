@@ -12,7 +12,9 @@ void testApp::setup(){
     
     mainBackground = new ofImage();
     mainBackground->loadImage("img/main_bg.jpg");
-    
+//    
+//    box2d = home->getBox2d();
+//
 }
 
 

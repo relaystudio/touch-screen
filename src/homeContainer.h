@@ -13,6 +13,7 @@
 #include "container.h"
 #include "homeicon.h"
 #include "ofxBox2d.h"
+#include "touch.h"
 
 class HomeContainer : public Container {
   
@@ -23,6 +24,8 @@ class HomeContainer : public Container {
     
     void update();
     void draw();
+    
+    void addForces();
     
     private:
     ofFbo * container;
@@ -35,6 +38,8 @@ class HomeContainer : public Container {
     const int iconNumber = 4;
     
     ofxBox2d * box2d;
+    
+    ofPoint * cursor;
     
     Container * testContainer;
 };

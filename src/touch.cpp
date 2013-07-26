@@ -16,6 +16,7 @@ Touch::Touch(int _port) {
 	ofAddListener(tuioClient.cursorRemoved,this,&Touch::tuioRemoved);
 	ofAddListener(tuioClient.cursorUpdated,this,&Touch::tuioUpdated);
     
+  //  ofRegisterTouchEvents(this);
 }
 
 Touch::Touch() {
@@ -43,20 +44,27 @@ vector<ofPoint> * Touch::getPoints() {
     return &pnt;
 }
 
+ofPoint * Touch::getPoint() {
+
+}
+
 /////////////////////////////////////////////////////////////////
 /////////////   Event management    /////////////////////////////
 /////////////////////////////////////////////////////////////////
 void Touch::tuioAdded(ofxTuioCursor &tuioCursor){
     ofPoint loc = ofPoint(tuioCursor.getX()*ofGetWidth(),tuioCursor.getY()*ofGetHeight());
 	ofLog(OF_LOG_VERBOSE) << "Point n" << tuioCursor.getSessionId() << " add at " << loc << endl;
+    ofNotifyMousePressed(loc.x, loc.y, 0);
 }
 
 void Touch::tuioUpdated(ofxTuioCursor &tuioCursor){
     ofPoint loc = ofPoint(tuioCursor.getX()*ofGetWidth(),tuioCursor.getY()*ofGetHeight());
     ofLog(OF_LOG_VERBOSE) << "Point n" << tuioCursor.getSessionId() << " updated at " << loc << endl;
+     ofNotifyMouseDragged(loc.x, loc.y, 0);
 }
 
 void Touch::tuioRemoved(ofxTuioCursor &tuioCursor){
     ofPoint loc = ofPoint(tuioCursor.getX()*ofGetWidth(),tuioCursor.getY()*ofGetHeight());
     ofLog(OF_LOG_VERBOSE) << "Point n" << tuioCursor.getSessionId() << " remove at " << loc << endl;
+     ofNotifyMouseReleased(loc.x, loc.y, 0);
 }

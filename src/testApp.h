@@ -31,7 +31,6 @@ class testApp : public ofBaseApp{
         Container * testContainer;
     
         HomeContainer * home;
-
         ofImage * mainBackground;
     
 };
