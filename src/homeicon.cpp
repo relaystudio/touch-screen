@@ -13,6 +13,16 @@ HomeIcon::HomeIcon(string _title,
     title = _title;
     apiPath = _apiPath;
     iconPath = _iconPath;
+    
+    bg = new ofImage();
+    bg->loadImage("img/icon_bg.png");
+    
+    ring = new ofImage();
+    ring->loadImage("img/icon_time_fg.png");
+    
+    icon = new ofImage();
+    icon->loadImage(iconPath);
+    
     radius = 20;
 }
 
@@ -24,16 +34,12 @@ void HomeIcon::draw() {
     if(!isBody()) return;
 	ofPushMatrix();
     ofPushStyle();
-    ofDrawBitmapString(title, getPosition().x, getPosition().y);
-	ofTranslate(getPosition().x, getPosition().y, 0);
-	ofRotate(getRotation(), 0, 0, 1);
-	ofCircle(0, 0, radius);
-	
-	ofLine(0, 0, radius * 2, 0);
-    if(isSleeping()) {
-        ofSetColor(255, 100);
-        ofCircle(0, 0, radius);
-    }
+    ofEnableAlphaBlending();
+    ofTranslate(getPosition());
+    bg->draw(0,0);
+    ring->draw(0,0);
+    icon->draw(0,0);
+    
     ofPopStyle();
 	ofPopMatrix();
 }

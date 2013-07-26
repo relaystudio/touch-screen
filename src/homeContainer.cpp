@@ -20,21 +20,23 @@ HomeContainer::HomeContainer() {
     box2d->createBounds(0,0,container->getWidth(), container->getHeight());
     box2d->registerGrabbing();
     
-    house = new HomeIcon("House", "/api/home", "img/home");
+    int iconWidth = 300;
+    
+    house = new HomeIcon("House", "/api/home", "img/icon_home.png");
     house->setPhysics(3.0, 0.53, 0.9);
-    house->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, 10);
+    house->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, iconWidth);
     
-    car = new HomeIcon("Car", "/api/car", "img/car");
+    car = new HomeIcon("Car", "/api/car", "img/icon_home.png");
     car->setPhysics(3.0, 0.53, 0.9);
-    car->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, 10);
+    car->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, iconWidth);
     
-    travel = new HomeIcon("Travel", "/api/travel", "img/travel");
+    travel = new HomeIcon("Travel", "/api/travel", "img/icon_home.png");
     travel->setPhysics(3.0, 0.53, 0.9);
-    travel->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, 10);
+    travel->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, iconWidth);
     
-    membership = new HomeIcon("BCAA Membership", "/api/member", "img/member");
+    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_home.png");
     membership->setPhysics(3.0, 0.53, 0.9);
-    membership->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, 10);
+    membership->setup(box2d->getWorld(), container->getWidth()/2, container->getHeight()/2, iconWidth);
 
     
 }
@@ -45,9 +47,9 @@ HomeContainer::~HomeContainer() {
 
 void HomeContainer::update() {
     box2d->update();
-    
+     
     container->begin();
-        ofBackgroundGradient(70,120);
+        ofClear(0,0,0,0);
         house->draw();
         car->draw();
         travel->draw();

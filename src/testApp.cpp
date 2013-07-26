@@ -10,6 +10,9 @@ void testApp::setup(){
 //    testContainer = new Container();
     home = new HomeContainer();
     
+    mainBackground = new ofImage();
+    mainBackground->loadImage("img/main_bg.jpg");
+    
 }
 
 
@@ -19,12 +22,14 @@ void testApp::end() {
 
 //--------------------------------------------------------------
 void testApp::update(){
+    
     touch->update();
     home->update();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
+    mainBackground->draw(0,0,ofGetWidth(),ofGetHeight());
     home->draw();
     touch->draw();
 }

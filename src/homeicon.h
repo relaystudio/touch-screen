@@ -30,6 +30,11 @@ private:
     
     int fetchTimer(); // Get timer from connection
     
+    ofImage * bg;
+    ofImage * ring;
+    ofImage * icon;
+    
+    
     
     int radius, activityTimer;
     bool active;
