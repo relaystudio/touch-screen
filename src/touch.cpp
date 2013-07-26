@@ -15,6 +15,7 @@ Touch::Touch(int _port) {
     ofAddListener(tuioClient.cursorAdded,this,&Touch::tuioAdded);
 	ofAddListener(tuioClient.cursorRemoved,this,&Touch::tuioRemoved);
 	ofAddListener(tuioClient.cursorUpdated,this,&Touch::tuioUpdated);
+    
 }
 
 Touch::Touch() {
