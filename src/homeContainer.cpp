@@ -10,10 +10,13 @@
 
 HomeContainer::HomeContainer() {
     
+    const int padding = 20; // Around container
+    const int iconWidth = 150; // Radius of icons
+    
     container = new ofFbo();
     container->allocate(ofGetWidth(),ofGetHeight());
     
-    int iconWidth = 150; // Radius
+    autoBox = new AutoContainer(container->getWidth(), container->getHeight(), padding);
     
     float density = 4.0;
     float bounce = .3;
@@ -22,7 +25,7 @@ HomeContainer::HomeContainer() {
     box2d = new ofxBox2d();
     box2d->init();
 	box2d->setGravity(0, 0);
-	box2d->setFPS(1.0);
+	box2d->setFPS(30.0);
     box2d->createBounds(0,0,container->getWidth(), container->getHeight());
     box2d->registerGrabbing();
     

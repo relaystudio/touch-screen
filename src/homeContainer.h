@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "container.h"
+#include "autoContainer.h"
 #include "homeicon.h"
 #include "ofxBox2d.h"
 #include "touch.h"
@@ -41,7 +42,8 @@ class HomeContainer : public Container {
     
     ofPoint * cursor;
     
-    Container * testContainer;
+    AutoContainer * autoBox;
+    
 };
 
 #endif /* defined(__BCAA__homeContainer__) */
