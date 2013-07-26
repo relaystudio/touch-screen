@@ -54,26 +54,29 @@ HomeContainer::~HomeContainer() {
 }
 
 void HomeContainer::addForces() {
-    house->addRepulsionForce(membership->getPosition(),0.1);
-    house->addRepulsionForce(car->getPosition(), 0.1);
-    house->addRepulsionForce(travel->getPosition(), 0.1);
     
-    car->addRepulsionForce(house->getPosition(),0.1);
-    car->addRepulsionForce(membership->getPosition(), 0.1);
-    car->addRepulsionForce(travel->getPosition(), 0.1);
+    const float rep = 0.3;
     
-    travel->addRepulsionForce(house->getPosition(),0.1);
-    travel->addRepulsionForce(car->getPosition(), 0.1);
-    travel->addRepulsionForce(membership->getPosition(), 0.1);
+    house->addRepulsionForce(membership->getPosition(),rep);
+    house->addRepulsionForce(car->getPosition(), rep);
+    house->addRepulsionForce(travel->getPosition(), rep);
     
-    membership->addRepulsionForce(house->getPosition(),0.1);
-    membership->addRepulsionForce(car->getPosition(), 0.1);
-    membership->addRepulsionForce(travel->getPosition(), 0.1);
+    car->addRepulsionForce(house->getPosition(),rep);
+    car->addRepulsionForce(membership->getPosition(), rep);
+    car->addRepulsionForce(travel->getPosition(), rep);
+    
+    travel->addRepulsionForce(house->getPosition(),rep);
+    travel->addRepulsionForce(car->getPosition(), rep);
+    travel->addRepulsionForce(membership->getPosition(), rep);
+    
+    membership->addRepulsionForce(house->getPosition(),rep);
+    membership->addRepulsionForce(car->getPosition(), rep);
+    membership->addRepulsionForce(travel->getPosition(), rep);
 }
 
 void HomeContainer::update() {
     box2d->update();
-    
+    addForces();
     //touch->getPoint();
     
     container->begin();
