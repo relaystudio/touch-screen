@@ -23,7 +23,10 @@ HomeIcon::HomeIcon(string _title,
     icon = new ofImage();
     icon->loadImage(iconPath);
     
-    radius = 20;
+    radius = 20;  // This isn't used for anything atm
+    touchTimer = touchDistance = 0;
+    origin = getPosition();
+    wasActivated= false;
 }
 
 HomeIcon::~HomeIcon() {
@@ -39,18 +42,34 @@ void HomeIcon::draw() {
     bg->draw(0,0);
     ring->draw(0,0);
     icon->draw(0,0);
-    
+    ofPushStyle();
+    ofSetColor(255,0,0);
+    ofDrawBitmapString( wasActivated ? "Is Active" : "Is Not Active"	, ofPoint(0,0));
+    ofPopStyle();
     ofPopStyle();
 	ofPopMatrix();
 }
 
-void HomeIcon::update() {
+void HomeIcon::update(ofxBox2d * world) {
+    if(world->mouseJoint && body->GetJointList() != NULL) {
+        origin = getPosition();
+    }
+    else if (!body->GetJointList()->other) {
+        touchDistance = getPosition().squareDistance(origin);
+    }
     
+    if(touchDistance > touchThreshold && touchTimer > 0) {
+        wasActivated = true;
+        touchTimer = touchDistance = 0;
+    }
 }
 
-bool HomeIcon::isActive() {
-    // CHECK
-    return true;
+bool HomeIcon::isActivated() {
+    if(wasActivated) {
+        wasActivated = false;
+        return true;
+    }
+    else return false;
 }
 
 int HomeIcon::fetchTimer() {

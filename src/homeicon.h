@@ -21,9 +21,9 @@ public:
     ~HomeIcon();
     
     void draw();
-    void update();
+    void update(ofxBox2d * world);
     
-    bool isActive();
+    bool isActivated();
     
 private:
     
@@ -33,10 +33,10 @@ private:
     ofImage * ring;
     ofImage * icon;
     
-    
-    
-    int radius, activityTimer;
-    bool active;
+    int radius, activityTimer, touchTimer, touchDistance;
+    const int touchThreshold = 10;
+    bool wasActivated;
+    ofPoint origin;
     
     string title, apiPath, iconPath;
     Container * container;

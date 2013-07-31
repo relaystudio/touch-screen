@@ -39,7 +39,6 @@
 		606da6f9d2f3363f4e1e2ce4cbd722d2 /* ofxEasingLinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02c6639317bc0b5ce4c0bb86eef464f2 /* ofxEasingLinear.cpp */; };
 		6322843888e97cb72941187fb2f7879e /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2cb21ffa6968a0343e36cbe047c8920c /* ofxUDPManager.cpp */; };
 		6c540e2fa08decbfd52ad64aadca27ac /* guiTypeDrawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7fc083b03fca7c1573c5f940bfa7e941 /* guiTypeDrawable.cpp */; };
-		6ef37e737609326fcde156024823ddb0 /* easing_terms_of_use.html in Sources */ = {isa = PBXBuildFile; fileRef = d2f8cda72f5669a13d05cc2e3d5a7a6e /* easing_terms_of_use.html */; };
 		7496f739dcf1b4e186d92d23ee8b92e4 /* b2RevoluteJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90b3c1bb7554347af29430a8916473a5 /* b2RevoluteJoint.cpp */; };
 		750ed724059da422501833fbb91be263 /* b2PrismaticJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = cf9fb389339689205e7c39a148eff8e6 /* b2PrismaticJoint.cpp */; };
 		75f003a5e5170a6c08c3df69e7f53a7a /* b2ContactManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ffe983162f9a08331ab0b31ad4426cc /* b2ContactManager.cpp */; };
@@ -59,6 +58,8 @@
 		839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D11796F32A0054F2F4 /* homeicon.cpp */; };
 		839175D61796FF6C0054F2F4 /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D41796FF6C0054F2F4 /* connection.cpp */; };
 		839175D91796FF730054F2F4 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D71796FF730054F2F4 /* settings.cpp */; };
+		83B8794F17A945A300144850 /* aboutPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B8794D17A945A300144850 /* aboutPage.cpp */; };
+		83B8795617A95E4400144850 /* Awesomium.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83B8795517A95E4300144850 /* Awesomium.framework */; };
 		83CE0D2B179985FE00653581 /* touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D29179985FE00653581 /* touch.cpp */; };
 		83CE0D561799863500653581 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D321799863500653581 /* IpEndpointName.cpp */; };
 		83CE0D571799863500653581 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D371799863500653581 /* NetworkingUtils.cpp */; };
@@ -167,6 +168,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				83B8795617A95E4400144850 /* Awesomium.framework in CopyFiles */,
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +311,9 @@
 		839175D51796FF6C0054F2F4 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
 		839175D71796FF730054F2F4 /* settings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cpp; sourceTree = "<group>"; };
 		839175D81796FF730054F2F4 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
+		83B8794D17A945A300144850 /* aboutPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aboutPage.cpp; sourceTree = "<group>"; };
+		83B8794E17A945A300144850 /* aboutPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutPage.h; sourceTree = "<group>"; };
+		83B8795517A95E4300144850 /* Awesomium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awesomium.framework; sourceTree = "<group>"; };
 		83CE0D29179985FE00653581 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
 		83CE0D2A179985FE00653581 /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch.h; sourceTree = "<group>"; };
 		83CE0D321799863500653581 /* IpEndpointName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IpEndpointName.cpp; sourceTree = "<group>"; };
@@ -455,7 +460,6 @@
 		d2baffe1cd22ac55f336b8cd886c3e3c /* b2Fixture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = b2Fixture.h; path = ../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics/b2Fixture.h; sourceTree = SOURCE_ROOT; };
 		d2d0554c1deb78d958ec337d549013d6 /* guiTypeVideo.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = guiTypeVideo.cpp; path = ../../openFrameworks/addons/ofxControlPanel/src/guiTypeVideo.cpp; sourceTree = SOURCE_ROOT; };
 		d2ef5dcb561b6d24c3317610e12c597c /* ofxBox2dPolygon.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBox2dPolygon.h; path = ../../openFrameworks/addons/ofxBox2d/src/ofxBox2dPolygon.h; sourceTree = SOURCE_ROOT; };
-		d2f8cda72f5669a13d05cc2e3d5a7a6e /* easing_terms_of_use.html */ = {isa = PBXFileReference; explicitFileType = file; fileEncoding = 30; name = easing_terms_of_use.html; path = ../../openFrameworks/addons/ofxTween/src/Easings/easing_terms_of_use.html; sourceTree = SOURCE_ROOT; };
 		d37fff32a7aaaa78ccc14033e45f7f04 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlerror.cpp; path = ../../openFrameworks/addons/ofxXmlSettings/libs/tinyxmlerror.cpp; sourceTree = SOURCE_ROOT; };
 		d3cd94bf1de6557fabb88aff5a6199ab /* ofxUIImageSampler.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIImageSampler.h; path = ../../openFrameworks/addons/ofxUI/src/ofxUIImageSampler.h; sourceTree = SOURCE_ROOT; };
 		d4d78d689af33c447abef6483bb40780 /* b2Body.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = b2Body.cpp; path = ../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics/b2Body.cpp; sourceTree = SOURCE_ROOT; };
@@ -863,6 +867,8 @@
 			children = (
 				83DB05D717A2CC5F0037506F /* autoContainer.cpp */,
 				83DB05D817A2CC5F0037506F /* autoContainer.h */,
+				83B8794D17A945A300144850 /* aboutPage.cpp */,
+				83B8794E17A945A300144850 /* aboutPage.h */,
 			);
 			name = autoScreen;
 			sourceTree = "<group>";
@@ -972,6 +978,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				83B8795517A95E4300144850 /* Awesomium.framework */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				83CE0D631799965D00653581 /* readme.md */,
@@ -1017,7 +1024,6 @@
 		b59ddd3c0eb9ffc71f28869b15a0ff91 /* Easings */ = {
 			isa = PBXGroup;
 			children = (
-				d2f8cda72f5669a13d05cc2e3d5a7a6e /* easing_terms_of_use.html */,
 				4aaf82193c75416d9da7d1469c5d0d70 /* ofxEasing.cpp */,
 				df0e5ca8c1952797a5ce73bda4c4f71e /* ofxEasing.h */,
 				5f148011f3941b198b745bfab39bc161 /* ofxEasingBack.cpp */,
@@ -1296,7 +1302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -r \"$OF_PATH/addons/ofxAwesomium/Awesomium.framework\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\ncp -f ../../openFrameworks/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";";
+			shellScript = "cp -f ../../openFrameworks/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1380,7 +1386,6 @@
 				5b45e5c949ae800c2f155ea76cffa94c /* ofxTCPManager.cpp in Sources */,
 				768763c673b83c27a74d9cf1cc8e8ff7 /* ofxTCPServer.cpp in Sources */,
 				6322843888e97cb72941187fb2f7879e /* ofxUDPManager.cpp in Sources */,
-				6ef37e737609326fcde156024823ddb0 /* easing_terms_of_use.html in Sources */,
 				45836855556dba7046310f74d533b7cb /* ofxEasing.cpp in Sources */,
 				e11c211843f13e8eaa2a34d81aab1dcb /* ofxEasingBack.cpp in Sources */,
 				7b36ec6e5fe626ec5a8b1a2fe92691b8 /* ofxEasingBounce.cpp in Sources */,
@@ -1421,6 +1426,7 @@
 				83CE0D6A179D86AA00653581 /* homePage.cpp in Sources */,
 				83CE0D6D179D86B100653581 /* attractPage.cpp in Sources */,
 				83DB05D917A2CC5F0037506F /* autoContainer.cpp in Sources */,
+				83B8794F17A945A300144850 /* aboutPage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1483,6 +1489,7 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
+					"../Awesomium.framework/**",
 				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
@@ -1542,6 +1549,7 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
+					"../Awesomium.framework/**",
 				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
@@ -1559,8 +1567,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../openFrameworks/libs/glut/lib/osx\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -1646,8 +1656,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../openFrameworks/libs/glut/lib/osx\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;

@@ -12,12 +12,14 @@
 #include <iostream>
 #include "ofMain.h"
 #include "settings.h"
+//#include <Awesomium/WebCore.h>
 
 class Page {
 public:
     Page();
     ~Page();
     
+    void loadPage();
     void open();
     void close();
     

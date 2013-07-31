@@ -18,6 +18,10 @@ Page::~Page() {
  
 }
 
+void Page::loadPage() {
+    
+}
+
 void Page::update() {
     page->begin();
     ofBackground(70);

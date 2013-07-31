@@ -78,6 +78,20 @@ void HomeContainer::update() {
     box2d->update();
     addForces();
     //touch->getPoint();
+
+    house->update(box2d);
+    car->update(box2d);
+    travel->update(box2d);
+    membership->update(box2d);
+    
+    if(house->isActivated())
+        ofLog() << "Activating Home page";
+    if(car->isActivated())
+        ofLog() << "Activating Auto page";
+    if(travel->isActivated())
+        ofLog() << "Activating Travel page";
+    if(membership->isActivated())
+        ofLog() << "Activating Membership page";
     
     container->begin();
         ofClear(0,0,0,0);
