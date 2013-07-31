@@ -11,10 +11,11 @@
 
 #include <iostream>
 #include "page.h"
+
 class AutoAboutPage : public Page {
     
 public:
-    
+     
     AutoAboutPage();
     ~AutoAboutPage();
     

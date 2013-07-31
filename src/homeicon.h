@@ -34,8 +34,8 @@ private:
     ofImage * icon;
     
     int radius, activityTimer, touchTimer, touchDistance;
-    const int touchThreshold = 10;
-    bool wasActivated;
+    const int touchThreshold = 30;
+    bool wasActivated, isActive;
     ofPoint origin;
     
     string title, apiPath, iconPath;

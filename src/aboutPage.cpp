@@ -7,3 +7,19 @@
 //
 
 #include "aboutPage.h"
+
+AutoAboutPage::AutoAboutPage() {
+    
+}
+
+AutoAboutPage::~AutoAboutPage() {
+    
+}
+
+void AutoAboutPage::update() {
+    
+}
+
+void AutoAboutPage::draw() {
+    
+}
