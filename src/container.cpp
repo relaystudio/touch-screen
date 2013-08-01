@@ -12,13 +12,41 @@ Container::Container() {
     container = new ofFbo();
     container->allocate();
     name = "";
+    
 }
 
 Container::~Container() {
     
 }
 
+void Container::setupAnimation() {
+    loc = ofPoint( 20, -container->getHeight() );
+    opening = closing = false;
+}
+
+void Container::open() {
+    if(!closing && !opening)
+        opening = true;
+}
+
+void Container::close() {
+    if(!closing && !opening)
+        closing = true;
+}
+
+void Container::updateAnimation() {
+    if(opening && loc.y < 0)
+        loc.y += tweenSpeed;
+    else if ( opening && loc.y >= 0)
+        opening = false;
+    else if ( closing && loc.y >= -container->getHeight() )
+        loc.y -= tweenSpeed;
+}
+
 void Container::update() {
+    
+    updateAnimation();
+    
     container->begin();
     ofBackgroundGradient(70,120);
     ofDrawBitmapString("TEST CONTRAINER", ofGetWidth()/3, ofGetHeight()/2);

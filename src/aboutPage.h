@@ -12,19 +12,19 @@
 #include <iostream>
 #include "page.h"
 
-class AutoAboutPage : public Page {
+class AboutPage : public Page {
     
 public:
      
-    AutoAboutPage();
-    ~AutoAboutPage();
+    AboutPage(string _path);
+    ~AboutPage();
     
     void update();
-    void draw();
     
 private:
     ofFbo * page;
     ofPoint loc;
+    
     
     string name;
     

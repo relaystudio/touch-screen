@@ -5,6 +5,7 @@ void testApp::setup(){
     ofSetLogLevel(OF_LOG_NOTICE);
     ofEnableSmoothing();
     ofSetVerticalSync(true);
+    ofSetFrameRate(30);
     
     ofHideCursor();
     

@@ -19,6 +19,8 @@ public:
     Container();
     ~Container();
     
+    void setupAnimation();
+    
     void open(); // Start container
     void close(); // Close container
     
@@ -30,6 +32,7 @@ public:
     
     void draw();
     void update();
+    void updateAnimation();
     
     void addPage(Page * _page);
     
@@ -46,6 +49,8 @@ private:
     ofPoint loc;
     ofVec2f size;
     string name;
+    const int tweenSpeed = 1;
+    bool opening, closing;
     
 };
 

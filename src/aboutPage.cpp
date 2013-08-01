@@ -8,18 +8,17 @@
 
 #include "aboutPage.h"
 
-AutoAboutPage::AutoAboutPage() {
+AboutPage::AboutPage(string _path) {
     
 }
 
-AutoAboutPage::~AutoAboutPage() {
+AboutPage::~AboutPage() {
     
 }
 
-void AutoAboutPage::update() {
-    
-}
+void AboutPage::update() {
+    page->begin();
+    ofClear(0,0,0,0);
 
-void AutoAboutPage::draw() {
-    
+    page->end();
 }

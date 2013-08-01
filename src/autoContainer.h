@@ -14,6 +14,7 @@
 #include "homeicon.h"
 #include "ofxBox2d.h"
 #include "touch.h"
+#include "AboutPage.h"
 
 class AutoContainer : public Container {
     
@@ -26,7 +27,14 @@ public:
     void draw();
     
 private:
+    AboutPage * about;
+    
     ofFbo * container;
+    
+    ofImage * footer;
+    ofImage * content;
+    ofImage * buttonBlue;
+    ofImage * buttonGreen;
     
     ofPoint * cursor;
     ofPoint loc;

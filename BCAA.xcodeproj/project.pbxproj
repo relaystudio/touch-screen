@@ -722,6 +722,8 @@
 		839175C91796F1B10054F2F4 /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				83B8794D17A945A300144850 /* aboutPage.cpp */,
+				83B8794E17A945A300144850 /* aboutPage.h */,
 				839175CB1796F1EB0054F2F4 /* page.cpp */,
 				839175CC1796F1EB0054F2F4 /* page.h */,
 				839175CE1796F2100054F2F4 /* container.cpp */,
@@ -867,8 +869,6 @@
 			children = (
 				83DB05D717A2CC5F0037506F /* autoContainer.cpp */,
 				83DB05D817A2CC5F0037506F /* autoContainer.h */,
-				83B8794D17A945A300144850 /* aboutPage.cpp */,
-				83B8794E17A945A300144850 /* aboutPage.h */,
 			);
 			name = autoScreen;
 			sourceTree = "<group>";

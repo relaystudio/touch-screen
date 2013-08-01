@@ -86,12 +86,31 @@ void HomeContainer::update() {
     
     if(house->isActivated())
         ofLog() << "Activating Home page";
-    if(car->isActivated())
+    if(car->isActivated()) {
         ofLog() << "Activating Auto page";
+        autoBox->open();
+        activeWindow = AUTO;
+    }
     if(travel->isActivated())
         ofLog() << "Activating Travel page";
     if(membership->isActivated())
         ofLog() << "Activating Membership page";
+    
+    switch(activeWindow) {
+        case HOME:
+            break;
+        case AUTO:
+            autoBox->update();
+            break;
+        case TRAVEL:
+            break;
+        case MEMBER:
+            break;
+        case CONTEST:
+            break;
+        default:
+            break;
+    }
     
     container->begin();
         ofClear(0,0,0,0);
@@ -99,6 +118,22 @@ void HomeContainer::update() {
         car->draw();
         travel->draw();
         membership->draw();
+    
+        switch(activeWindow) {
+            case HOME:
+                break;
+            case AUTO:
+                autoBox->draw();
+                break;
+            case TRAVEL:
+                break;
+            case MEMBER:
+                break;
+            case CONTEST:
+                break;
+            default:
+                break;
+        }
     container->end();
 }
 

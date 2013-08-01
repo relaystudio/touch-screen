@@ -16,8 +16,18 @@
 #include "ofxBox2d.h"
 #include "touch.h"
 
+
 class HomeContainer : public Container {
   
+    
+    enum {
+        HOME = 0,
+        AUTO = 1,
+        TRAVEL = 2,
+        MEMBER = 3,
+        CONTEST = 4
+    } State;
+    
     public:
     
     HomeContainer();
@@ -35,6 +45,8 @@ class HomeContainer : public Container {
     HomeIcon * car;
     HomeIcon * travel;
     HomeIcon * membership;
+    
+    int activeWindow;
     
     const int iconNumber = 4;
     
