@@ -346,6 +346,9 @@
     <ClCompile Include="src\homeicon.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="src\aboutPage.cpp">
+      <Filter>src\aboutPage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -467,6 +470,9 @@
     </Filter>
     <Filter Include="src\interface">
       <UniqueIdentifier>{459f6a9d-3639-40aa-9369-1e0d541643b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\aboutPage">
+      <UniqueIdentifier>{70b1138b-1e60-4f04-87ae-28e4e4770c96}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1021,6 +1027,9 @@
     </ClInclude>
     <ClInclude Include="src\homeicon.h">
       <Filter>src\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="src\aboutPage.h">
+      <Filter>src\aboutPage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

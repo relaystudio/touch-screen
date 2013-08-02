@@ -98,6 +98,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\aboutPage.cpp" />
     <ClCompile Include="src\attractPage.cpp" />
     <ClCompile Include="src\autoContainer.cpp" />
     <ClCompile Include="src\connection.cpp" />
@@ -215,6 +216,7 @@
     <ClCompile Include="src\touch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\aboutPage.h" />
     <ClInclude Include="src\attractPage.h" />
     <ClInclude Include="src\autoContainer.h" />
     <ClInclude Include="src\connection.h" />
