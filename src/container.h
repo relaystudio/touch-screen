@@ -49,7 +49,6 @@ private:
     ofPoint loc;
     ofVec2f size;
     string name;
-    const int tweenSpeed = 1;
     bool opening, closing;
     
 };

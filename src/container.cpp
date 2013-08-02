@@ -8,6 +8,8 @@
 
 #include "container.h"
 
+const int tweenSpeed = 1;
+
 Container::Container() {
     container = new ofFbo();
     container->allocate();
