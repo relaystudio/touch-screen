@@ -1,1 +1,10 @@
 *.app
+*.sdf
+*.opensdf
+ipch/
+obj/
+Thumbs.db
+Desktop.ini
+.DS_Store
+bin/*
+!bin/data/

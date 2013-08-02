@@ -45,7 +45,7 @@ vector<ofPoint> * Touch::getPoints() {
 }
 
 ofPoint * Touch::getPoint() {
-
+	return new ofPoint();
 }
 
 /////////////////////////////////////////////////////////////////

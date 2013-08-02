@@ -16,9 +16,8 @@
 #include "ofxAutoControlPanel.h"
 
 enum ValueType{
-    DEBUG,
+    DEBUGSCREEN,
     FULLSCREEN
-    
 };
 
 
