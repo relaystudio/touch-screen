@@ -57,7 +57,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxBox2d\libs;..\..\..\addons\ofxBox2d\src;..\..\..\addons\ofxBox2d\libs\Box2D;..\..\..\addons\ofxBox2d\libs\Box2D\Collision;..\..\..\addons\ofxBox2d\libs\Box2D\Collision\Shapes;..\..\..\addons\ofxBox2d\libs\Box2D\Common;..\..\..\addons\ofxBox2d\libs\Box2D\Dynamics;..\..\..\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts;..\..\..\addons\ofxBox2d\libs\Box2D\Dynamics\Joints;..\..\..\addons\ofxBox2d\libs\triangle;..\..\..\addons\ofxControlPanel\libs;..\..\..\addons\ofxControlPanel\src;..\..\..\addons\ofxNetwork\libs;..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxTuio\libs;..\..\..\addons\ofxTuio\src;..\..\..\addons\ofxTween\libs;..\..\..\addons\ofxTween\src;..\..\..\addons\ofxTween\src\Easings;..\..\..\addons\ofxUI\libs;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Awesomium Technologies LLC\Awesomium SDK\1.7.1.0\include;%(AdditionalIncludeDirectories);..\..\..\addons\ofxBox2d\libs;..\..\..\addons\ofxBox2d\src;..\..\..\addons\ofxBox2d\libs\Box2D;..\..\..\addons\ofxBox2d\libs\Box2D\Collision;..\..\..\addons\ofxBox2d\libs\Box2D\Collision\Shapes;..\..\..\addons\ofxBox2d\libs\Box2D\Common;..\..\..\addons\ofxBox2d\libs\Box2D\Dynamics;..\..\..\addons\ofxBox2d\libs\Box2D\Dynamics\Contacts;..\..\..\addons\ofxBox2d\libs\Box2D\Dynamics\Joints;..\..\..\addons\ofxBox2d\libs\triangle;..\..\..\addons\ofxControlPanel\libs;..\..\..\addons\ofxControlPanel\src;..\..\..\addons\ofxNetwork\libs;..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxTuio\libs;..\..\..\addons\ofxTuio\src;..\..\..\addons\ofxTween\libs;..\..\..\addons\ofxTween\src;..\..\..\addons\ofxTween\src\Easings;..\..\..\addons\ofxUI\libs;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
@@ -67,8 +67,8 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Awesomium Technologies LLC\Awesomium SDK\1.7.1.0\build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>

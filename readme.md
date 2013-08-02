@@ -9,6 +9,7 @@
 - ofxTween (maybe)
 - ofxUI
 - ofxXmlSettings
+- Awesomium (req: http://awesomium.com/download/)
 
 ## Utility classes
 - connection
