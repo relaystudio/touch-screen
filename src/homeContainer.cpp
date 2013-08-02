@@ -13,8 +13,6 @@ HomeContainer::HomeContainer() {
     const int padding = 20; // Around container
     const int iconWidth = 150; // Radius of icons
     
-	iconNumber = 4;
-
     container = new ofFbo();
     container->allocate(ofGetWidth(),ofGetHeight());
     

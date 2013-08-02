@@ -45,14 +45,9 @@ class HomeContainer : public Container {
     HomeIcon * car;
     HomeIcon * travel;
     HomeIcon * membership;
-    
-<<<<<<< HEAD
+
     int activeWindow;
     
-    const int iconNumber = 4;
-=======
-    int iconNumber;
->>>>>>> development
     
     ofxBox2d * box2d;
     
