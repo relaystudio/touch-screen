@@ -1,6 +1,7 @@
 *.app
 *.sdf
 *.opensdf
+*.suo
 ipch/
 obj/
 Thumbs.db

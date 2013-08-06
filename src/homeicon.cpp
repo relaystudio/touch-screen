@@ -8,6 +8,8 @@
 
 #include "homeicon.h"
 
+const int touchThreshold = 30;
+
 HomeIcon::HomeIcon(string _title,
                    string _apiPath, string _iconPath) {
     title = _title;
