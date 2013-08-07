@@ -9,7 +9,8 @@
 #include "aboutPage.h"
 
 AboutPage::AboutPage(string _path) {
-    
+    page = new ofFbo();
+    page->allocate(640, 480);
 }
 
 AboutPage::~AboutPage() {
@@ -19,6 +20,10 @@ AboutPage::~AboutPage() {
 void AboutPage::update() {
     page->begin();
     ofClear(0,0,0,0);
-
+    ofDrawBitmapString("Test",300,300);
     page->end();
+}
+
+void AboutPage::draw() {
+    page->draw(0,0);
 }

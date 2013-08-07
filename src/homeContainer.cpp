@@ -84,17 +84,23 @@ void HomeContainer::update() {
     travel->update(box2d);
     membership->update(box2d);
     
-    if(house->isActivated())
+    if(house->isActivated()) {
         ofLog() << "Activating Home page";
+       activeWindow = HOME;
+    }
     if(car->isActivated()) {
         ofLog() << "Activating Auto page";
         autoBox->open();
         activeWindow = AUTO;
     }
-    if(travel->isActivated())
+    if(travel->isActivated()) {
         ofLog() << "Activating Travel page";
-    if(membership->isActivated())
+       activeWindow = TRAVEL;
+    }
+    if(membership->isActivated()) {
         ofLog() << "Activating Membership page";
+       activeWindow = MEMBER;
+    }
     
     switch(activeWindow) {
         case HOME:
@@ -120,6 +126,7 @@ void HomeContainer::update() {
         membership->draw();
     
         switch(activeWindow) {
+            setActive(false);
             case HOME:
                 break;
             case AUTO:
@@ -135,6 +142,22 @@ void HomeContainer::update() {
                 break;
         }
     container->end();
+}
+
+void HomeContainer::setActive(bool _active) {
+    if(_active) {
+        box2d->registerGrabbing();
+    } else {
+        ofRemoveListener(ofEvents().mousePressed, box2d, &ofxBox2d::mousePressed);
+        ofRemoveListener(ofEvents().mouseDragged, box2d, &ofxBox2d::mouseDragged);
+        ofRemoveListener(ofEvents().mouseReleased, box2d, &ofxBox2d::mouseReleased);
+    }
+}
+
+
+
+void HomeContainer::setupGUI() {
+    
 }
 
 void HomeContainer::draw() {

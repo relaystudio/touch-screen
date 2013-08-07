@@ -35,8 +35,11 @@ class HomeContainer : public Container {
     
     void update();
     void draw();
+    void setActive(bool _active);
     
     void addForces();
+    
+    void setupGUI();
     
     private:
     ofFbo * container;

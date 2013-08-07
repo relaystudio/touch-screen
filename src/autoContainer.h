@@ -38,7 +38,8 @@ private:
     
     ofPoint * cursor;
     ofPoint loc;
-    Container * testContainer;
+    
+    ofxUICanvas * gui;
 };
 
 #endif /* defined(__BCAA__autoContainer__) */

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 44;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -313,7 +313,7 @@
 		839175D81796FF730054F2F4 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
 		83B8794D17A945A300144850 /* aboutPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aboutPage.cpp; sourceTree = "<group>"; };
 		83B8794E17A945A300144850 /* aboutPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutPage.h; sourceTree = "<group>"; };
-		83B8795517A95E4300144850 /* Awesomium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awesomium.framework; sourceTree = "<group>"; };
+		83B8795517A95E4300144850 /* Awesomium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awesomium.framework; sourceTree = SOURCE_ROOT; };
 		83CE0D29179985FE00653581 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
 		83CE0D2A179985FE00653581 /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch.h; sourceTree = "<group>"; };
 		83CE0D321799863500653581 /* IpEndpointName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IpEndpointName.cpp; sourceTree = "<group>"; };
@@ -969,6 +969,7 @@
 		E45BE5980E8CC70C009D7055 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83B8795517A95E4300144850 /* Awesomium.framework */,
 				BBAB23CA13894EDB00AA2426 /* 3rd party frameworks */,
 				BBAB23C913894ECA00AA2426 /* system frameworks */,
 			);
@@ -978,7 +979,6 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				83B8795517A95E4300144850 /* Awesomium.framework */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				83CE0D631799965D00653581 /* readme.md */,
@@ -1489,8 +1489,9 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"../Awesomium.framework/**",
+					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/Awesomium.framework\"";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1549,8 +1550,9 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"../Awesomium.framework/**",
+					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/Awesomium.framework\"";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1563,11 +1565,16 @@
 		E4B69B600A3A1757003C02F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"\"$(SRCROOT)/Awesomium.framework\"",
+					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../openFrameworks/libs/glut/lib/osx\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
@@ -1577,6 +1584,36 @@
 				GCC_MODEL_TUNING = NONE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					../../openFrameworks/addons/ofxBox2d/libs,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Collision,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Collision/Shapes,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Common,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics/Contacts,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics/Joints,
+					../../openFrameworks/addons/ofxBox2d/libs/triangle,
+					../../openFrameworks/addons/ofxBox2d/src,
+					../../openFrameworks/addons/ofxControlPanel/libs,
+					../../openFrameworks/addons/ofxControlPanel/src,
+					../../openFrameworks/addons/ofxMultiTouch/libs,
+					../../openFrameworks/addons/ofxMultiTouch/src,
+					../../openFrameworks/addons/ofxNetwork/libs,
+					../../openFrameworks/addons/ofxNetwork/src,
+					../../openFrameworks/addons/ofxTuio/libs,
+					../../openFrameworks/addons/ofxTuio/src,
+					../../openFrameworks/addons/ofxTween/libs,
+					../../openFrameworks/addons/ofxTween/src,
+					../../openFrameworks/addons/ofxTween/src/Easings,
+					../../openFrameworks/addons/ofxUI/libs,
+					../../openFrameworks/addons/ofxUI/src,
+					../../openFrameworks/addons/ofxXmlSettings/libs,
+					../../openFrameworks/addons/ofxXmlSettings/src,
+					"../../openFrameworks/addons/ofxOsc/libs/**",
+					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers",
+				);
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
@@ -1652,11 +1689,16 @@
 		E4B69B610A3A1757003C02F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"\"$(SRCROOT)/Awesomium.framework\"",
+					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../openFrameworks/libs/glut/lib/osx\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
@@ -1665,6 +1707,36 @@
 				GCC_MODEL_TUNING = NONE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					../../openFrameworks/addons/ofxBox2d/libs,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Collision,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Collision/Shapes,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Common,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics/Contacts,
+					../../openFrameworks/addons/ofxBox2d/libs/Box2D/Dynamics/Joints,
+					../../openFrameworks/addons/ofxBox2d/libs/triangle,
+					../../openFrameworks/addons/ofxBox2d/src,
+					../../openFrameworks/addons/ofxControlPanel/libs,
+					../../openFrameworks/addons/ofxControlPanel/src,
+					../../openFrameworks/addons/ofxMultiTouch/libs,
+					../../openFrameworks/addons/ofxMultiTouch/src,
+					../../openFrameworks/addons/ofxNetwork/libs,
+					../../openFrameworks/addons/ofxNetwork/src,
+					../../openFrameworks/addons/ofxTuio/libs,
+					../../openFrameworks/addons/ofxTuio/src,
+					../../openFrameworks/addons/ofxTween/libs,
+					../../openFrameworks/addons/ofxTween/src,
+					../../openFrameworks/addons/ofxTween/src/Easings,
+					../../openFrameworks/addons/ofxUI/libs,
+					../../openFrameworks/addons/ofxUI/src,
+					../../openFrameworks/addons/ofxXmlSettings/libs,
+					../../openFrameworks/addons/ofxXmlSettings/src,
+					"../../openFrameworks/addons/ofxOsc/libs/**",
+					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers",
+				);
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (

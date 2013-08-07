@@ -13,6 +13,7 @@
 #include "ofMain.h"
 #include "page.h"
 #include "settings.h"
+#include "ofxUI.h"
 
 class Container {
 public:
@@ -40,9 +41,17 @@ public:
     void setName(string _name);
     string getName();
     
+    void exit();
+    void guiEvent(ofxUIEventArgs &e);
+    
+    void setupGUI();
+    void drawGUI();
+    void updateGUI();
+    
 private:
     ofFbo * container;
     vector<Page*> pages;
+    ofxUICanvas * gui;
     
     Page * currentPage;
     

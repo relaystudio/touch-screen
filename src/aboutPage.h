@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "page.h"
+//#include <Awesomium/WebCore.h>
 
 class AboutPage : public Page {
     
@@ -20,6 +21,7 @@ public:
     ~AboutPage();
     
     void update();
+    void draw();
     
 private:
     ofFbo * page;

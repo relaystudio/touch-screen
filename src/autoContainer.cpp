@@ -18,17 +18,19 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     
     content = new ofImage();
     content->loadImage("img/module_content.png");
-    
-    buttonBlue = new ofImage();
-    buttonBlue->loadImage("img/module_button_blue.png");
-    
-    buttonGreen = new ofImage();
-    buttonGreen->loadImage("img/module_button_green.png");
-    
+//    
+//    buttonBlue = new ofImage();
+//    buttonBlue->loadImage("img/module_button_blue.png");
+//    
+//    buttonGreen = new ofImage();
+//    buttonGreen->loadImage("img/module_button_green.png");
+//    
     setupAnimation();
     loc.y += _padding;
     loc.y += footer->getHeight();
     loc.x += _padding;
+    
+    setupGUI();
 }
 
 AutoContainer::~AutoContainer() {
@@ -37,12 +39,17 @@ AutoContainer::~AutoContainer() {
 
 void AutoContainer::update() {
     updateAnimation();
+    about->update();
     
     container->begin();
     ofClear(0,0,0,0);
     content->draw(0,0);
+    about->draw();
     footer->draw(0,content->getHeight());
-    buttonBlue->draw(10,content->getHeight()+5);
+   // buttonBlue->draw(10,content->getHeight()+5);
+    drawGUI();
+    
+    
     container->end();
 }
 
