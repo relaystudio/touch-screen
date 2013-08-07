@@ -17,10 +17,12 @@ AboutPage::~AboutPage() {
     
 }
 
+
+
 void AboutPage::update() {
     page->begin();
     ofClear(0,0,0,0);
-    ofDrawBitmapString("Test",300,300);
+    ofDrawBitmapString(name,300,300);
     page->end();
 }
 

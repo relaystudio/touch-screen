@@ -29,11 +29,13 @@ void Container::setupAnimation() {
 void Container::open() {
     if(!closing && !opening)
         opening = true;
+    
 }
 
 void Container::close() {
     if(!closing && !opening)
         closing = true;
+
 }
 
 void Container::updateAnimation() {
@@ -68,7 +70,7 @@ void Container::draw() {
 void Container::setupGUI() {
     gui = new ofxUICanvas(0,0,container->getWidth(),container->getHeight());
     gui->setAutoDraw(false);
-    gui->addImageButton("IMAGE BUTTON", "img/button_home.png", false, 44, 85, container->getWidth()-44, 0);
+//    gui->addImageButton("IMAGE BUTTON", "img/button_home.png", false, 44, 85, container->getWidth()-44, 0);
     ofAddListener(gui->newGUIEvent,this,&Container::guiEvent);
 }
 

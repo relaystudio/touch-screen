@@ -10,7 +10,7 @@
 
 HomeContainer::HomeContainer() {
     
-    const int padding = 20; // Around container
+    const int padding = 0; // Around container
     const int iconWidth = 150; // Radius of icons
     
     container = new ofFbo();
@@ -86,36 +86,68 @@ void HomeContainer::update() {
     
     if(house->isActivated()) {
         ofLog() << "Activating Home page";
-       activeWindow = HOME;
+        prevWindow = activeWindow;
+        activeWindow = HOME;
     }
     if(car->isActivated()) {
         ofLog() << "Activating Auto page";
+        prevWindow = activeWindow;
         autoBox->open();
         activeWindow = AUTO;
     }
     if(travel->isActivated()) {
         ofLog() << "Activating Travel page";
+        prevWindow = activeWindow;
        activeWindow = TRAVEL;
     }
     if(membership->isActivated()) {
         ofLog() << "Activating Membership page";
+        prevWindow = activeWindow;
        activeWindow = MEMBER;
     }
     
-    switch(activeWindow) {
-        case HOME:
-            break;
-        case AUTO:
-            autoBox->update();
-            break;
-        case TRAVEL:
-            break;
-        case MEMBER:
-            break;
-        case CONTEST:
-            break;
-        default:
-            break;
+    if(prevWindow != -1) {
+        // Allow for animation out
+        switch(prevWindow) {
+            case -1:
+                break;
+            case HOME:
+                prevWindow = -1;
+                break;
+            case AUTO:
+                autoBox->close();
+                autoBox->update();
+                if(autoBox->isClosed()) prevWindow = -1;
+                break;
+            case TRAVEL:
+                prevWindow = -1;
+                break;
+            case MEMBER:
+                prevWindow = -1;
+                break;
+            case CONTEST:
+                prevWindow = -1;
+                break;
+            default:
+                break;
+        }
+    } else {
+        // Animate active window
+        switch(activeWindow) {
+            case HOME:
+                break;
+            case AUTO:
+                autoBox->update();
+                break;
+            case TRAVEL:
+                break;
+            case MEMBER:
+                break;
+            case CONTEST:
+                break;
+            default:
+                break;
+        }
     }
     
     container->begin();
@@ -124,8 +156,9 @@ void HomeContainer::update() {
         car->draw();
         travel->draw();
         membership->draw();
-    
-        switch(activeWindow) {
+    // This is a terrible way to manage this.
+    if(prevWindow != -1) {
+        switch(prevWindow) {
             setActive(false);
             case HOME:
                 break;
@@ -141,6 +174,24 @@ void HomeContainer::update() {
             default:
                 break;
         }
+    } else {
+        switch(activeWindow) {
+                setActive(false);
+            case HOME:
+                break;
+            case AUTO:
+                autoBox->draw();
+                break;
+            case TRAVEL:
+                break;
+            case MEMBER:
+                break;
+            case CONTEST:
+                break;
+            default:
+                break;
+        }
+    }
     container->end();
 }
 

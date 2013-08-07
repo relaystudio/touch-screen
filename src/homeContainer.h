@@ -50,6 +50,7 @@ class HomeContainer : public Container {
     HomeIcon * membership;
 
     int activeWindow;
+    int prevWindow;
     
     
     ofxBox2d * box2d;

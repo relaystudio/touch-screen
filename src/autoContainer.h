@@ -26,6 +26,18 @@ public:
     void update();
     void draw();
     
+    void open();
+    void close();
+    bool isClosed();
+    void updateAnimation();
+    
+    void exit();
+    void guiEvent(ofxUIEventArgs &e);
+    
+    void setupGUI();
+    void drawGUI();
+    void updateGUI();
+    
 private:
     AboutPage * about;
     
@@ -38,7 +50,8 @@ private:
     
     ofPoint * cursor;
     ofPoint loc;
-    
+    bool isOpen;
+    const int tweenSpeed = 40;
     ofxUICanvas * gui;
 };
 
