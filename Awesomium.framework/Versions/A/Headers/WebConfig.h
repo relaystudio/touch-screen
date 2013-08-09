@@ -15,9 +15,9 @@
 #ifndef AWESOMIUM_WEB_CONFIG_H_
 #define AWESOMIUM_WEB_CONFIG_H_
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
-#include <Awesomium/WebStringArray.h>
+#include "Platform.h"
+#include "WebString.h"
+#include "WebStringArray.h"
 
 namespace Awesomium {
 

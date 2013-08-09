@@ -16,9 +16,9 @@
 #define AWESOMIUM_DATA_PAK_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
-#include <Awesomium/DataSource.h>
+#include "Platform.h"
+#include "WebString.h"
+#include "DataSource.h"
 
 namespace Awesomium {
 

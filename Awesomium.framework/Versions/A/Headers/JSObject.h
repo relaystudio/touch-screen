@@ -16,8 +16,8 @@
 #define AWESOMIUM_JS_OBJECT_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
+#include "Platform.h"
+#include "WebString.h"
 
 namespace Awesomium {
 

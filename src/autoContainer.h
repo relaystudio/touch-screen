@@ -45,9 +45,11 @@ private:
     
     ofImage * footer;
     ofImage * content;
+    ofImage * header;
+    ofImage * logo;
     ofImage * buttonBlue;
     ofImage * buttonGreen;
-    
+    int padding;
     ofPoint * cursor;
     ofPoint loc;
     bool isOpen;

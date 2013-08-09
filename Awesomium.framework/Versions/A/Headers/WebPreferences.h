@@ -15,9 +15,9 @@
 #ifndef AWESOMIUM_WEB_PREFERENCES_H_
 #define AWESOMIUM_WEB_PREFERENCES_H_
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
-#include <Awesomium/WebURL.h>
+#include "Platform.h"
+#include "WebString.h"
+#include "WebURL.h"
 
 namespace Awesomium {
 

@@ -16,9 +16,9 @@
 #define AWESOMIUM_WEB_VIEW_LISTENER_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebMenuItem.h>
-#include <Awesomium/WebStringArray.h>
+#include "Platform.h"
+#include "WebMenuItem.h"
+#include "WebStringArray.h"
 
 namespace Awesomium {
 

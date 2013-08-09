@@ -16,7 +16,7 @@
 #define AWESOMIUM_CHILD_PROCESS_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
+#include "Platform.h"
 #if defined(__WIN32__) || defined(_WIN32)
 #include <Windows.h>
 #endif

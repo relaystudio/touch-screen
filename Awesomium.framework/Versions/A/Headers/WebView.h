@@ -16,16 +16,16 @@
 #define AWESOMIUM_WEB_VIEW_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
-#include <Awesomium/WebStringArray.h>
-#include <Awesomium/WebURL.h>
-#include <Awesomium/Surface.h>
-#include <Awesomium/WebKeyboardEvent.h>
-#include <Awesomium/WebTouchEvent.h>
-#include <Awesomium/WebViewListener.h>
-#include <Awesomium/PrintConfig.h>
-#include <Awesomium/JSValue.h>
+#include "Platform.h"
+#include "WebString.h"
+#include "WebStringArray.h"
+#include "WebURL.h"
+#include "Surface.h"
+#include "WebKeyboardEvent.h"
+#include "WebTouchEvent.h"
+#include "WebViewListener.h"
+#include "PrintConfig.h"
+#include "JSValue.h"
 
 namespace Awesomium {
 

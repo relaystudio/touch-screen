@@ -17,21 +17,19 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     footer = new ofImage();
     footer->loadImage("img/module_footer.png");
     
+    header = new ofImage();
+    header->loadImage("img/module_header.png");
+    
     content = new ofImage();
     content->loadImage("img/module_content.png");
-//    
-//    buttonBlue = new ofImage();
-//    buttonBlue->loadImage("img/module_button_blue.png");
-//    
-//    buttonGreen = new ofImage();
-//    buttonGreen->loadImage("img/module_button_green.png");
-//    
-    setupAnimation();
-    loc.y += _padding;
-  //  loc.y += footer->getHeight();
-    loc.x += _padding;
-    loc.y = -container->getHeight();
+
+    logo = new ofImage();
+    logo->loadImage("img/icon_auto_header.png");
     
+    padding = _padding;
+    setupAnimation();
+    loc.y = -container->getHeight();
+    loc.x = padding;
     setupGUI();
 }
 
@@ -46,10 +44,12 @@ void AutoContainer::update() {
     container->begin();
     ofClear(0,0,0,0);
     content->draw(0,0,container->getWidth(),container->getHeight()-footer->getHeight());
+    header->draw(0,0);
+    logo->draw(0,20);
     about->draw();
     footer->draw(0,container->getHeight()-footer->getHeight());
    // buttonBlue->draw(10,content->getHeight()+5);
-    drawGUI();
+   // drawGUI();
     
     
     container->end();
@@ -62,15 +62,34 @@ void AutoContainer::draw() {
 void AutoContainer::setupGUI() {
     gui = new ofxUICanvas(loc.x,loc.y,container->getWidth(),container->getHeight());
     gui->setName("AutoGUI");
-    gui->setAutoDraw(false);
+    gui->setDrawWidgetPadding(false);
     gui->setDrawBack(false);
-    gui->addImageButton("HOME", "img/button_home.png", true, 44, 85, container->getWidth()-44, 0);
+
+    ofxUIColor cb = ofxUIColor( 0, 0, 0, 0 );
+    gui->setColorBack(cb);
+//    gui->setColorOutline(cb);
+//    gui->setColorOutlineHighlight(cb);
+//    gui->setColorFill(cb);
+//    gui->setColorFillHighlight(cb);
+//    gui->setColorPadded(cb);
+//    gui->setColorPaddedOutline(cb);
+    
+    ofxUIWidget *w;
+    
+    w = gui->addSpacer(container->getWidth()-85, container->getHeight()-footer->getHeight()-5, "HeaderSpacer");
+    w->setColorFill(cb);
+    
+    gui->addWidgetEastOf(new ofxUIImageButton(0,0,44, 85,true,"img/button_home.png", "HOME"),"HeaderSpacer");
     
     
 //    gui->addWidgetDown(new ofxUILabel("CUSTOM WIDGET LAYOUT", OFX_UI_FONT_LARGE), OFX_UI_ALIGN_RIGHT);
 //    
 //    gui->addWidget(new ofxUILabel(360, 300, "2D PAD", OFX_UI_FONT_MEDIUM));
-//    gui->addWidgetSouthOf(new ofxUI2DPad(320,190, ofPoint(320*.5,190*.5), "PAD"), "2D PAD");
+    gui->addWidgetSouthOf(new ofxUIImageButton(0,0,215,78,true,"img/module_button_blue.png", "backButton"), "HeaderSpacer");
+    w = gui->addWidgetEastOf(new ofxUISpacer(container->getWidth()-230*2,78,"buttonSpacer"), "backButton");
+    w->setColorFill(cb);
+    gui->addWidgetEastOf(new ofxUIImageButton(0,0,215,78,true,"img/module_button_green.png", "forwardButton"), "buttonSpacer");
+//    gui->setWidgetColor(gui->getWidget("buttonSpader"), ofColor(0,0,0,0));
     gui->autoSizeToFitWidgets();
     ofAddListener(gui->newGUIEvent,this,&AutoContainer::guiEvent);
 }
@@ -115,10 +134,10 @@ bool AutoContainer::isClosed() {
 }
 
 void AutoContainer::updateAnimation() {
-    if(isOpen && loc.y < 0)
+    if(isOpen && loc.y < padding)
         loc.y += tweenSpeed;
     else if( isOpen && loc.y > 0) {
-        loc.y = 0;
+        loc.y = padding;
     }
     else if ( !isOpen && loc.y > -container->getHeight() )
         loc.y -= tweenSpeed;

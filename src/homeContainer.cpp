@@ -10,7 +10,7 @@
 
 HomeContainer::HomeContainer() {
     
-    const int padding = 0; // Around container
+    const int padding = 20; // Around container
     const int iconWidth = 150; // Radius of icons
     
     container = new ofFbo();
@@ -27,8 +27,8 @@ HomeContainer::HomeContainer() {
 	box2d->setGravity(0, 0);
 	box2d->setFPS(30.0);
     box2d->createBounds(0,0,container->getWidth(), container->getHeight());
-    box2d->registerGrabbing();
     
+    setActive(true);
     
     house = new HomeIcon("House", "/api/home", "img/icon_home.png");
     house->setPhysics(density, bounce, friction);
@@ -93,6 +93,7 @@ void HomeContainer::update() {
         ofLog() << "Activating Auto page";
         prevWindow = activeWindow;
         autoBox->open();
+        setActive(false);
         activeWindow = AUTO;
     }
     if(travel->isActivated()) {
@@ -108,6 +109,7 @@ void HomeContainer::update() {
     
     if(prevWindow != -1) {
         // Allow for animation out
+        
         switch(prevWindow) {
             case -1:
                 break;
@@ -117,7 +119,10 @@ void HomeContainer::update() {
             case AUTO:
                 autoBox->close();
                 autoBox->update();
-                if(autoBox->isClosed()) prevWindow = -1;
+                if(autoBox->isClosed()){
+                 prevWindow = -1;
+                    setActive(true);
+                }
                 break;
             case TRAVEL:
                 prevWindow = -1;
@@ -133,6 +138,7 @@ void HomeContainer::update() {
         }
     } else {
         // Animate active window
+        
         switch(activeWindow) {
             case HOME:
                 break;
@@ -157,9 +163,10 @@ void HomeContainer::update() {
         travel->draw();
         membership->draw();
     // This is a terrible way to manage this.
+    setActive(true);
     if(prevWindow != -1) {
         switch(prevWindow) {
-            setActive(false);
+//            setActive(false);
             case HOME:
                 break;
             case AUTO:
@@ -176,11 +183,11 @@ void HomeContainer::update() {
         }
     } else {
         switch(activeWindow) {
-                setActive(false);
             case HOME:
                 break;
             case AUTO:
                 autoBox->draw();
+//                setActive(false);
                 break;
             case TRAVEL:
                 break;
@@ -197,8 +204,10 @@ void HomeContainer::update() {
 
 void HomeContainer::setActive(bool _active) {
     if(_active) {
-        box2d->registerGrabbing();
-    } else {
+        ofAddListener(ofEvents().mousePressed, box2d, &ofxBox2d::mousePressed);
+        ofAddListener(ofEvents().mouseDragged, box2d, &ofxBox2d::mouseDragged);
+        ofAddListener(ofEvents().mouseReleased, box2d, &ofxBox2d::mouseReleased);
+    } else if(!_active) {
         ofRemoveListener(ofEvents().mousePressed, box2d, &ofxBox2d::mousePressed);
         ofRemoveListener(ofEvents().mouseDragged, box2d, &ofxBox2d::mouseDragged);
         ofRemoveListener(ofEvents().mouseReleased, box2d, &ofxBox2d::mouseReleased);

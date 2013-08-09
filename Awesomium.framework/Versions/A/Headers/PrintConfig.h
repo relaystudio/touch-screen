@@ -15,8 +15,8 @@
 #ifndef AWESOMIUM_PRINT_CONFIG_H_
 #define AWESOMIUM_PRINT_CONFIG_H_
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
+#include "Platform.h"
+#include "WebString.h"
 
 namespace Awesomium {
 

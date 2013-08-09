@@ -1,5 +1,7 @@
 # BCAA Touch Application
 
+``` Note: I had to change the framework paths within the awesomium.framework, so recommend swapping out. Everything else should otherwise function properly.```
+
 ## Project setup and requirements
 - ofxOsc
 - ofxNetwork (for ofxOsc)

@@ -16,8 +16,8 @@
 #define AWESOMIUM_WEB_MENU_ITEM_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
+#include "Platform.h"
+#include "WebString.h"
 
 namespace Awesomium {
 

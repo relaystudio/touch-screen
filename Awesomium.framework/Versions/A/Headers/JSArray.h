@@ -16,7 +16,7 @@
 #define AWESOMIUM_JS_ARRAY_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
+#include "Platform.h"
 
 namespace Awesomium {
 

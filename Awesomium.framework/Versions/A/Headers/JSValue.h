@@ -16,10 +16,10 @@
 #define AWESOMIUM_JS_VALUE_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
-#include <Awesomium/JSObject.h>
-#include <Awesomium/JSArray.h>
+#include "Platform.h"
+#include "WebString.h"
+#include "JSObject.h"
+#include "JSArray.h"
 
 namespace Awesomium {
 

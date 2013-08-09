@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 42;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,13 +53,14 @@
 		7c45fcdd63a8a278d5af1c7071042ed0 /* guiTextBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967133ad6c9eb43ce21728eed1fa6029 /* guiTextBase.cpp */; };
 		7c5d8130f4ea9f4225a88307131525a5 /* guiColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = d1b16bbf56b19cf822996b9a5533c0e3 /* guiColor.cpp */; };
 		8310ad6e522adba976b9f7855b8f6cd2 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8a0b12fac93c7530f66e4631ce2fa1e0 /* tinyxmlparser.cpp */; };
+		8389B62217B53C26003C5CBF /* Awesomium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B62017B53AF8003C5CBF /* Awesomium.framework */; };
+		8389B62317B541BD003C5CBF /* Awesomium.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 8389B62017B53AF8003C5CBF /* Awesomium.framework */; };
 		839175CD1796F1EB0054F2F4 /* page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CB1796F1EB0054F2F4 /* page.cpp */; };
 		839175D01796F2100054F2F4 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CE1796F2100054F2F4 /* container.cpp */; };
 		839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D11796F32A0054F2F4 /* homeicon.cpp */; };
 		839175D61796FF6C0054F2F4 /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D41796FF6C0054F2F4 /* connection.cpp */; };
 		839175D91796FF730054F2F4 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D71796FF730054F2F4 /* settings.cpp */; };
 		83B8794F17A945A300144850 /* aboutPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B8794D17A945A300144850 /* aboutPage.cpp */; };
-		83B8795617A95E4400144850 /* Awesomium.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83B8795517A95E4300144850 /* Awesomium.framework */; };
 		83CE0D2B179985FE00653581 /* touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D29179985FE00653581 /* touch.cpp */; };
 		83CE0D561799863500653581 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D321799863500653581 /* IpEndpointName.cpp */; };
 		83CE0D571799863500653581 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D371799863500653581 /* NetworkingUtils.cpp */; };
@@ -89,7 +90,7 @@
 		98b1d3b275b78962a5378bdb21520f8a /* simpleColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358f491934ce0aab9c054ad7f152e172 /* simpleColor.cpp */; };
 		9baedc1cec03459f0f5ba3993cf4a087 /* b2GearJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 315a12ef14df921d1a288d5d65301604 /* b2GearJoint.cpp */; };
 		9c2c9a894c9fd90e49dac932538e361d /* ofxBox2dBaseShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6100549e43dc915a5f9ecdbda3a72432 /* ofxBox2dBaseShape.cpp */; };
-		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		BBAB23CB13894F3D00AA2426 /* GLUT.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -162,15 +163,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
+		E4C2427710CC5ABF004149E2 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				83B8795617A95E4400144850 /* Awesomium.framework in CopyFiles */,
-				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
+				BBAB23CB13894F3D00AA2426 /* GLUT.framework in Copy Files */,
+				8389B62317B541BD003C5CBF /* Awesomium.framework in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -301,6 +303,24 @@
 		8041839535263c2d9129e6a51887762c /* guiType2DSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = guiType2DSlider.h; path = ../../openFrameworks/addons/ofxControlPanel/src/guiType2DSlider.h; sourceTree = SOURCE_ROOT; };
 		821ab19c48d4f5834b5661c8e546601e /* b2DynamicTree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = b2DynamicTree.h; path = ../../openFrameworks/addons/ofxBox2d/libs/Box2D/Collision/b2DynamicTree.h; sourceTree = SOURCE_ROOT; };
 		82ab89f97bbe49b5a7cbfce03fc50c10 /* guiBaseObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = guiBaseObject.cpp; path = ../../openFrameworks/addons/ofxControlPanel/src/guiBaseObject.cpp; sourceTree = SOURCE_ROOT; };
+		8389B60C17B2A823003C5CBF /* guiSettings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = guiSettings.xml; sourceTree = "<group>"; };
+		8389B60D17B2A823003C5CBF /* NewMedia Fett.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewMedia Fett.ttf"; sourceTree = "<group>"; };
+		8389B60F17B2A823003C5CBF /* button_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_home.png; sourceTree = "<group>"; };
+		8389B61017B2A823003C5CBF /* icon_auto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_auto.png; sourceTree = "<group>"; };
+		8389B61117B2A823003C5CBF /* icon_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bg.png; sourceTree = "<group>"; };
+		8389B61217B2A823003C5CBF /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
+		8389B61317B2A823003C5CBF /* icon_membership.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_membership.png; sourceTree = "<group>"; };
+		8389B61417B2A823003C5CBF /* icon_time_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time_bg.png; sourceTree = "<group>"; };
+		8389B61517B2A823003C5CBF /* icon_time_fg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time_fg.png; sourceTree = "<group>"; };
+		8389B61617B2A823003C5CBF /* icon_travel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_travel.png; sourceTree = "<group>"; };
+		8389B61717B2A823003C5CBF /* main_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg.jpg; sourceTree = "<group>"; };
+		8389B61817B2A823003C5CBF /* module_button_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_button_blue.png; sourceTree = "<group>"; };
+		8389B61917B2A823003C5CBF /* module_button_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_button_green.png; sourceTree = "<group>"; };
+		8389B61A17B2A823003C5CBF /* module_content.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_content.png; sourceTree = "<group>"; };
+		8389B61B17B2A823003C5CBF /* module_footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_footer.png; sourceTree = "<group>"; };
+		8389B61C17B2A823003C5CBF /* module_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_header.png; sourceTree = "<group>"; };
+		8389B61D17B2A823003C5CBF /* module_header_calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_header_calculator.png; sourceTree = "<group>"; };
+		8389B62017B53AF8003C5CBF /* Awesomium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awesomium.framework; sourceTree = "<group>"; };
 		839175CB1796F1EB0054F2F4 /* page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = page.cpp; sourceTree = "<group>"; };
 		839175CC1796F1EB0054F2F4 /* page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = page.h; sourceTree = "<group>"; };
 		839175CE1796F2100054F2F4 /* container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = container.cpp; sourceTree = "<group>"; };
@@ -313,7 +333,6 @@
 		839175D81796FF730054F2F4 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
 		83B8794D17A945A300144850 /* aboutPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aboutPage.cpp; sourceTree = "<group>"; };
 		83B8794E17A945A300144850 /* aboutPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutPage.h; sourceTree = "<group>"; };
-		83B8795517A95E4300144850 /* Awesomium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awesomium.framework; sourceTree = SOURCE_ROOT; };
 		83CE0D29179985FE00653581 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
 		83CE0D2A179985FE00653581 /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch.h; sourceTree = "<group>"; };
 		83CE0D321799863500653581 /* IpEndpointName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IpEndpointName.cpp; sourceTree = "<group>"; };
@@ -510,6 +529,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8389B62217B53C26003C5CBF /* Awesomium.framework in Frameworks */,
 				E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */,
 				E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */,
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
@@ -738,6 +758,39 @@
 			children = (
 			);
 			name = memberScreen;
+			sourceTree = "<group>";
+		};
+		8389B60B17B2A823003C5CBF /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				8389B60C17B2A823003C5CBF /* guiSettings.xml */,
+				8389B60D17B2A823003C5CBF /* NewMedia Fett.ttf */,
+			);
+			name = GUI;
+			path = bin/data/GUI;
+			sourceTree = "<group>";
+		};
+		8389B60E17B2A823003C5CBF /* img */ = {
+			isa = PBXGroup;
+			children = (
+				8389B60F17B2A823003C5CBF /* button_home.png */,
+				8389B61017B2A823003C5CBF /* icon_auto.png */,
+				8389B61117B2A823003C5CBF /* icon_bg.png */,
+				8389B61217B2A823003C5CBF /* icon_home.png */,
+				8389B61317B2A823003C5CBF /* icon_membership.png */,
+				8389B61417B2A823003C5CBF /* icon_time_bg.png */,
+				8389B61517B2A823003C5CBF /* icon_time_fg.png */,
+				8389B61617B2A823003C5CBF /* icon_travel.png */,
+				8389B61717B2A823003C5CBF /* main_bg.jpg */,
+				8389B61817B2A823003C5CBF /* module_button_blue.png */,
+				8389B61917B2A823003C5CBF /* module_button_green.png */,
+				8389B61A17B2A823003C5CBF /* module_content.png */,
+				8389B61B17B2A823003C5CBF /* module_footer.png */,
+				8389B61C17B2A823003C5CBF /* module_header.png */,
+				8389B61D17B2A823003C5CBF /* module_header_calculator.png */,
+			);
+			name = img;
+			path = bin/data/img;
 			sourceTree = "<group>";
 		};
 		839175C91796F1B10054F2F4 /* interface */ = {
@@ -990,7 +1043,6 @@
 		E45BE5980E8CC70C009D7055 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				83B8795517A95E4300144850 /* Awesomium.framework */,
 				BBAB23CA13894EDB00AA2426 /* 3rd party frameworks */,
 				BBAB23C913894ECA00AA2426 /* system frameworks */,
 			);
@@ -1000,9 +1052,12 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				8389B62017B53AF8003C5CBF /* Awesomium.framework */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				83CE0D631799965D00653581 /* readme.md */,
+				8389B60B17B2A823003C5CBF /* GUI */,
+				8389B60E17B2A823003C5CBF /* img */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
@@ -1261,7 +1316,7 @@
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
 				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
-				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+				E4C2427710CC5ABF004149E2 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -1473,6 +1528,7 @@
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Awesomium.framework\"";
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
@@ -1513,9 +1569,9 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/Awesomium.framework\"";
+				HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1 = "\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1533,6 +1589,7 @@
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Awesomium.framework\"";
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
@@ -1574,9 +1631,9 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "\"$(SRCROOT)/Awesomium.framework\"";
+				HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1 = "\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",
@@ -1597,11 +1654,13 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"\"$(SRCROOT)/Awesomium.framework\"",
-					"\"$(SRCROOT)\"",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../openFrameworks/libs/glut/lib/osx\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"Awesomium.framework\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -1636,8 +1695,9 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"Awesomium.framework/Versions/Current/Headers";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
@@ -1721,11 +1781,13 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"\"$(SRCROOT)/Awesomium.framework\"",
-					"\"$(SRCROOT)\"",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../openFrameworks/libs/glut/lib/osx\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"Awesomium.framework\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
@@ -1759,8 +1821,9 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers",
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"Awesomium.framework/Versions/Current/Headers";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (

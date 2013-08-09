@@ -16,10 +16,10 @@
 #define AWESOMIUM_WEB_SESSION_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebString.h>
-#include <Awesomium/WebPreferences.h>
-#include <Awesomium/DataSource.h>
+#include "Platform.h"
+#include "WebString.h"
+#include "WebPreferences.h"
+#include "DataSource.h"
 
 namespace Awesomium {
 

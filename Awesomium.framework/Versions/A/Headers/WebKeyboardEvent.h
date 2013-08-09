@@ -16,8 +16,8 @@
 #define AWESOMIUM_WEB_KEYBOARD_EVENT_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebKeyboardCodes.h>
+#include "Platform.h"
+#include "WebKeyboardCodes.h"
 #if defined(_WIN32)
 #include <Windows.h>
 #endif

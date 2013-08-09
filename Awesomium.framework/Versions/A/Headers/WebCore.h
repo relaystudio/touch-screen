@@ -17,13 +17,13 @@
 #define AWESOMIUM_WEB_CORE_H_
 #pragma once
 
-#include <Awesomium/Platform.h>
-#include <Awesomium/WebConfig.h>
-#include <Awesomium/WebPreferences.h>
-#include <Awesomium/WebSession.h>
-#include <Awesomium/WebView.h>
-#include <Awesomium/Surface.h>
-#include <Awesomium/ResourceInterceptor.h>
+#include "Platform.h"
+#include "WebConfig.h"
+#include "WebPreferences.h"
+#include "WebSession.h"
+#include "WebView.h"
+#include "Surface.h"
+#include "ResourceInterceptor.h"
 
 namespace Awesomium {
 
