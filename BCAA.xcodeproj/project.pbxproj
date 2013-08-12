@@ -48,8 +48,6 @@
 		7c45fcdd63a8a278d5af1c7071042ed0 /* guiTextBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 967133ad6c9eb43ce21728eed1fa6029 /* guiTextBase.cpp */; };
 		7c5d8130f4ea9f4225a88307131525a5 /* guiColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = d1b16bbf56b19cf822996b9a5533c0e3 /* guiColor.cpp */; };
 		8310ad6e522adba976b9f7855b8f6cd2 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8a0b12fac93c7530f66e4631ce2fa1e0 /* tinyxmlparser.cpp */; };
-		8389B62217B53C26003C5CBF /* Awesomium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B62017B53AF8003C5CBF /* Awesomium.framework */; };
-		8389B62317B541BD003C5CBF /* Awesomium.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 8389B62017B53AF8003C5CBF /* Awesomium.framework */; };
 		839175CD1796F1EB0054F2F4 /* page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CB1796F1EB0054F2F4 /* page.cpp */; };
 		839175D01796F2100054F2F4 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CE1796F2100054F2F4 /* container.cpp */; };
 		839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D11796F32A0054F2F4 /* homeicon.cpp */; };
@@ -158,7 +156,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in Copy Files */,
-				8389B62317B541BD003C5CBF /* Awesomium.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +287,6 @@
 		8389B61B17B2A823003C5CBF /* module_footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_footer.png; sourceTree = "<group>"; };
 		8389B61C17B2A823003C5CBF /* module_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_header.png; sourceTree = "<group>"; };
 		8389B61D17B2A823003C5CBF /* module_header_calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_header_calculator.png; sourceTree = "<group>"; };
-		8389B62017B53AF8003C5CBF /* Awesomium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awesomium.framework; sourceTree = "<group>"; };
 		839175CB1796F1EB0054F2F4 /* page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = page.cpp; sourceTree = "<group>"; };
 		839175CC1796F1EB0054F2F4 /* page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = page.h; sourceTree = "<group>"; };
 		839175CE1796F2100054F2F4 /* container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = container.cpp; sourceTree = "<group>"; };
@@ -493,7 +489,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8389B62217B53C26003C5CBF /* Awesomium.framework in Frameworks */,
 				E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */,
 				E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */,
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
@@ -999,7 +994,6 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				8389B62017B53AF8003C5CBF /* Awesomium.framework */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				83CE0D631799965D00653581 /* readme.md */,
@@ -1297,7 +1291,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -r \"$TARGET_BUILD_DIR/../Awesomium.framework\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"; install_name_tool -change ./\ncp -f ../../openFrameworks/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";";
+			shellScript = "cp -f ../../openFrameworks/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1432,7 +1426,7 @@
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Awesomium.framework\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
@@ -1473,7 +1467,6 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 				);
 				HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1 = "\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"";
 				OTHER_CPLUSPLUSFLAGS = (
@@ -1493,7 +1486,7 @@
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Awesomium.framework\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
@@ -1535,7 +1528,6 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 				);
 				HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1 = "\"$(SRCROOT)/Awesomium.framework/Versions/Current/Headers\"";
 				OTHER_CPLUSPLUSFLAGS = (
@@ -1599,7 +1591,6 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"Awesomium.framework/Versions/Current/Headers";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
@@ -1725,7 +1716,6 @@
 					../../openFrameworks/addons/ofxXmlSettings/libs,
 					../../openFrameworks/addons/ofxXmlSettings/src,
 					"../../openFrameworks/addons/ofxOsc/libs/**",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"Awesomium.framework/Versions/Current/Headers";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";

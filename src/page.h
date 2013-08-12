@@ -12,7 +12,7 @@
 #include <iostream>
 #include "ofMain.h"
 #include "settings.h"
-#include "WebCore.h"
+//#include "WebCore.h"
 
 class Page {
 public:
