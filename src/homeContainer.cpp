@@ -16,6 +16,8 @@ HomeContainer::HomeContainer() {
     container = new ofFbo();
     container->allocate(ofGetWidth(),ofGetHeight());
     
+    waitTime = new WaitTimeBar();
+    
     autoBox = new AutoContainer(container->getWidth(), container->getHeight(), padding);
     
     float density = 4.0;

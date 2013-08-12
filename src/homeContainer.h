@@ -15,6 +15,7 @@
 #include "homeicon.h"
 #include "ofxBox2d.h"
 #include "touch.h"
+#include "waitTime.h"
 
 
 class HomeContainer : public Container {
@@ -52,6 +53,7 @@ class HomeContainer : public Container {
     int activeWindow;
     int prevWindow;
     
+    WaitTimeBar * waitTime;
     
     ofxBox2d * box2d;
     
