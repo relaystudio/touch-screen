@@ -53,7 +53,6 @@ private:
     ofPoint * cursor;
     ofPoint loc;
     bool isOpen;
-    const int tweenSpeed = 40;
     ofxUICanvas * gui;
 };
 
