@@ -18,7 +18,7 @@ HomeContainer::HomeContainer() {
     
     waitTime = new WaitTimeBar();
     
-    autoBox = new AutoContainer(container->getWidth(), container->getHeight(), padding);
+    autoBox = new AutoContainer(1500, 510, 210);
     
     float density = 4.0;
     float bounce = .3;
@@ -79,6 +79,7 @@ void HomeContainer::addForces() {
 void HomeContainer::update() {
     box2d->update();
     addForces();
+    waitTime->update();
     //touch->getPoint();
 
     house->update(box2d);
@@ -109,7 +110,7 @@ void HomeContainer::update() {
        activeWindow = MEMBER;
     }
     
-    if(prevWindow != -1) {
+    if(prevWindow != -1 && autoBox->isClosed()) {
         // Allow for animation out
         
         switch(prevWindow) {
@@ -160,6 +161,7 @@ void HomeContainer::update() {
     
     container->begin();
         ofClear(0,0,0,0);
+        waitTime->draw();
         house->draw();
         car->draw();
         travel->draw();

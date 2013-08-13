@@ -46,7 +46,7 @@ void HomeIcon::draw() {
     icon->draw(0,0);
     ofPushStyle();
     ofSetColor(255,0,0);
-    ofDrawBitmapString( body->GetJointList() ? "Being Touched" : "Kinda Lonely", ofPoint(0,0));
+    //ofDrawBitmapString( body->GetJointList() ? "Being Touched" : "Kinda Lonely", ofPoint(0,0));
     ofPopStyle();
     ofPopStyle();
 	ofPopMatrix();

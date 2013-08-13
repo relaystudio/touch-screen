@@ -10,7 +10,7 @@
 
 AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     container = new ofFbo();
-    container->allocate(_width - _padding*2, _height - _padding*2);
+    container->allocate(_width, _height);
     about = new AboutPage("path");
     about->setName("Auto About Page");
     
@@ -25,12 +25,19 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 
     logo = new ofImage();
     logo->loadImage("img/icon_auto_header.png");
-    
+    totalHeight = ofGetHeight();
     padding = _padding;
     setupAnimation();
-    loc.y = -container->getHeight();
+    loc.y = totalHeight + 10;
     loc.x = padding;
+    easing = 0.05;
     setupGUI();
+#ifdef AWESOMIUM
+    Awesomium::WebCoreConfig config;
+	webCore = new Awesomium::WebCore(config);
+	webView = webCore->createWebView(webTexWidth, webTexHeight);
+#endif
+    
 }
 
 AutoContainer::~AutoContainer() {
@@ -53,6 +60,15 @@ void AutoContainer::update() {
     
     
     container->end();
+}
+
+void AutoContainer::setPage(string _url) {
+    url = _url;
+#ifdef AWESOMIUM
+	// Load a certain URL into our WebView instance
+	webView->loadURL("http://www.google.com");
+	webView->focus();
+#endif
 }
 
 void AutoContainer::draw() {
@@ -101,11 +117,26 @@ void AutoContainer::drawGUI() {
 
 void AutoContainer::updateGUI() {
     gui->setPosition(loc.x,loc.y);
+#ifdef AWESOMIUM
+    webCore->update();
+    
+    // Call our display func when the WebView needs rendering
+	if (webView->isDirty()) {
+        const Awesomium::RenderBuffer* renderBuffer = webView->render();
+        if (renderBuffer) {
+            webTex.loadData(renderBuffer->buffer, webTexWidth, webTexHeight, GL_BGRA);
+        }
+    }
+#endif
 }
 
 void AutoContainer::exit() {
     gui->saveSettings("GUI/guiSettings.xml");
     delete gui;
+#ifdef AWESOMIUM
+    webView->destroy();
+	delete webCore;
+#endif
 }
 
 void AutoContainer::guiEvent(ofxUIEventArgs &e) {
@@ -130,20 +161,50 @@ void AutoContainer::close() {
 }
 
 bool AutoContainer::isClosed() {
-    return loc.y <= -container->getHeight() ? true : false;
+    return loc.y <= totalHeight ? true : false;
 }
 
 void AutoContainer::updateAnimation() {
-    if(isOpen && loc.y < padding)
-        loc.y += tweenSpeed;
-    else if( isOpen && loc.y > 0) {
-        loc.y = padding;
-    }
-    else if ( !isOpen && loc.y > -container->getHeight() )
-        loc.y -= tweenSpeed;
+    int dy = (padding - loc.y);// * tweenSpeed;
+    
+    // Is open
+    if( isOpen && loc.y < padding) loc.y = padding;
+    // Is opening
+    else if(isOpen && loc.y > 0) loc.y += dy * easing;
+    // Is closing
+    else if ( !isOpen && loc.y > totalHeight+10 )
+        loc.y -= dy * tweenSpeed * 2;
     
     updateGUI();
 }
 
+
+void AutoContainer::mouseMoved(int x, int y ){
+    #ifdef AWESOMIUM
+    webView->injectMouseMove(x, y);
+    #endif
+}
+
+
+void AutoContainer::mouseDragged(int x, int y, int button){
+    #ifdef AWESOMIUM
+    webView->injectMouseMove(x, y);
+    #endif
+}
+
+
+void AutoContainer::mousePressed(int x, int y, int button){
+    #ifdef AWESOMIUM
+    webView->injectMouseDown(Awesomium::LEFT_MOUSE_BTN);
+    #endif
+}
+
+
+
+void AutoContainer::mouseReleased(int x, int y, int button){
+    #ifdef AWESOMIUM
+    webView->injectMouseUp(Awesomium::LEFT_MOUSE_BTN);
+    #endif
+}
 
 

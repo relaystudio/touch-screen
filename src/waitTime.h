@@ -24,7 +24,7 @@ public:
     void fetchData();
     
 private:
-    int width, height;
+    int width, height, padding;
     ofImage * background;
     ofImage * car;
     ofImage * house;
