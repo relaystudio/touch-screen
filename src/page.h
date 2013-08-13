@@ -12,7 +12,13 @@
 #include <iostream>
 #include "ofMain.h"
 #include "settings.h"
-//#include "WebCore.h"
+
+
+#ifdef TARGET_OS_WIN32
+#include "Awesomium\WebCore.h"
+#elif TARGET_OS_MAC
+#include "WebCore.h"
+#endif
 
 class Page {
 public:

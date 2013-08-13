@@ -65,7 +65,6 @@ private:
     ofPoint * cursor;
     ofPoint loc;
     bool isOpen;
-    const int tweenSpeed = 10;
     ofxUICanvas * gui;
 #ifdef AWESOMIUM
     Awesomium::WebView* webView;

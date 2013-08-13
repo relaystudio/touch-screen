@@ -8,6 +8,8 @@
 
 #include "autoContainer.h"
 
+const int tweenSpeed = 40;
+
 AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     container = new ofFbo();
     container->allocate(_width, _height);
