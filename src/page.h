@@ -14,9 +14,9 @@
 #include "settings.h"
 
 
-#ifdef TARGET_OS_WIN32
+#ifdef TARGETOSWIN32
 #include "Awesomium\WebCore.h"
-#elif TARGET_OS_MAC
+#elif TARGETOSMAC
 #include "WebCore.h"
 #endif
 

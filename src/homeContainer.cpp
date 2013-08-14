@@ -48,7 +48,7 @@ HomeContainer::HomeContainer() {
     membership->setPhysics(density, bounce, friction);
     membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
 
-    
+    setActive(true);
 }
 
 HomeContainer::~HomeContainer() {
@@ -87,11 +87,15 @@ void HomeContainer::update() {
     travel->update(box2d);
     membership->update(box2d);
     
+    if(autoBox->getFade() > 10 ) setActive(false);
+    else setActive(true);
+    
     if(house->isActivated()) {
         ofLog() << "Activating Home page";
         prevWindow = activeWindow;
         activeWindow = HOME;
     }
+    
     if(car->isActivated()) {
         ofLog() << "Activating Auto page";
         prevWindow = activeWindow;
@@ -99,11 +103,13 @@ void HomeContainer::update() {
         setActive(false);
         activeWindow = AUTO;
     }
+    
     if(travel->isActivated()) {
         ofLog() << "Activating Travel page";
         prevWindow = activeWindow;
        activeWindow = TRAVEL;
     }
+    
     if(membership->isActivated()) {
         ofLog() << "Activating Membership page";
         prevWindow = activeWindow;
@@ -122,10 +128,7 @@ void HomeContainer::update() {
             case AUTO:
                 autoBox->close();
                 autoBox->update();
-                if(autoBox->isClosed()){
-                 prevWindow = -1;
-                    setActive(true);
-                }
+                if(autoBox->isClosed()) prevWindow = -1;
                 break;
             case TRAVEL:
                 prevWindow = -1;
@@ -161,13 +164,17 @@ void HomeContainer::update() {
     
     container->begin();
         ofClear(0,0,0,0);
-        waitTime->draw();
-        house->draw();
-        car->draw();
-        travel->draw();
-        membership->draw();
+        ofPushStyle();
+            ofSetColor(255,255,255,autoBox->getFade());
+            waitTime->draw();
+            house->draw();
+            car->draw();
+            travel->draw();
+            membership->draw();
+        ofPopStyle();
+    
+    
     // This is a terrible way to manage this.
-    setActive(true);
     if(prevWindow != -1) {
         switch(prevWindow) {
 //            setActive(false);

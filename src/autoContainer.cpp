@@ -33,6 +33,7 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     loc.y = totalHeight + 10;
     loc.x = padding;
     easing = 0.05;
+    isOpen = false;
     setupGUI();
 #ifdef AWESOMIUM
     Awesomium::WebCoreConfig config;
@@ -48,19 +49,14 @@ AutoContainer::~AutoContainer() {
 
 void AutoContainer::update() {
     updateAnimation();
-    about->update();
-    
+    //about->update();
     container->begin();
-    ofClear(0,0,0,0);
-    content->draw(0,0,container->getWidth(),container->getHeight()-footer->getHeight());
-    header->draw(0,0);
-    logo->draw(0,20);
-    about->draw();
-    footer->draw(0,container->getHeight()-footer->getHeight());
-   // buttonBlue->draw(10,content->getHeight()+5);
-   // drawGUI();
-    
-    
+        ofClear(0,0,0,0);
+        content->draw(0,0,container->getWidth(),container->getHeight()-footer->getHeight());
+        header->draw(0,0);
+        logo->draw(0,20);
+        about->draw();
+        footer->draw(0,container->getHeight()-footer->getHeight());
     container->end();
 }
 
@@ -163,21 +159,31 @@ void AutoContainer::close() {
 }
 
 bool AutoContainer::isClosed() {
-    return loc.y <= totalHeight ? true : false;
+    return loc.y <= totalHeight ? false : true;
 }
 
+// Updates the tween animation.
 void AutoContainer::updateAnimation() {
     int dy = (padding - loc.y);// * tweenSpeed;
-    
+
+    if ( !isOpen && loc.y < totalHeight+10 )
+        loc.y -= dy * tweenSpeed * 2;
     // Is open
-    if( isOpen && loc.y < padding) loc.y = padding;
+    else if( isOpen && loc.y < padding) loc.y = padding;
     // Is opening
     else if(isOpen && loc.y > 0) loc.y += dy * easing;
     // Is closing
-    else if ( !isOpen && loc.y > totalHeight+10 )
-        loc.y -= dy * tweenSpeed * 2;
     
     updateGUI();
+}
+
+// Gets window moving up to fade icons
+int AutoContainer::getFade() {
+    int dx = (loc.y - padding);
+    int dist = ofGetHeight() - padding;
+    ofLog() << ofMap(dx, 0, dist, 255, 0);
+    if(!isOpen) return 255;
+    return int(ofMap(dx, 0, dist, 255, 0));
 }
 
 

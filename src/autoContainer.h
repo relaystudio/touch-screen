@@ -34,6 +34,7 @@ public:
     void close();
     bool isClosed();
     void updateAnimation();
+    int getFade();
     
     void exit();
     void guiEvent(ofxUIEventArgs &e);
