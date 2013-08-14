@@ -49,7 +49,7 @@ AutoContainer::~AutoContainer() {
 
 void AutoContainer::update() {
     updateAnimation();
-    //about->update();
+    about->update();
     container->begin();
         ofClear(0,0,0,0);
         content->draw(0,0,container->getWidth(),container->getHeight()-footer->getHeight());
@@ -143,6 +143,7 @@ void AutoContainer::guiEvent(ofxUIEventArgs &e) {
     
     if(kind == OFX_UI_WIDGET_IMAGEBUTTON)
     {
+        ofLog() << "CLOSING";
         ofxUIImageButton *button = (ofxUIImageButton *) e.widget;
         cout << name << "\t value: " << button->getValue() << endl;
         close();
@@ -164,10 +165,12 @@ bool AutoContainer::isClosed() {
 
 // Updates the tween animation.
 void AutoContainer::updateAnimation() {
-    int dy = (padding - loc.y);// * tweenSpeed;
+    int dy = isOpen ? (padding - loc.y) : (padding - (loc.y+30));// * tweenSpeed;
 
     if ( !isOpen && loc.y < totalHeight+10 )
-        loc.y -= dy * tweenSpeed * 2;
+        loc.y -= dy * easing * 2;
+    else if ( !isOpen && loc.y > totalHeight+10)
+        loc.y = totalHeight+10;
     // Is open
     else if( isOpen && loc.y < padding) loc.y = padding;
     // Is opening
@@ -180,10 +183,8 @@ void AutoContainer::updateAnimation() {
 // Gets window moving up to fade icons
 int AutoContainer::getFade() {
     int dx = (loc.y - padding);
-    int dist = ofGetHeight() - padding;
-    ofLog() << ofMap(dx, 0, dist, 255, 0);
-    if(!isOpen) return 255;
-    return int(ofMap(dx, 0, dist, 255, 0));
+    int dist = (totalHeight+10) - padding;
+    return int(ofMap(dx, 0, dist, 0, 255));
 }
 
 

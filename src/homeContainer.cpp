@@ -86,8 +86,8 @@ void HomeContainer::update() {
     car->update(box2d);
     travel->update(box2d);
     membership->update(box2d);
-    
-    if(autoBox->getFade() > 10 ) setActive(false);
+    ofLog() << "Fade: " << autoBox->getFade();
+    if(autoBox->getFade() < 200 ) setActive(false);
     else setActive(true);
     
     if(house->isActivated()) {
@@ -164,9 +164,9 @@ void HomeContainer::update() {
     
     container->begin();
         ofClear(0,0,0,0);
+        waitTime->draw();
         ofPushStyle();
             ofSetColor(255,255,255,autoBox->getFade());
-            waitTime->draw();
             house->draw();
             car->draw();
             travel->draw();
