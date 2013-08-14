@@ -49,6 +49,7 @@ HomeContainer::HomeContainer() {
     membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
 
     setActive(true);
+    activeWindow = -1;
 }
 
 HomeContainer::~HomeContainer() {
@@ -78,90 +79,41 @@ void HomeContainer::addForces() {
 
 void HomeContainer::update() {
     box2d->update();
+    autoBox->update();
     addForces();
     waitTime->update();
-    //touch->getPoint();
 
     house->update(box2d);
     car->update(box2d);
     travel->update(box2d);
     membership->update(box2d);
-    ofLog() << "Fade: " << autoBox->getFade();
-    if(autoBox->getFade() < 200 ) setActive(false);
-    else setActive(true);
     
-    if(house->isActivated()) {
-        ofLog() << "Activating Home page";
-        prevWindow = activeWindow;
-        activeWindow = HOME;
-    }
+//    if(autoBox->isClosed()) activeWindow = -1;
+    checkActiveButton();
     
-    if(car->isActivated()) {
-        ofLog() << "Activating Auto page";
-        prevWindow = activeWindow;
-        autoBox->open();
-        setActive(false);
-        activeWindow = AUTO;
-    }
-    
-    if(travel->isActivated()) {
-        ofLog() << "Activating Travel page";
-        prevWindow = activeWindow;
-       activeWindow = TRAVEL;
-    }
-    
-    if(membership->isActivated()) {
-        ofLog() << "Activating Membership page";
-        prevWindow = activeWindow;
-       activeWindow = MEMBER;
-    }
-    
-    if(prevWindow != -1 && autoBox->isClosed()) {
-        // Allow for animation out
-        
-        switch(prevWindow) {
-            case -1:
-                break;
-            case HOME:
-                prevWindow = -1;
-                break;
-            case AUTO:
-                autoBox->close();
-                autoBox->update();
-                if(autoBox->isClosed()) prevWindow = -1;
-                break;
-            case TRAVEL:
-                prevWindow = -1;
-                break;
-            case MEMBER:
-                prevWindow = -1;
-                break;
-            case CONTEST:
-                prevWindow = -1;
-                break;
-            default:
-                break;
-        }
-    } else {
-        // Animate active window
-        
+    if(activeWindow != -1) {
         switch(activeWindow) {
             case HOME:
-                break;
-            case AUTO:
-                autoBox->update();
+                autoBox->setPage("html/home");
                 break;
             case TRAVEL:
+                autoBox->setPage("html/travel");
+                break;
+            case AUTO:
+                autoBox->setPage("html/auto");
                 break;
             case MEMBER:
-                break;
-            case CONTEST:
+                autoBox->setPage("html/member");
                 break;
             default:
                 break;
         }
+        autoBox->open();
+        activeWindow = -1;
     }
     
+    
+
     container->begin();
         ofClear(0,0,0,0);
         waitTime->draw();
@@ -173,43 +125,8 @@ void HomeContainer::update() {
             membership->draw();
         ofPopStyle();
     
+        autoBox->draw();
     
-    // This is a terrible way to manage this.
-    if(prevWindow != -1) {
-        switch(prevWindow) {
-//            setActive(false);
-            case HOME:
-                break;
-            case AUTO:
-                autoBox->draw();
-                break;
-            case TRAVEL:
-                break;
-            case MEMBER:
-                break;
-            case CONTEST:
-                break;
-            default:
-                break;
-        }
-    } else {
-        switch(activeWindow) {
-            case HOME:
-                break;
-            case AUTO:
-                autoBox->draw();
-//                setActive(false);
-                break;
-            case TRAVEL:
-                break;
-            case MEMBER:
-                break;
-            case CONTEST:
-                break;
-            default:
-                break;
-        }
-    }
     container->end();
 }
 
@@ -229,6 +146,32 @@ void HomeContainer::setActive(bool _active) {
 
 void HomeContainer::setupGUI() {
     
+}
+
+void HomeContainer::checkActiveButton() {
+    // Make sure touch is activated
+    if(autoBox->getFade() < 200 ) setActive(false);
+    else setActive(true);
+    
+    if(house->isActivated()) {
+        ofLog() << "Activating Home page";
+        activeWindow = HOME;
+    }
+    
+    if(car->isActivated()) {
+        ofLog() << "Activating Auto page";
+        activeWindow = AUTO;
+    }
+    
+    if(travel->isActivated()) {
+        ofLog() << "Activating Travel page";
+        activeWindow = TRAVEL;
+    }
+    
+    if(membership->isActivated()) {
+        ofLog() << "Activating Membership page";
+        activeWindow = MEMBER;
+    }
 }
 
 void HomeContainer::draw() {

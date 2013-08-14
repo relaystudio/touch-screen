@@ -39,6 +39,7 @@ class HomeContainer : public Container {
     void setActive(bool _active);
     
     void addForces();
+    void checkActiveButton();
     
     void setupGUI();
     
@@ -50,8 +51,8 @@ class HomeContainer : public Container {
     HomeIcon * travel;
     HomeIcon * membership;
 
-    int activeWindow;
-    int prevWindow;
+    int activeWindow; // Active or queued
+//    int prevWindow; // Still active until -1
     
     WaitTimeBar * waitTime;
     

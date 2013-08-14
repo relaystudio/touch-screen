@@ -27,6 +27,7 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 
     logo = new ofImage();
     logo->loadImage("img/icon_auto_header.png");
+    
     totalHeight = ofGetHeight();
     padding = _padding;
     setupAnimation();
