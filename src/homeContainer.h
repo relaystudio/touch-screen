@@ -40,6 +40,7 @@ class HomeContainer : public Container {
     
     void addForces();
     void checkActiveButton();
+    void animateIcons();
     
     void setupGUI();
     

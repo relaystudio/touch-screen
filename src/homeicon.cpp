@@ -11,16 +11,22 @@
 const int touchThreshold = 30;
 
 HomeIcon::HomeIcon(string _title,
-                   string _apiPath, string _iconPath) {
+                   string _apiPath, string _iconPath, string _moviePath) {
     title = _title;
     apiPath = _apiPath;
     iconPath = _iconPath;
+    moviePath = _moviePath;
     
     bg = new ofImage();
     bg->loadImage("img/icon_bg.png");
     
     ring = new ofImage();
     ring->loadImage("img/icon_time_fg.png");
+    
+    movie = new ofVideoPlayer();
+    movie->loadMovie(moviePath);
+    movie->setLoopState(OF_LOOP_NONE);
+    movie->setFrame(0);
     
     icon = new ofImage();
     icon->loadImage(iconPath);
@@ -41,13 +47,13 @@ void HomeIcon::draw() {
     ofPushStyle();
     ofEnableAlphaBlending();
     ofTranslate(getPosition().x-150, getPosition().y-150);
-    bg->draw(0,0);
-    ring->draw(0,0);
-    icon->draw(0,0);
-    ofPushStyle();
-    ofSetColor(255,0,0);
-    //ofDrawBitmapString( body->GetJointList() ? "Being Touched" : "Kinda Lonely", ofPoint(0,0));
-    ofPopStyle();
+    if(movie->isPlaying()) {
+        movie->draw(0,0);
+    } else {
+        bg->draw(0,0);
+        ring->draw(0,0);
+        icon->draw(0,0);
+    }
     ofPopStyle();
 	ofPopMatrix();
 }
@@ -66,7 +72,19 @@ void HomeIcon::update(ofxBox2d * world) {
             wasActivated = true;
         }
     }
+    
+    if(movie->isPlaying()) movie->update();
 }
+
+void HomeIcon::playVideo() {
+    movie->setFrame(0);
+    movie->play();
+}
+
+bool HomeIcon::videoStopped() {
+    return movie->isPlaying();
+}
+
 
 bool HomeIcon::isActivated() {
     if(wasActivated) {

@@ -17,13 +17,16 @@
 class HomeIcon : public ofxBox2dCircle {
 public:
     HomeIcon(string _title,
-             string _apiPath, string _iconPath);
+             string _apiPath, string _iconPath, string _moviePath);
     ~HomeIcon();
     
     void draw();
     void update(ofxBox2d * world);
     
     bool isActivated();
+    
+    void playVideo();
+    bool videoStopped();
     
 private:
     
@@ -32,12 +35,13 @@ private:
     ofImage * bg;
     ofImage * ring;
     ofImage * icon;
+    ofVideoPlayer * movie;
     
     int radius, activityTimer, touchTimer, touchDistance;
     bool wasActivated, isActive;
     ofPoint origin;
     
-    string title, apiPath, iconPath;
+    string title, apiPath, iconPath, moviePath;
     Container * container;
     
 };

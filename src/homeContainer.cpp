@@ -32,19 +32,19 @@ HomeContainer::HomeContainer() {
     
     setActive(true);
     
-    house = new HomeIcon("House", "/api/home", "img/icon_home.png");
+    house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mp4");
     house->setPhysics(density, bounce, friction);
     house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
-    car = new HomeIcon("Car", "/api/car", "img/icon_auto.png");
+    car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mp4");
     car->setPhysics(density, bounce, friction);
     car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
-    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png");
+    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_trav.mp4");
     travel->setPhysics(density, bounce, friction);
     travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
-    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png");
+    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mp4");
     membership->setPhysics(density, bounce, friction);
     membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
 
@@ -90,6 +90,7 @@ void HomeContainer::update() {
     
 //    if(autoBox->isClosed()) activeWindow = -1;
     checkActiveButton();
+    animateIcons();
     
     if(activeWindow != -1) {
         switch(activeWindow) {
@@ -142,7 +143,31 @@ void HomeContainer::setActive(bool _active) {
     }
 }
 
-
+void HomeContainer::animateIcons() {
+    if(house->videoStopped()
+       && car->videoStopped()
+       && travel->videoStopped()
+       && membership->videoStopped())
+    {
+        int playRandom = ofRandom(0,3);
+        switch(playRandom) {
+            case 0:
+                car->playVideo();
+                break;
+            case 1:
+                house->playVideo();
+                break;
+            case 2:
+                travel->playVideo();
+                break;
+            case 3:
+                membership->playVideo();
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 void HomeContainer::setupGUI() {
     

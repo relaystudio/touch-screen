@@ -83,12 +83,6 @@ void AutoContainer::setupGUI() {
 
     ofxUIColor cb = ofxUIColor( 0, 0, 0, 0 );
     gui->setColorBack(cb);
-//    gui->setColorOutline(cb);
-//    gui->setColorOutlineHighlight(cb);
-//    gui->setColorFill(cb);
-//    gui->setColorFillHighlight(cb);
-//    gui->setColorPadded(cb);
-//    gui->setColorPaddedOutline(cb);
     
     ofxUIWidget *w;
     
