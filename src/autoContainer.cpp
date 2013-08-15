@@ -58,6 +58,7 @@ void AutoContainer::update() {
         logo->draw(0,20);
         about->draw();
         footer->draw(0,container->getHeight()-footer->getHeight());
+        ofDrawBitmapString(url, 50,50);
     container->end();
 }
 

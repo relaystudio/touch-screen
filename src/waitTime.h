@@ -10,7 +10,10 @@
 #define __BCAA__waitTime__
 
 #include <iostream>
+#include <time.h>
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
+//#include <boost/date_time/posix_time/posix_time.hpp>
 
 class WaitTimeBar {
 public:
@@ -22,6 +25,8 @@ public:
     void setState(int _transparency);
     
     void fetchData();
+    void loadXML();
+    void readXML();
     
 private:
     int width, height, padding;
@@ -32,7 +37,24 @@ private:
     ofImage * member;
     
     int carTime, houseTime, travelTime, memberTime;
+    int carNum, houseNum, travelNum, memberNum;
+    
     int state;
+    
+    ofxXmlSettings XML;
+    ofTrueTypeFont TTF;
+    
+    string xmlStructure;
+
+    int lineCount;
+    int lastTagNumber;
+    
+    string strTime;
+    time_t theTime;
+    time_t now;
+    
+    time_t buf;
+
 };
 
 

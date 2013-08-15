@@ -8,6 +8,8 @@
 
 #include "waitTime.h"
 
+//using namespace boost::posix_time;
+
 WaitTimeBar::WaitTimeBar() {
 
     width = 1500;
@@ -28,6 +30,7 @@ WaitTimeBar::WaitTimeBar() {
     houseTime = ofRandom(0,5);
     travelTime = ofRandom(0,5);
     memberTime = ofRandom(0,5);
+    TTF.loadFont("font/proximanova-light.ttf", 20);
 }
 
 WaitTimeBar::~WaitTimeBar() {
@@ -35,29 +38,45 @@ WaitTimeBar::~WaitTimeBar() {
 }
 
 void WaitTimeBar::update() {
-    if(carTime >= 0) carTime = ofRandom(0,5);
-    if(houseTime >= 0) houseTime = ofRandom(0,5);
-    if(travelTime >= 0) travelTime = ofRandom(0,5);
-    if(memberTime >= 0) memberTime = ofRandom(0,5);
-    
-    carTime -= ofRandom(0,5);
-    houseTime -= ofRandom(0,5);
-    travelTime -= ofRandom(0,5);
-    memberTime -= ofRandom(0,5);
-    
+    readXML();
 }
 
 void WaitTimeBar::draw() {
     ofPushMatrix();
     ofTranslate(padding,50);
     background->draw(0,0,width, height);
-    ofDrawBitmapString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 0, 25);
-    ofDrawBitmapString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .25, 25);
-    ofDrawBitmapString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .5, 25);
-    ofDrawBitmapString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .75, 25);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", .05, 25);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .3, 25);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .55, 25);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .8, 25);
     ofPopMatrix();
 }
 
 void WaitTimeBar::setState(int _transparency) {
     
+}
+
+void WaitTimeBar::loadXML() {
+	XML.loadFile("xml/WaitTime.xml");    
+}
+
+void WaitTimeBar::readXML() {
+    // http://stackoverflow.com/questions/321849/strptime-equivalent-on-windows
+    time(&now);
+    strTime     = XML.getAttribute("WaitTime:module:customerNumberByService","Auto", 0);
+    // July-25-13 4:46:20 PM
+//    strptime(strTime,"%B-%d-%y %H:%M:%S %p", &buf);
+//
+//    
+//	carTime		= difftime(now, mktime(&buf);
+    carNum      = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Auto", 0);
+    
+	houseTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Home", 0);
+    houseNum    = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Home", 0);
+    
+	travelTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Travel", 0);
+    travelNum   = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Travel", 0);
+    
+    memberTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Member", 0);
+    memberNum   = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Member", 0);
 }
