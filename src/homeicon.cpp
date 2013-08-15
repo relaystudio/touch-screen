@@ -73,7 +73,7 @@ void HomeIcon::update(ofxBox2d * world) {
         }
     }
     
-    if(movie->isPlaying()) movie->update();
+    movie->update();
 }
 
 void HomeIcon::playVideo() {

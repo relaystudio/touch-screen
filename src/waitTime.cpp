@@ -20,11 +20,16 @@ WaitTimeBar::WaitTimeBar() {
     background->loadImage("img/module_button_blue.png");
     
     car = new ofImage();
-    
+    car->loadImage("img/icon_auto_wait.png");
     
     house = new ofImage();
+    house->loadImage("img/icon_home_wait.png");
+    
     travel = new ofImage();
+    travel->loadImage("img/icon_travel_wait.png");
+    
     member = new ofImage();
+    member->loadImage("img/icon_member_wait.png");
     
     carTime = ofRandom(0,5);
     houseTime = ofRandom(0,5);
@@ -45,10 +50,18 @@ void WaitTimeBar::draw() {
     ofPushMatrix();
     ofTranslate(padding,50);
     background->draw(0,0,width, height);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", .05, 25);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .3, 25);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .55, 25);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", width * .8, 25);
+    ofTranslate(15,0);
+    car->draw(0,10);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width*.05)+(60), 25);
+    
+    house->draw((width * .25),0);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width * .3)+(60), 25);
+    
+    travel->draw((width * .50),0);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width * .55)+(60), 25);
+    
+    member->draw((width * .75),0);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width * .8)+(60), 25);
     ofPopMatrix();
 }
 
