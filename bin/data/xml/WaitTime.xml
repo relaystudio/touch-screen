@@ -1,0 +1,16 @@
+<!-- Example: http://localhost/WaitTime.aspx?loc=04 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<WaitTime>
+	<status>OK</status>
+	<module show="1" locationId="04">
+		<totalCustomersInQueue>0</totalCustomersInQueue>
+		<customerNumberByService>
+			<service name="Auto">3</service>
+		</customerNumberByService>
+		<estimatedStartTimeByService>
+			<service name="Auto">July-25-13 4:46:20 PM</service>
+		</estimatedStartTimeByService>
+	</module>
+</WaitTime>
+ 
