@@ -214,6 +214,7 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
     <ClCompile Include="src\touch.cpp" />
+    <ClCompile Include="src\waitTime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\aboutPage.h" />
@@ -401,6 +402,7 @@
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
     <ClInclude Include="src\touch.h" />
+    <ClInclude Include="src\waitTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs2010\openframeworksLib.vcxproj">

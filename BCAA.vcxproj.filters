@@ -349,6 +349,9 @@
     <ClCompile Include="src\aboutPage.cpp">
       <Filter>src\aboutPage</Filter>
     </ClCompile>
+    <ClCompile Include="src\waitTime.cpp">
+      <Filter>src\waitTime</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -473,6 +476,9 @@
     </Filter>
     <Filter Include="src\aboutPage">
       <UniqueIdentifier>{70b1138b-1e60-4f04-87ae-28e4e4770c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\waitTime">
+      <UniqueIdentifier>{2faa2b60-33d3-4244-8cf5-6799c17f3e24}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1030,6 +1036,9 @@
     </ClInclude>
     <ClInclude Include="src\aboutPage.h">
       <Filter>src\aboutPage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\waitTime.h">
+      <Filter>src\waitTime</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
