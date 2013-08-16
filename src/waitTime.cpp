@@ -42,7 +42,8 @@ WaitTimeBar::~WaitTimeBar() {
 }
 
 void WaitTimeBar::update() {
-    if(ofGetMinutes() != lastCheck) readXML();
+    if(ofGetMinutes() != lastCheck) loadXML();
+    readXML();
     //ofLog() << getDiff("August-15-13 9:50:20 PM");
 }
 
@@ -78,6 +79,13 @@ void WaitTimeBar::loadXML() {
          if(XML.loadFile("xml/WaitTime.xml")) ofLog() << "Loaded file";
     }
     lastCheck = ofGetMinutes();
+    ofLog() << (XML.tagExists("WaitTime",0) ? "WaitTime Works!" : "Waittime ain't there homie");
+    XML.pushTag("WaitTime",0);
+    XML.pushTag("module",0);
+    XML.pushTag("estimatedStartTimeByService", 0);
+//    XML.pushTag("module",0);
+    
+//    ofLog() << XML.doc;
 }
 
 void WaitTimeBar::readXML() {
@@ -95,21 +103,25 @@ void WaitTimeBar::readXML() {
 //      </module>
 //    </WaitTime>
     
-    XML.pushTag("WaitTime:module:customerNumberByService");
     int numTags = XML.getNumTags("service");
+    // ofLog() << "Num of service tags: " << numTags;
     for(int i=0;i<numTags;i++) {
         
-        if(XML.getAttribute("service","Name", "") == "Auto") {
-            carTime = XML.getValue("service", i);
+        if(XML.getAttribute("service","name", "", 0) == "Auto") {
+            carTime = getDiff(XML.getValue("service", "", i));
+            ofLog() << "Car time: " << carTime;
         } else
-        if(XML.getAttribute("service","Name", "") == "Home") {
-            houseTime = XML.getValue("service", i);
+        if(XML.getAttribute("service","name", "", 0) == "Home") {
+            houseTime = XML.getValue("service", 0, i);
+            ofLog() << "Home time: " << houseTime;
         } else
-        if(XML.getAttribute("service","Name", "") == "Travel") {
-            travelTime = XML.getValue("service", i);
+        if(XML.getAttribute("service","name", "", 0) == "Travel") {
+            travelTime = XML.getValue("service", 0, i);
+            ofLog() << "Travel time: " << travelTime;
         } else
-        if(XML.getAttribute("service","Name", "") == "Member") {
-            memberTime = XML.getValue("service", i);
+        if(XML.getAttribute("service","name", "", 0) == "Member") {
+            memberTime = XML.getValue("service", 0, i);
+            ofLog() << "Member service time: " << memberTime;
         }
     }
     
