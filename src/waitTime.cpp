@@ -34,7 +34,6 @@ WaitTimeBar::WaitTimeBar() {
     travelTime = ofRandom(0,5);
     memberTime = ofRandom(0,5);
     TTF.loadFont("font/proximanova-light.ttf", 20);
-    
     loadXML();
 }
 
@@ -43,8 +42,8 @@ WaitTimeBar::~WaitTimeBar() {
 }
 
 void WaitTimeBar::update() {
-//    readXML();
-    ofLog() << getDiff("August-15-13 9:50:20 PM");
+    if(ofGetMinutes() != lastCheck) readXML();
+    //ofLog() << getDiff("August-15-13 9:50:20 PM");
 }
 
 void WaitTimeBar::draw() {
@@ -73,15 +72,19 @@ void WaitTimeBar::setState(int _transparency) {
 void WaitTimeBar::loadXML() {
 //	XML.loadFile("xml/WaitTime.xml");
     ofxHttpResponse resp = web.getUrl("http://google.com");
-    ofLog() << resp.responseBody;
-    
+    if(XML.loadFromBuffer(resp.responseBody)) ofLog() << "Loaded XML";
+    else {
+        ofLog() << "Couldn't GET xml";
+         if(XML.loadFile("xml/WaitTime.xml")) ofLog() << "Loaded file";
+    }
+    lastCheck = ofGetMinutes();
 }
 
 void WaitTimeBar::readXML() {
-//    <?xml version="1.0" encoding="UTF-8"?>
-//    <WaitTime>
+//   <?xml version="1.0" encoding="UTF-8"?>
+//   <WaitTime>
 //    <status>OK</status>
-//      <module show="1" locationId="04">
+//    <module show="1" locationId="04">
 //          <totalCustomersInQueue>0</totalCustomersInQueue>
 //          <customerNumberByService>
 //              <service name="Auto">3</service>
@@ -92,9 +95,24 @@ void WaitTimeBar::readXML() {
 //      </module>
 //    </WaitTime>
     
-    if(XML.getAttribute("WaitTime:module:customerNumberByService:service","Name", "") == "Auto") {
-        carTime = XML.getValue("WaitTime:module:customerNumberByService:service", 0);
+    XML.pushTag("WaitTime:module:customerNumberByService");
+    int numTags = XML.getNumTags("service");
+    for(int i=0;i<numTags;i++) {
+        
+        if(XML.getAttribute("service","Name", "") == "Auto") {
+            carTime = XML.getValue("service", i);
+        } else
+        if(XML.getAttribute("service","Name", "") == "Home") {
+            houseTime = XML.getValue("service", i);
+        } else
+        if(XML.getAttribute("service","Name", "") == "Travel") {
+            travelTime = XML.getValue("service", i);
+        } else
+        if(XML.getAttribute("service","Name", "") == "Member") {
+            memberTime = XML.getValue("service", i);
+        }
     }
+    
 //    
 //    carTime     = XML.getAttribute("WaitTime:module:customerNumberByService","Auto", "");
 //    carNum      = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Auto", 0);
@@ -113,7 +131,7 @@ long WaitTimeBar::getDiff(string _date) {
     // August-15-13 9:46:20 PM
     time_t now;
     tm buf;
-    
+    long secondsDiff;
     vector<string> a, b, c;
     vector<int> yy,mm,dd,hh,m,ss;
     
@@ -146,5 +164,7 @@ long WaitTimeBar::getDiff(string _date) {
     buf.tm_mon  = mon;
     buf.tm_year = ofToInt(b[2])+100;
 
-    return difftime(now,mktime(&buf));;
+    secondsDiff = difftime(now,mktime(&buf));;
+    ofLog() << "Dif:" << secondsDiff;
+    return secondsDiff;
 }

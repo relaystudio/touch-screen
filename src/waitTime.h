@@ -44,6 +44,8 @@ private:
     
     int state;
     
+    long lastCheck;
+    
     ofxHttpUtils web;  
     
     ofxXmlSettings XML;
