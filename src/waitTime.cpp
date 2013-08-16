@@ -34,6 +34,8 @@ WaitTimeBar::WaitTimeBar() {
     travelTime = ofRandom(0,5);
     memberTime = ofRandom(0,5);
     TTF.loadFont("font/proximanova-light.ttf", 20);
+    
+    loadXML();
 }
 
 WaitTimeBar::~WaitTimeBar() {
@@ -69,7 +71,10 @@ void WaitTimeBar::setState(int _transparency) {
 }
 
 void WaitTimeBar::loadXML() {
-	XML.loadFile("xml/WaitTime.xml");    
+//	XML.loadFile("xml/WaitTime.xml");
+    ofxHttpResponse resp = web.getUrl("http://google.com");
+    ofLog() << resp.responseBody;
+    
 }
 
 void WaitTimeBar::readXML() {

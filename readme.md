@@ -8,8 +8,8 @@
 - ofxControlPanel (req: https://github.com/kylemcdonald/ofxControlPanel )
 - ofxBox2d
 - ofxTuio
-- ofxTween (maybe)
 - ofxUI
+- ofxHttpUtils
 - ofxXmlSettings
 - Awesomium (req: http://awesomium.com/download/)
 
