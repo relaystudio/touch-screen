@@ -13,6 +13,8 @@
 #include <time.h>
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
+#include "ofxHttpUtils.h"
+
 //#include <boost/date_time/posix_time/posix_time.hpp>
 
 class WaitTimeBar {
@@ -27,6 +29,7 @@ public:
     void fetchData();
     void loadXML();
     void readXML();
+    long getDiff(string _date);
     
 private:
     int width, height, padding;
@@ -41,6 +44,8 @@ private:
     
     int state;
     
+    ofxHttpUtils web;  
+    
     ofxXmlSettings XML;
     ofTrueTypeFont TTF;
     
@@ -48,12 +53,6 @@ private:
 
     int lineCount;
     int lastTagNumber;
-    
-    string strTime;
-    time_t theTime;
-    time_t now;
-    
-    time_t buf;
 
 };
 

@@ -8,8 +8,6 @@
 
 #include "waitTime.h"
 
-//using namespace boost::posix_time;
-
 WaitTimeBar::WaitTimeBar() {
 
     width = 1500;
@@ -43,7 +41,8 @@ WaitTimeBar::~WaitTimeBar() {
 }
 
 void WaitTimeBar::update() {
-    readXML();
+//    readXML();
+    ofLog() << getDiff("August-15-13 9:50:20 PM");
 }
 
 void WaitTimeBar::draw() {
@@ -74,22 +73,73 @@ void WaitTimeBar::loadXML() {
 }
 
 void WaitTimeBar::readXML() {
-    // http://stackoverflow.com/questions/321849/strptime-equivalent-on-windows
-    time(&now);
-    strTime     = XML.getAttribute("WaitTime:module:customerNumberByService","Auto", 0);
-    // July-25-13 4:46:20 PM
-//    strptime(strTime,"%B-%d-%y %H:%M:%S %p", &buf);
-//
+//    <?xml version="1.0" encoding="UTF-8"?>
+//    <WaitTime>
+//    <status>OK</status>
+//      <module show="1" locationId="04">
+//          <totalCustomersInQueue>0</totalCustomersInQueue>
+//          <customerNumberByService>
+//              <service name="Auto">3</service>
+//          </customerNumberByService>
+//          <estimatedStartTimeByService>
+//              <service name="Auto">July-25-13 4:46:20 PM</service>
+//          </estimatedStartTimeByService>
+//      </module>
+//    </WaitTime>
+    
+    if(XML.getAttribute("WaitTime:module:customerNumberByService:service","Name", "") == "Auto") {
+        carTime = XML.getValue("WaitTime:module:customerNumberByService:service", 0);
+    }
 //    
-//	carTime		= difftime(now, mktime(&buf);
-    carNum      = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Auto", 0);
+//    carTime     = XML.getAttribute("WaitTime:module:customerNumberByService","Auto", "");
+//    carNum      = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Auto", 0);
+//    
+//	houseTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Home", "");
+//    houseNum    = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Home", 0);
+//    
+//	travelTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Travel", "");
+//    travelNum   = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Travel", 0);
+//    
+//    memberTime	= getDiff(XML.getAttribute("WaitTime:module:customerNumberByService","Member", ""));
+//    memberNum   = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Member", 0);
+}
+
+long WaitTimeBar::getDiff(string _date) {
+    // August-15-13 9:46:20 PM
+    time_t now;
+    tm buf;
     
-	houseTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Home", 0);
-    houseNum    = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Home", 0);
+    vector<string> a, b, c;
+    vector<int> yy,mm,dd,hh,m,ss;
     
-	travelTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Travel", 0);
-    travelNum   = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Travel", 0);
+    a = ofSplitString(_date, " "); // Separate main
+    b = ofSplitString(a[0], "-"); // Separate date
+    c = ofSplitString(a[1], ":"); // Separate time
     
-    memberTime	= XML.getAttribute("WaitTime:module:customerNumberByService","Member", 0);
-    memberNum   = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Member", 0);
+    time(&now);
+    buf = *localtime(&now);
+    int mon = 0;
+    if(b[0]=="January") mon = 0; else
+    if(b[0]=="February") mon = 1; else
+    if(b[0]=="March") mon = 2; else
+    if(b[0]=="April") mon = 3; else
+    if(b[0]=="May") mon = 4; else
+    if(b[0]=="June") mon = 5; else
+    if(b[0]=="July") mon = 6; else
+    if(b[0]=="August") mon = 7; else
+    if(b[0]=="September") mon = 8; else
+    if(b[0]=="October") mon = 9; else
+    if(b[0]=="November") mon = 10; else
+    if(b[0]=="December") mon = 11;
+    
+    //if(a[2] == "PM") c[0] += 12;
+    
+    buf.tm_sec  = ofToInt(c[2]);
+    buf.tm_min  = ofToInt(c[1]);
+    buf.tm_hour = ofToInt(c[0]);
+    buf.tm_mday = ofToInt(b[1]);
+    buf.tm_mon  = mon;
+    buf.tm_year = ofToInt(b[2])+100;
+
+    return difftime(now,mktime(&buf));;
 }

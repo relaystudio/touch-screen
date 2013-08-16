@@ -54,6 +54,7 @@
 		839175D61796FF6C0054F2F4 /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D41796FF6C0054F2F4 /* connection.cpp */; };
 		839175D91796FF730054F2F4 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D71796FF730054F2F4 /* settings.cpp */; };
 		8395A94A17B84027001B3D5E /* waitTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A94817B84027001B3D5E /* waitTime.cpp */; };
+		8395A98E17BDB38D001B3D5E /* ofxHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A98A17BDB38D001B3D5E /* ofxHttpUtils.cpp */; };
 		83B8794F17A945A300144850 /* aboutPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B8794D17A945A300144850 /* aboutPage.cpp */; };
 		83CE0D2B179985FE00653581 /* touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D29179985FE00653581 /* touch.cpp */; };
 		83CE0D561799863500653581 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D321799863500653581 /* IpEndpointName.cpp */; };
@@ -319,6 +320,9 @@
 		8395A97617BC424E001B3D5E /* module_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_header.png; sourceTree = "<group>"; };
 		8395A97717BC424E001B3D5E /* module_header_calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = module_header_calculator.png; sourceTree = "<group>"; };
 		8395A97917BC424E001B3D5E /* WaitTime.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WaitTime.xml; sourceTree = "<group>"; };
+		8395A98917BDB38D001B3D5E /* ofxHttpTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpTypes.h; sourceTree = "<group>"; };
+		8395A98A17BDB38D001B3D5E /* ofxHttpUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxHttpUtils.cpp; sourceTree = "<group>"; };
+		8395A98B17BDB38D001B3D5E /* ofxHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpUtils.h; sourceTree = "<group>"; };
 		83B8794D17A945A300144850 /* aboutPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aboutPage.cpp; sourceTree = "<group>"; };
 		83B8794E17A945A300144850 /* aboutPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutPage.h; sourceTree = "<group>"; };
 		83CE0D29179985FE00653581 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
@@ -828,6 +832,25 @@
 			path = xml;
 			sourceTree = "<group>";
 		};
+		8395A97A17BDB38D001B3D5E /* ofxHttpUtils */ = {
+			isa = PBXGroup;
+			children = (
+				8395A98817BDB38D001B3D5E /* src */,
+			);
+			name = ofxHttpUtils;
+			path = ../../openFrameworks/addons/ofxHttpUtils;
+			sourceTree = "<group>";
+		};
+		8395A98817BDB38D001B3D5E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8395A98917BDB38D001B3D5E /* ofxHttpTypes.h */,
+				8395A98A17BDB38D001B3D5E /* ofxHttpUtils.cpp */,
+				8395A98B17BDB38D001B3D5E /* ofxHttpUtils.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		83CE0D2C1799863500653581 /* ofxOsc */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,6 +1020,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				8395A97A17BDB38D001B3D5E /* ofxHttpUtils */,
 				83CE0D2C1799863500653581 /* ofxOsc */,
 				bd1b24c549bfa7d54bc59de3c6921b7c /* ofxBox2d */,
 				3598f21374bfca3edce76f188ab795da /* ofxControlPanel */,
@@ -1467,6 +1491,7 @@
 				83DB05D917A2CC5F0037506F /* autoContainer.cpp in Sources */,
 				83B8794F17A945A300144850 /* aboutPage.cpp in Sources */,
 				8395A94A17B84027001B3D5E /* waitTime.cpp in Sources */,
+				8395A98E17BDB38D001B3D5E /* ofxHttpUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
