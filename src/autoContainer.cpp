@@ -89,8 +89,8 @@ void AutoContainer::setupGUI() {
     w = gui->addSpacer(container->getWidth()-85, container->getHeight()-footer->getHeight()-5, "HeaderSpacer");
     w->setColorFill(cb);
     
-    gui->addWidgetEastOf(new ofxUIImageButton(0,0,44, 85,true,"img/button_home.png", "HOME"),"HeaderSpacer");
-    
+//    gui->addWidgetEastOf(new ofxUIImageButton(0,0,44, 85,true,"img/button_home.png", "HOME"),"HeaderSpacer");
+//    
     
 //    gui->addWidgetDown(new ofxUILabel("CUSTOM WIDGET LAYOUT", OFX_UI_FONT_LARGE), OFX_UI_ALIGN_RIGHT);
 //    

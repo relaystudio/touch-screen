@@ -55,7 +55,8 @@ private:
 
     int lineCount;
     int lastTagNumber;
-
+    int flipTag,tagNum;
+    
 };
 
 

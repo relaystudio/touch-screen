@@ -15,7 +15,7 @@ WaitTimeBar::WaitTimeBar() {
     padding = (ofGetWidth() - width) / 2;
     
     background = new ofImage();
-    background->loadImage("img/module_button_blue.png");
+    background->loadImage("img/ticker-01.png");
     
     car = new ofImage();
     car->loadImage("img/icon_auto_wait.png");
@@ -29,11 +29,12 @@ WaitTimeBar::WaitTimeBar() {
     member = new ofImage();
     member->loadImage("img/icon_member_wait.png");
     
+    
     carTime = ofRandom(0,5);
     houseTime = ofRandom(0,5);
     travelTime = ofRandom(0,5);
     memberTime = ofRandom(0,5);
-    TTF.loadFont("font/proximanova-light.ttf", 20);
+    TTF.loadFont("font/proximanovacond-light.ttf", 29);
     loadXML();
 }
 
@@ -42,27 +43,30 @@ WaitTimeBar::~WaitTimeBar() {
 }
 
 void WaitTimeBar::update() {
+    // Pole the xml side of things every minute
     if(ofGetMinutes() != lastCheck) loadXML();
     readXML();
-    //ofLog() << getDiff("August-15-13 9:50:20 PM");
+
+    // Flip them tags every 10 seconds
+    flipTag = ofGetSeconds() % 10;
+    if(flipTag == 0) tagNum = (tagNum+1)%3;
+
 }
 
 void WaitTimeBar::draw() {
     ofPushMatrix();
-    ofTranslate(padding,50);
-    background->draw(0,0,width, height);
+    ofTranslate(74,50);
+    background->draw(0,0);
+    ofTranslate(0,30);
     ofTranslate(15,0);
-    car->draw(0,10);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width*.05)+(60), 25);
+
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 158, 25);
     
-    house->draw((width * .25),0);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width * .3)+(60), 25);
+    TTF.drawString(houseTime > 0 ? "It's your turn!" : ofToString(houseTime) + " minutes left!", 529,25);
     
-    travel->draw((width * .50),0);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width * .55)+(60), 25);
+    TTF.drawString(travelTime > 0 ? "It's your turn!" : ofToString(travelTime) + " minutes left!", 1048, 25);
     
-    member->draw((width * .75),0);
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", (width * .8)+(60), 25);
+    TTF.drawString(memberTime > 0 ? "It's your turn!" : ofToString(memberTime) + " minutes left!", 1469, 25);
     ofPopMatrix();
 }
 
@@ -80,9 +84,6 @@ void WaitTimeBar::loadXML() {
     }
     lastCheck = ofGetMinutes();
     ofLog() << (XML.tagExists("WaitTime",0) ? "WaitTime Works!" : "Waittime ain't there homie");
-    XML.pushTag("WaitTime",0);
-    XML.pushTag("module",0);
-    XML.pushTag("estimatedStartTimeByService", 0);
 //    XML.pushTag("module",0);
     
 //    ofLog() << XML.doc;
@@ -102,6 +103,10 @@ void WaitTimeBar::readXML() {
 //          </estimatedStartTimeByService>
 //      </module>
 //    </WaitTime>
+    
+    XML.pushTag("WaitTime",0);
+    XML.pushTag("module",0);
+    XML.pushTag("estimatedStartTimeByService", 0);
     
     int numTags = XML.getNumTags("service");
     // ofLog() << "Num of service tags: " << numTags;
@@ -124,6 +129,35 @@ void WaitTimeBar::readXML() {
             ofLog() << "Member service time: " << memberTime;
         }
     }
+    XML.popTag();
+    
+    XML.pushTag("WaitTime",0);
+    XML.pushTag("module",0);
+    XML.pushTag("customerNumberByService", 0);
+    
+    numTags = XML.getNumTags("service");
+    // ofLog() << "Num of service tags: " << numTags;
+    for(int i=0;i<numTags;i++) {
+        
+        if(XML.getAttribute("service","name", "", 0) == "Auto") {
+            carNum = getDiff(XML.getValue("service", "", i));
+            ofLog() << "Car queue: " << carNum;
+        } else
+        if(XML.getAttribute("service","name", "", 0) == "Home") {
+            houseNum = XML.getValue("service", 0, i);
+            ofLog() << "Home queue: " << houseNum;
+        } else
+        if(XML.getAttribute("service","name", "", 0) == "Travel") {
+            travelNum = XML.getValue("service", 0, i);
+            ofLog() << "Travel queue: " << travelNum;
+        } else
+        if(XML.getAttribute("service","name", "", 0) == "Member") {
+            memberNum = XML.getValue("service", 0, i);
+            ofLog() << "Member service queue: " << memberNum;
+        }
+    }
+    
+    XML.popTag();
     
 //    
 //    carTime     = XML.getAttribute("WaitTime:module:customerNumberByService","Auto", "");

@@ -51,12 +51,9 @@
 		839175CD1796F1EB0054F2F4 /* page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CB1796F1EB0054F2F4 /* page.cpp */; };
 		839175D01796F2100054F2F4 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CE1796F2100054F2F4 /* container.cpp */; };
 		839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D11796F32A0054F2F4 /* homeicon.cpp */; };
-		839175D61796FF6C0054F2F4 /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D41796FF6C0054F2F4 /* connection.cpp */; };
-		839175D91796FF730054F2F4 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D71796FF730054F2F4 /* settings.cpp */; };
 		8395A94A17B84027001B3D5E /* waitTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A94817B84027001B3D5E /* waitTime.cpp */; };
 		8395A98E17BDB38D001B3D5E /* ofxHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A98A17BDB38D001B3D5E /* ofxHttpUtils.cpp */; };
 		83B8794F17A945A300144850 /* aboutPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B8794D17A945A300144850 /* aboutPage.cpp */; };
-		83CE0D2B179985FE00653581 /* touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D29179985FE00653581 /* touch.cpp */; };
 		83CE0D561799863500653581 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D321799863500653581 /* IpEndpointName.cpp */; };
 		83CE0D571799863500653581 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D371799863500653581 /* NetworkingUtils.cpp */; };
 		83CE0D581799863500653581 /* UdpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D381799863500653581 /* UdpSocket.cpp */; };
@@ -277,10 +274,6 @@
 		839175CF1796F2100054F2F4 /* container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = container.h; sourceTree = "<group>"; };
 		839175D11796F32A0054F2F4 /* homeicon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = homeicon.cpp; sourceTree = "<group>"; };
 		839175D21796F32B0054F2F4 /* homeicon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeicon.h; sourceTree = "<group>"; };
-		839175D41796FF6C0054F2F4 /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
-		839175D51796FF6C0054F2F4 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
-		839175D71796FF730054F2F4 /* settings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cpp; sourceTree = "<group>"; };
-		839175D81796FF730054F2F4 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
 		8395A94817B84027001B3D5E /* waitTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = waitTime.cpp; sourceTree = "<group>"; };
 		8395A94917B84027001B3D5E /* waitTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waitTime.h; sourceTree = "<group>"; };
 		8395A95117BC424E001B3D5E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -325,8 +318,6 @@
 		8395A98B17BDB38D001B3D5E /* ofxHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpUtils.h; sourceTree = "<group>"; };
 		83B8794D17A945A300144850 /* aboutPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aboutPage.cpp; sourceTree = "<group>"; };
 		83B8794E17A945A300144850 /* aboutPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutPage.h; sourceTree = "<group>"; };
-		83CE0D29179985FE00653581 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
-		83CE0D2A179985FE00653581 /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch.h; sourceTree = "<group>"; };
 		83CE0D321799863500653581 /* IpEndpointName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IpEndpointName.cpp; sourceTree = "<group>"; };
 		83CE0D331799863500653581 /* IpEndpointName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IpEndpointName.h; sourceTree = "<group>"; };
 		83CE0D341799863500653581 /* NetworkingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingUtils.h; sourceTree = "<group>"; };
@@ -704,27 +695,6 @@
 			name = Joints;
 			sourceTree = "<group>";
 		};
-		8389B60617B295E0003C5CBF /* houseScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = houseScreen;
-			sourceTree = "<group>";
-		};
-		8389B60717B295F4003C5CBF /* travelScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = travelScreen;
-			sourceTree = "<group>";
-		};
-		8389B60817B29600003C5CBF /* memberScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = memberScreen;
-			sourceTree = "<group>";
-		};
 		839175C91796F1B10054F2F4 /* interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -740,19 +710,6 @@
 				8395A94917B84027001B3D5E /* waitTime.h */,
 			);
 			name = interface;
-			sourceTree = "<group>";
-		};
-		839175CA1796F1D00054F2F4 /* service */ = {
-			isa = PBXGroup;
-			children = (
-				839175D41796FF6C0054F2F4 /* connection.cpp */,
-				839175D51796FF6C0054F2F4 /* connection.h */,
-				839175D71796FF730054F2F4 /* settings.cpp */,
-				839175D81796FF730054F2F4 /* settings.h */,
-				83CE0D29179985FE00653581 /* touch.cpp */,
-				83CE0D2A179985FE00653581 /* touch.h */,
-			);
-			name = service;
 			sourceTree = "<group>";
 		};
 		8395A95017BC424D001B3D5E /* data */ = {
@@ -1102,10 +1059,6 @@
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
 				83CE0D64179D865900653581 /* homeScreen */,
 				83DB05D617A2CC460037506F /* autoScreen */,
-				8389B60617B295E0003C5CBF /* houseScreen */,
-				8389B60717B295F4003C5CBF /* travelScreen */,
-				8389B60817B29600003C5CBF /* memberScreen */,
-				839175CA1796F1D00054F2F4 /* service */,
 				839175C91796F1B10054F2F4 /* interface */,
 			);
 			path = src;
@@ -1469,9 +1422,6 @@
 				839175CD1796F1EB0054F2F4 /* page.cpp in Sources */,
 				839175D01796F2100054F2F4 /* container.cpp in Sources */,
 				839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */,
-				839175D61796FF6C0054F2F4 /* connection.cpp in Sources */,
-				839175D91796FF730054F2F4 /* settings.cpp in Sources */,
-				83CE0D2B179985FE00653581 /* touch.cpp in Sources */,
 				83CE0D561799863500653581 /* IpEndpointName.cpp in Sources */,
 				83CE0D571799863500653581 /* NetworkingUtils.cpp in Sources */,
 				83CE0D581799863500653581 /* UdpSocket.cpp in Sources */,
