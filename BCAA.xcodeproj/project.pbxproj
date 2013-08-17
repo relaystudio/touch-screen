@@ -53,6 +53,7 @@
 		839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D11796F32A0054F2F4 /* homeicon.cpp */; };
 		8395A94A17B84027001B3D5E /* waitTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A94817B84027001B3D5E /* waitTime.cpp */; };
 		8395A98E17BDB38D001B3D5E /* ofxHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A98A17BDB38D001B3D5E /* ofxHttpUtils.cpp */; };
+		8395A99117BFCB32001B3D5E /* touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8395A98F17BFCB32001B3D5E /* touch.cpp */; };
 		83B8794F17A945A300144850 /* aboutPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B8794D17A945A300144850 /* aboutPage.cpp */; };
 		83CE0D561799863500653581 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D321799863500653581 /* IpEndpointName.cpp */; };
 		83CE0D571799863500653581 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CE0D371799863500653581 /* NetworkingUtils.cpp */; };
@@ -316,6 +317,8 @@
 		8395A98917BDB38D001B3D5E /* ofxHttpTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpTypes.h; sourceTree = "<group>"; };
 		8395A98A17BDB38D001B3D5E /* ofxHttpUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxHttpUtils.cpp; sourceTree = "<group>"; };
 		8395A98B17BDB38D001B3D5E /* ofxHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpUtils.h; sourceTree = "<group>"; };
+		8395A98F17BFCB32001B3D5E /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
+		8395A99017BFCB32001B3D5E /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch.h; sourceTree = "<group>"; };
 		83B8794D17A945A300144850 /* aboutPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aboutPage.cpp; sourceTree = "<group>"; };
 		83B8794E17A945A300144850 /* aboutPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutPage.h; sourceTree = "<group>"; };
 		83CE0D321799863500653581 /* IpEndpointName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IpEndpointName.cpp; sourceTree = "<group>"; };
@@ -706,6 +709,8 @@
 				839175CF1796F2100054F2F4 /* container.h */,
 				839175D11796F32A0054F2F4 /* homeicon.cpp */,
 				839175D21796F32B0054F2F4 /* homeicon.h */,
+				8395A98F17BFCB32001B3D5E /* touch.cpp */,
+				8395A99017BFCB32001B3D5E /* touch.h */,
 				8395A94817B84027001B3D5E /* waitTime.cpp */,
 				8395A94917B84027001B3D5E /* waitTime.h */,
 			);
@@ -1442,6 +1447,7 @@
 				83B8794F17A945A300144850 /* aboutPage.cpp in Sources */,
 				8395A94A17B84027001B3D5E /* waitTime.cpp in Sources */,
 				8395A98E17BDB38D001B3D5E /* ofxHttpUtils.cpp in Sources */,
+				8395A99117BFCB32001B3D5E /* touch.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

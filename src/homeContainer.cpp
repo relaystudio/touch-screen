@@ -22,7 +22,7 @@ HomeContainer::HomeContainer() {
     
     float density = 4.0;
     float bounce = .3;
-    float friction = 1.1;
+    float friction = 2.1;
     
     box2d = new ofxBox2d();
     box2d->init();

@@ -17,6 +17,9 @@ WaitTimeBar::WaitTimeBar() {
     background = new ofImage();
     background->loadImage("img/ticker-01.png");
     
+    flipImg = new ofImage();
+    flipImg->loadImage("img/ticker_active.png");
+    
     car = new ofImage();
     car->loadImage("img/icon_auto_wait.png");
     
@@ -35,6 +38,7 @@ WaitTimeBar::WaitTimeBar() {
     travelTime = ofRandom(0,5);
     memberTime = ofRandom(0,5);
     TTF.loadFont("font/proximanovacond-light.ttf", 29);
+    tagNum = 0; flag = false;
     loadXML();
 }
 
@@ -49,7 +53,8 @@ void WaitTimeBar::update() {
 
     // Flip them tags every 10 seconds
     flipTag = ofGetSeconds() % 10;
-    if(flipTag == 0) tagNum = (tagNum+1)%3;
+    if(flipTag == 0) flag = true;
+    if(flipTag == 1 && flag == true) { tagNum = (tagNum+1) % 3; flag = false; }
 
 }
 
@@ -57,16 +62,49 @@ void WaitTimeBar::draw() {
     ofPushMatrix();
     ofTranslate(74,50);
     background->draw(0,0);
+    ofPushMatrix();
     ofTranslate(0,30);
     ofTranslate(15,0);
 
     TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 158, 25);
-    
     TTF.drawString(houseTime > 0 ? "It's your turn!" : ofToString(houseTime) + " minutes left!", 529,25);
     
     TTF.drawString(travelTime > 0 ? "It's your turn!" : ofToString(travelTime) + " minutes left!", 1048, 25);
     
     TTF.drawString(memberTime > 0 ? "It's your turn!" : ofToString(memberTime) + " minutes left!", 1469, 25);
+    ofPopMatrix();
+    ofTranslate(0,17);
+    drawFlipTag();
+    ofPopMatrix();
+}
+
+void WaitTimeBar::drawFlipTag() {
+    int position, scale;
+    int * ppl;
+    switch(tagNum) {
+        case 0:
+            position = 0;
+            ppl = &carNum;
+            break;
+        case 1:
+            position = 415;
+            ppl = &houseNum;
+            break;
+        case 2:
+            position = 930;
+            ppl = &travelNum;
+            break;
+        case 3:
+            position = 1330;
+            ppl = &memberNum;
+            break;
+        default:
+            break;
+    }
+    ofPushMatrix();
+    ofTranslate(position,0);
+    flipImg->draw(0,0);
+    TTF.drawString(*ppl == 0 ? "You're next" : ofToString(*ppl) + " people ahead of you", 10, 45);
     ofPopMatrix();
 }
 
@@ -84,8 +122,8 @@ void WaitTimeBar::loadXML() {
     }
     lastCheck = ofGetMinutes();
     ofLog() << (XML.tagExists("WaitTime",0) ? "WaitTime Works!" : "Waittime ain't there homie");
-//    XML.pushTag("module",0);
-    
+    XML.pushTag("WaitTime",0);
+    XML.pushTag("module",0);
 //    ofLog() << XML.doc;
 }
 
@@ -104,8 +142,6 @@ void WaitTimeBar::readXML() {
 //      </module>
 //    </WaitTime>
     
-    XML.pushTag("WaitTime",0);
-    XML.pushTag("module",0);
     XML.pushTag("estimatedStartTimeByService", 0);
     
     int numTags = XML.getNumTags("service");
@@ -131,16 +167,13 @@ void WaitTimeBar::readXML() {
     }
     XML.popTag();
     
-    XML.pushTag("WaitTime",0);
-    XML.pushTag("module",0);
     XML.pushTag("customerNumberByService", 0);
-    
     numTags = XML.getNumTags("service");
     // ofLog() << "Num of service tags: " << numTags;
     for(int i=0;i<numTags;i++) {
         
         if(XML.getAttribute("service","name", "", 0) == "Auto") {
-            carNum = getDiff(XML.getValue("service", "", i));
+            carNum = XML.getValue("service", 0, i);
             ofLog() << "Car queue: " << carNum;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Home") {
@@ -158,7 +191,6 @@ void WaitTimeBar::readXML() {
     }
     
     XML.popTag();
-    
 //    
 //    carTime     = XML.getAttribute("WaitTime:module:customerNumberByService","Auto", "");
 //    carNum      = XML.getAttribute("WaitTime:module:estimatedStartTimeByService","Auto", 0);

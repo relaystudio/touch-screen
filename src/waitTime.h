@@ -29,11 +29,13 @@ public:
     void fetchData();
     void loadXML();
     void readXML();
+    void drawFlipTag();
     long getDiff(string _date);
     
 private:
     int width, height, padding;
     ofImage * background;
+    ofImage * flipImg;
     ofImage * car;
     ofImage * house;
     ofImage * travel;
@@ -45,7 +47,7 @@ private:
     int state;
     
     long lastCheck;
-    
+    bool flag;
     ofxHttpUtils web;  
     
     ofxXmlSettings XML;
