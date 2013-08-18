@@ -49,7 +49,7 @@ private:
     long lastCheck;
     bool flag;
     ofxHttpUtils web;  
-    
+    float scale;
     ofxXmlSettings XML;
     ofTrueTypeFont TTF;
     

@@ -40,6 +40,7 @@ WaitTimeBar::WaitTimeBar() {
     TTF.loadFont("font/proximanovacond-light.ttf", 29);
     tagNum = 0; flag = false;
     loadXML();
+    scale = 0.0f;
 }
 
 WaitTimeBar::~WaitTimeBar() {
@@ -54,7 +55,7 @@ void WaitTimeBar::update() {
     // Flip them tags every 10 seconds
     flipTag = ofGetSeconds() % 10;
     if(flipTag == 0) flag = true;
-    if(flipTag == 1 && flag == true) { tagNum = (tagNum+1) % 4; flag = false; }
+    if(flipTag == 1 && flag == true) { tagNum = (tagNum+1) % 4; flag = false; scale = 0.0f; }
 
 }
 
@@ -79,7 +80,7 @@ void WaitTimeBar::draw() {
 }
 
 void WaitTimeBar::drawFlipTag() {
-    int position, scale;
+    int position;
     int * ppl;
     switch(tagNum) {
         case 0:
@@ -101,8 +102,11 @@ void WaitTimeBar::drawFlipTag() {
         default:
             break;
     }
+    if(scale <= 1.0f) scale += 0.1f; //else scale = 1.0f;
+    ofLog() << scale;
     ofPushMatrix();
     ofTranslate(position,0);
+    ofScale(1,scale);
     flipImg->draw(0,0);
     TTF.drawString(*ppl == 0 ? "You're next" : ofToString(*ppl) + " people ahead of you", 10, 45);
     ofPopMatrix();
