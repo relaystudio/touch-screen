@@ -38,8 +38,8 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     setupGUI();
 #ifdef AWESOMIUM
     Awesomium::WebCoreConfig config;
-	webCore = new Awesomium::WebCore(config);
-	webView = webCore->createWebView(webTexWidth, webTexHeight);
+	webCore = new Awesomium::WebCore(WebConfig());
+	webView = webCore->createWebView(_width, _height);
 #endif
     
 }
@@ -53,20 +53,24 @@ void AutoContainer::update() {
     about->update();
     container->begin();
         ofClear(0,0,0,0);
+#ifndef AWESOMIUM
         content->draw(0,0,container->getWidth(),container->getHeight()-footer->getHeight());
         header->draw(0,0);
         logo->draw(0,20);
         about->draw();
         footer->draw(0,container->getHeight()-footer->getHeight());
         ofDrawBitmapString(url, 50,50);
+#else
+        webview->draw();
+#endif
     container->end();
 }
 
 void AutoContainer::setPage(string _url) {
-    url = _url;
+//    url = _url;
 #ifdef AWESOMIUM
-	// Load a certain URL into our WebView instance
-	webView->loadURL("http://www.google.com");
+    WebURL url(WSLit(_url));
+	webView->loadURL(url);
 	webView->focus();
 #endif
 }
