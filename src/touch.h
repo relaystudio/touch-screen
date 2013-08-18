@@ -26,7 +26,7 @@ public:
     
     void update(); // Recieve msg
     void draw(); // draw cursor (debug)
-    
+    long getLastMoved();
 private:
     void tuioAdded(ofxTuioCursor & tuioCursor);
 	void tuioRemoved(ofxTuioCursor & tuioCursor);
@@ -35,7 +35,7 @@ private:
     vector<ofPoint> pnt;
     
     ofxTuioClient tuioClient;
-    
+    long lastMoved;
 };
 
 

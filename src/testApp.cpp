@@ -18,6 +18,11 @@ void testApp::setup(){
 //    
 //    box2d = home->getBox2d();
 //
+    attract = new ofVideoPlayer();
+    attract->loadMovie("img/attract.mov");
+    attract->setLoopState(OF_LOOP_NORMAL);
+    attract->play();
+    fade = 0.f;
 }
 
 
@@ -37,6 +42,23 @@ void testApp::draw(){
     mainBackground->draw(0,0,ofGetWidth(),ofGetHeight());
     home->draw();
     touch->draw();
+    drawAttract();
+}
+
+void testApp::drawAttract() {
+    ofPushStyle();
+    ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-1000;
+    if(touch->getLastMoved() < ofGetUnixTime()-10) {
+        attract->update();
+        ofLog() << "Attract mode on!";
+        if(fade <= 1.0f) fade += 0.05;
+        ofSetColor(255,255,255, ofMap(fade,0,1,0,255));
+        attract->draw(0,0,ofGetWidth(), ofGetHeight());
+    } else {
+        fade = 0;
+        attract->setFrame(0);
+    }
+    ofPopStyle();
 }
 
 ////////////////////////////////////////////////////////////////////

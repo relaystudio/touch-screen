@@ -17,6 +17,7 @@ Touch::Touch(int _port) {
 	ofAddListener(tuioClient.cursorUpdated,this,&Touch::tuioUpdated);
     
   //  ofRegisterTouchEvents(this);
+    lastMoved = ofGetUnixTime();
 }
 
 Touch::Touch() {
@@ -48,6 +49,10 @@ ofPoint * Touch::getPoint() {
 	return new ofPoint();
 }
 
+long Touch::getLastMoved() {
+    return lastMoved;
+}
+
 /////////////////////////////////////////////////////////////////
 /////////////   Event management    /////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -61,6 +66,7 @@ void Touch::tuioUpdated(ofxTuioCursor &tuioCursor){
     ofPoint loc = ofPoint(tuioCursor.getX()*ofGetWidth(),tuioCursor.getY()*ofGetHeight());
     ofLog(OF_LOG_VERBOSE) << "Point n" << tuioCursor.getSessionId() << " updated at " << loc << endl;
      ofNotifyMouseDragged(loc.x, loc.y, 0);
+    lastMoved = ofGetUnixTime();
 }
 
 void Touch::tuioRemoved(ofxTuioCursor &tuioCursor){

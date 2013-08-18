@@ -16,7 +16,8 @@ class testApp : public ofBaseApp{
         void end();
 		void update();
 		void draw();
-
+        void drawAttract();
+    
 		void keyPressed  (int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -27,10 +28,11 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+        ofVideoPlayer * attract;
+    
         Touch * touch;
         Container * testContainer;
-    
         HomeContainer * home;
         ofImage * mainBackground;
-    
+        float fade;  
 };
