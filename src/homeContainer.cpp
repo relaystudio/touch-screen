@@ -32,19 +32,19 @@ HomeContainer::HomeContainer() {
     
     setActive(true);
     
-    house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mp4");
+    house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mov");
     house->setPhysics(density, bounce, friction);
     house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
-    car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mp4");
+    car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mov");
     car->setPhysics(density, bounce, friction);
     car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
-    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_trav.mp4");
+    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_trav.mov");
     travel->setPhysics(density, bounce, friction);
     travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
     
-    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mp4");
+    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mov");
     membership->setPhysics(density, bounce, friction);
     membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
 
