@@ -33,10 +33,10 @@ WaitTimeBar::WaitTimeBar() {
     member->loadImage("img/icon_member_wait.png");
     
     
-    carTime = ofRandom(0,5);
-    houseTime = ofRandom(0,5);
-    travelTime = ofRandom(0,5);
-    memberTime = ofRandom(0,5);
+    carTime = carNum = ofRandom(0,5);
+    houseTime = houseNum = ofRandom(0,5);
+    travelTime = travelNum = ofRandom(0,5);
+    memberTime = memberNum = ofRandom(0,5);
     TTF.loadFont("font/proximanovacond-light.ttf", 29);
     tagNum = 0; flag = false;
     loadXML();
@@ -54,7 +54,7 @@ void WaitTimeBar::update() {
     // Flip them tags every 10 seconds
     flipTag = ofGetSeconds() % 10;
     if(flipTag == 0) flag = true;
-    if(flipTag == 1 && flag == true) { tagNum = (tagNum+1) % 3; flag = false; }
+    if(flipTag == 1 && flag == true) { tagNum = (tagNum+1) % 4; flag = false; }
 
 }
 
@@ -66,12 +66,12 @@ void WaitTimeBar::draw() {
     ofTranslate(0,30);
     ofTranslate(15,0);
 
-    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 158, 25);
-    TTF.drawString(houseTime > 0 ? "It's your turn!" : ofToString(houseTime) + " minutes left!", 529,25);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 158, 35);
+    TTF.drawString(houseTime > 0 ? "It's your turn!" : ofToString(houseTime) + " minutes left!", 529,35);
     
-    TTF.drawString(travelTime > 0 ? "It's your turn!" : ofToString(travelTime) + " minutes left!", 1048, 25);
+    TTF.drawString(travelTime > 0 ? "It's your turn!" : ofToString(travelTime) + " minutes left!", 1048, 35);
     
-    TTF.drawString(memberTime > 0 ? "It's your turn!" : ofToString(memberTime) + " minutes left!", 1469, 25);
+    TTF.drawString(memberTime > 0 ? "It's your turn!" : ofToString(memberTime) + " minutes left!", 1469, 35);
     ofPopMatrix();
     ofTranslate(0,17);
     drawFlipTag();
@@ -95,7 +95,7 @@ void WaitTimeBar::drawFlipTag() {
             ppl = &travelNum;
             break;
         case 3:
-            position = 1330;
+            position = 1350;
             ppl = &memberNum;
             break;
         default:
