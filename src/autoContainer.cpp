@@ -190,21 +190,14 @@ int AutoContainer::getFade() {
 }
 
 
-void AutoContainer::mouseMoved(int x, int y ){
+void AutoContainer::mouseDragged(ofMouseEventArgs &e){
     #ifdef AWESOMIUM
-    webView->injectMouseMove(x, y);
+    webView->injectMouseMove(e->x, e->y);
     #endif
 }
 
 
-void AutoContainer::mouseDragged(int x, int y, int button){
-    #ifdef AWESOMIUM
-    webView->injectMouseMove(x, y);
-    #endif
-}
-
-
-void AutoContainer::mousePressed(int x, int y, int button){
+void AutoContainer::mousePressed(ofMouseEventArgs &e){
     #ifdef AWESOMIUM
     webView->injectMouseDown(Awesomium::LEFT_MOUSE_BTN);
     #endif
@@ -212,7 +205,7 @@ void AutoContainer::mousePressed(int x, int y, int button){
 
 
 
-void AutoContainer::mouseReleased(int x, int y, int button){
+void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
     #ifdef AWESOMIUM
     webView->injectMouseUp(Awesomium::LEFT_MOUSE_BTN);
     #endif

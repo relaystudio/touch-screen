@@ -18,7 +18,7 @@
 
 //#define AWESOMIUM 1
 
-class AutoContainer : public Container {
+class AutoContainer : public Container, ofEventArgs {
     
 public:
     
@@ -43,10 +43,14 @@ public:
     void drawGUI();
     void updateGUI();
     
-    void mouseMoved(int x, int y );
-    void mouseDragged(int x, int y, int button);
-    void mousePressed(int x, int y, int button);
-    void mouseReleased(int x, int y, int button);
+//    void mouseMoved(int x, int y );
+//    void mouseDragged(int x, int y, int button);
+//    void mousePressed(int x, int y, int button);
+//    void mouseReleased(int x, int y, int button);
+//    
+    void mousePressed(ofMouseEventArgs &e);
+	void mouseDragged(ofMouseEventArgs &e);
+	void mouseReleased(ofMouseEventArgs &e);
     
 private:
     AboutPage * about;
