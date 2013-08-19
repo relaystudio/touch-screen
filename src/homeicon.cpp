@@ -23,10 +23,13 @@ HomeIcon::HomeIcon(string _title,
     ring = new ofImage();
     ring->loadImage("img/icon_time_fg.png");
     
-    movie = new ofVideoPlayer();
-    movie->loadMovie(moviePath);
-    movie->setLoopState(OF_LOOP_NONE);
-    movie->setFrame(0);
+    //movie = new ofVideoPlayer();
+    //movie->loadMovie(moviePath);
+    //movie->setLoopState(OF_LOOP_NONE);
+    //movie->setFrame(0);
+	movie.loadMovie(moviePath);
+	movie.setLoopState(OF_LOOP_NONE);
+	movie.setFrame(0);
     
     icon = new ofImage();
     icon->loadImage(iconPath);
@@ -47,8 +50,10 @@ void HomeIcon::draw() {
     ofPushStyle();
     ofEnableAlphaBlending();
     ofTranslate(getPosition().x-150, getPosition().y-150);
-    if(movie->isPlaying()) {
-        movie->draw(0,0);
+    //if(movie->isPlaying()) {
+    //    movie->draw(0,0);
+	if (movie.isPlaying()) {
+		movie.draw(0, 0);
     } else {
         bg->draw(0,0);
         ring->draw(0,0);
@@ -73,16 +78,20 @@ void HomeIcon::update(ofxBox2d * world) {
         }
     }
     
-    movie->update();
+    //movie->update();
+	movie.update();
 }
 
 void HomeIcon::playVideo() {
-    movie->setFrame(0);
-    movie->play();
+	movie.setFrame(0);
+	movie.play();
+    //movie->setFrame(0);
+    //movie->play();
 }
 
 bool HomeIcon::videoStopped() {
-    return movie->isPlaying();
+    //return movie->isPlaying();
+	return movie.isPlaying();
 }
 
 

@@ -35,7 +35,8 @@ private:
     ofImage * bg;
     ofImage * ring;
     ofImage * icon;
-    ofVideoPlayer * movie;
+    //ofVideoPlayer * movie;
+	ofVideoPlayer movie;
     
     int radius, activityTimer, touchTimer, touchDistance;
     bool wasActivated, isActive;
