@@ -14,7 +14,7 @@ const int tweenSpeed = 40;
 
 AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 	w = _width;
-	h = _height;s
+	h = _height;
     container = new ofFbo();
     container->allocate(_width, _height);
     about = new AboutPage("path");
@@ -55,7 +55,8 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 }
 
 AutoContainer::~AutoContainer() {
-    
+    view->Destroy();
+	WebCore::Shutdown();
 }
 
 void AutoContainer::update() {
@@ -71,8 +72,8 @@ void AutoContainer::update() {
         footer->draw(0,container->getHeight()-footer->getHeight());
         ofDrawBitmapString(url, 50,50);
 #else
-        view = getViewTexture(url);
-        webview->draw();
+        webView = getViewTexture(url);
+        webView.draw(0,0);
 #endif
     container->end();
 }
@@ -124,7 +125,7 @@ void AutoContainer::drawGUI() {
     gui->draw();
 }
 
-void AutoContainer::updateGUI() {
+void AutoContainer::updateGUI() { //GUI doesn't seem to exist at this point
     gui->setPosition(loc.x,loc.y);
 }
 
@@ -133,8 +134,8 @@ void AutoContainer::exit() {
     gui->saveSettings("GUI/guiSettings.xml");
     delete gui;
 #else
-    view->destroy();
-	delete webCore;
+  //  view->destroy();
+//	delete webCore;
 #endif
 }
 
@@ -178,7 +179,7 @@ void AutoContainer::updateAnimation() {
     else if(isOpen && loc.y > 0) loc.y += dy * easing;
     // Is closing
     
-    updateGUI();
+    //updateGUI();
 }
 
 // Gets window moving up to fade icons
@@ -189,16 +190,16 @@ int AutoContainer::getFade() {
 }
 
 
-void AutoContainer::mouseDragged(ofMouseEventArgs &e){
+void AutoContainer::mouseMoved(ofMouseEventArgs &e){
 #ifdef AWESOMIUM
-    view->injectMouseMove(e->x, e->y);
+    view->InjectMouseMove(e.x, e.y);
 #endif
 }
 
 
 void AutoContainer::mousePressed(ofMouseEventArgs &e){
     #ifdef AWESOMIUM
-    view->injectMouseDown(Awesomium::LEFT_MOUSE_BTN);
+	view->InjectMouseDown(kMouseButton_Left);
     #endif
 }
 
@@ -206,7 +207,7 @@ void AutoContainer::mousePressed(ofMouseEventArgs &e){
 
 void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
     #ifdef AWESOMIUM
-    view->injectMouseUp(Awesomium::LEFT_MOUSE_BTN);
+	view->InjectMouseUp(kMouseButton_Left);
     #endif
 }
 

@@ -50,14 +50,9 @@ public:
     void updateGUI();
     
     ofTexture getViewTexture(string _url);
-    
-//    void mouseMoved(int x, int y );
-//    void mouseDragged(int x, int y, int button);
-//    void mousePressed(int x, int y, int button);
-//    void mouseReleased(int x, int y, int button);
-//    
-    void mousePressed(ofMouseEventArgs &e);
-	void mouseDragged(ofMouseEventArgs &e);
+
+	void mousePressed(ofMouseEventArgs &e);
+	void mouseMoved(ofMouseEventArgs &e);
 	void mouseReleased(ofMouseEventArgs &e);
     
 private:
