@@ -35,6 +35,7 @@ private:
     ofImage * bg;
     ofImage * ring;
     ofImage * icon;
+    ofImage * bgAlpha;
     //ofVideoPlayer * movie;
 	ofVideoPlayer movie;
     

@@ -23,6 +23,9 @@ HomeIcon::HomeIcon(string _title,
     ring = new ofImage();
     ring->loadImage("img/icon_time_fg.png");
     
+    bgAlpha = new ofImage();
+    bgAlpha->loadImage("img/icon_bg_alpha.png");
+    
     //movie = new ofVideoPlayer();
     //movie->loadMovie(moviePath);
     //movie->setLoopState(OF_LOOP_NONE);
@@ -53,7 +56,12 @@ void HomeIcon::draw() {
     //if(movie->isPlaying()) {
     //    movie->draw(0,0);
 	if (movie.isPlaying()) {
-		movie.draw(0, 0);
+        glEnable(GL_BLEND);
+//        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
+        glBlendFuncSeparate(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA, GL_ONE, GL_ONE);
+        bgAlpha->draw(0,0);
+        movie.draw(0, 0);
+//        glDisable(GL_BLEND);
     } else {
         bg->draw(0,0);
         ring->draw(0,0);
@@ -91,7 +99,7 @@ void HomeIcon::playVideo() {
 
 bool HomeIcon::videoStopped() {
     //return movie->isPlaying();
-	return movie.isPlaying();
+	return !movie.isPlaying();
 }
 
 

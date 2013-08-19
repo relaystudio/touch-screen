@@ -7,8 +7,9 @@
 //
 
 #include "autoContainer.h"
-
+#ifdef AWESOMIUM
 using namespace Awesomium; // Blerg
+#endif
 
 const int tweenSpeed = 40;
 
@@ -55,8 +56,10 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 }
 
 AutoContainer::~AutoContainer() {
+#ifdef AWESOMIUM
     view->Destroy();
 	WebCore::Shutdown();
+#endif
 }
 
 void AutoContainer::update() {
@@ -219,8 +222,9 @@ void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
 ofTexture AutoContainer::getViewTexture(string _url) {
 	ofTexture tex;
 	tex.allocate(w, h, GL_RGBA);
-
 	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
+
+#ifdef AWESOMIUM
 	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
 	view->LoadURL(url);
 
@@ -233,6 +237,6 @@ ofTexture AutoContainer::getViewTexture(string _url) {
 	if (surface != 0) {
 		tex.loadData(surface->buffer(), tex.getWidth(), tex.getHeight(), GL_BGRA);
 	}
-
+#endif
 	return tex;
 }
