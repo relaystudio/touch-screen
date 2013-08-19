@@ -144,6 +144,16 @@ void HomeContainer::setActive(bool _active) {
 }
 
 void HomeContainer::animateIcons() {
+	cout << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl;
+	//you there?
+	// Yup, sorry, had a quick errand I couldn't put off
+	// The videos play in the awesomiumtest project but I can't get them to play here. Travel seems to be playing in the last version but I don't see it on screen.
+	// Let me figure this out on the osx side, it's probably a little thing in the logic. I'll work on that now, is the awesomium side working properly though?
+	// I just get a white screen. I'll see if I can pick up localhost. 
+	// Sounds good. This is a hilarious way to chat, by the way.
+	// Don't worry, I'll commit the log
+	// Awesome.ium.-e
+
     if(house->videoStopped()
        && car->videoStopped()
        && travel->videoStopped()
