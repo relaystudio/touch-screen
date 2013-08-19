@@ -55,7 +55,7 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 }
 
 AutoContainer::~AutoContainer() {
-    s
+    
 }
 
 void AutoContainer::update() {
@@ -71,17 +71,18 @@ void AutoContainer::update() {
         footer->draw(0,container->getHeight()-footer->getHeight());
         ofDrawBitmapString(url, 50,50);
 #else
+        view = getViewTexture(url);
         webview->draw();
 #endif
     container->end();
 }
 
 void AutoContainer::setPage(string _url) {
-//    url = _url;
+    url = _url;
 #ifdef AWESOMIUM
     //WebURL url(WSLit(_url));
-	webView->loadURL(_url);
-	webView->focus();
+//	webView->loadURL(_url);
+//	webView->focus();
 #endif
 }
 
@@ -190,7 +191,7 @@ int AutoContainer::getFade() {
 
 void AutoContainer::mouseDragged(ofMouseEventArgs &e){
 #ifdef AWESOMIUM
-    webView->injectMouseMove(e->x, e->y);
+    view->injectMouseMove(e->x, e->y);
 #endif
 }
 
@@ -228,6 +229,3 @@ ofTexture AutoContainer::getViewTexture(string _url) {
 
 	return tex;
 }
-
-
-//one sec, I have a working Awesomium project here

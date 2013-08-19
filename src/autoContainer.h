@@ -49,6 +49,8 @@ public:
     void drawGUI();
     void updateGUI();
     
+    ofTexture getViewTexture(string _url);
+    
 //    void mouseMoved(int x, int y );
 //    void mouseDragged(int x, int y, int button);
 //    void mousePressed(int x, int y, int button);
