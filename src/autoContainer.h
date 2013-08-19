@@ -16,7 +16,7 @@
 #include "touch.h"
 #include "AboutPage.h" 
 
-#define AWESOMIUM 1
+//#define AWESOMIUM 1
 
 #ifdef AWESOMIUM
 #include "Awesomium\WebCore.h"
