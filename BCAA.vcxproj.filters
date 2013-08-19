@@ -352,6 +352,9 @@
     <ClCompile Include="src\waitTime.cpp">
       <Filter>src\waitTime</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpUtils.cpp">
+      <Filter>addons\ofxHttpUtils\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -479,6 +482,12 @@
     </Filter>
     <Filter Include="src\waitTime">
       <UniqueIdentifier>{2faa2b60-33d3-4244-8cf5-6799c17f3e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHttpUtils">
+      <UniqueIdentifier>{277d516d-eb3a-452f-aa0e-a492e6a56dd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHttpUtils\src">
+      <UniqueIdentifier>{4dd3df71-fbb4-4a28-9879-d9a6c7360fdc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1039,6 +1048,12 @@
     </ClInclude>
     <ClInclude Include="src\waitTime.h">
       <Filter>src\waitTime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpTypes.h">
+      <Filter>addons\ofxHttpUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpUtils.h">
+      <Filter>addons\ofxHttpUtils\src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
