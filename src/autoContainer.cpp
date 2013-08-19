@@ -35,8 +35,9 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     loc.x = padding;
     easing = 0.05;
     isOpen = false;
+#ifndef AWESOMIUM
     setupGUI();
-#ifdef AWESOMIUM
+#else
     Awesomium::WebCoreConfig config;
 	webCore = new Awesomium::WebCore(WebConfig());
 	webView = webCore->createWebView(_width, _height);
@@ -129,9 +130,10 @@ void AutoContainer::updateGUI() {
 }
 
 void AutoContainer::exit() {
+#ifndef AWESOMIUM
     gui->saveSettings("GUI/guiSettings.xml");
     delete gui;
-#ifdef AWESOMIUM
+#else
     webView->destroy();
 	delete webCore;
 #endif
