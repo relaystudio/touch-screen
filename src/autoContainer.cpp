@@ -8,9 +8,13 @@
 
 #include "autoContainer.h"
 
+using namespace Awesomium; // Blerg
+
 const int tweenSpeed = 40;
 
 AutoContainer::AutoContainer(int _width, int _height, int _padding) {
+	w = _width;
+	h = _height;s
     container = new ofFbo();
     container->allocate(_width, _height);
     about = new AboutPage("path");
@@ -38,15 +42,20 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 #ifndef AWESOMIUM
     setupGUI();
 #else
-    Awesomium::WebCoreConfig config;
-	webCore = new Awesomium::WebCore(WebConfig());
-	webView = webCore->createWebView(_width, _height);
+	//Awesomium::WebConfig config;
+	//webCore = new Awesomium::WebCore(Awesomium::WebConfig());
+	//webView = webCore->createWebView(_width, _height);
+
+	webCore = Awesomium::WebCore::Initialize(Awesomium::WebConfig());
+	view = webCore->CreateWebView(w, h);
+	webView.allocate(w, h, GL_RGBA);
+
 #endif
     
 }
 
 AutoContainer::~AutoContainer() {
-    
+    s
 }
 
 void AutoContainer::update() {
@@ -70,8 +79,8 @@ void AutoContainer::update() {
 void AutoContainer::setPage(string _url) {
 //    url = _url;
 #ifdef AWESOMIUM
-    WebURL url(WSLit(_url));
-	webView->loadURL(url);
+    //WebURL url(WSLit(_url));
+	webView->loadURL(_url);
 	webView->focus();
 #endif
 }
@@ -116,17 +125,6 @@ void AutoContainer::drawGUI() {
 
 void AutoContainer::updateGUI() {
     gui->setPosition(loc.x,loc.y);
-#ifdef AWESOMIUM
-    webCore->update();
-    
-    // Call our display func when the WebView needs rendering
-	if (webView->isDirty()) {
-        const Awesomium::RenderBuffer* renderBuffer = webView->render();
-        if (renderBuffer) {
-            webTex.loadData(renderBuffer->buffer, webTexWidth, webTexHeight, GL_BGRA);
-        }
-    }
-#endif
 }
 
 void AutoContainer::exit() {
@@ -134,7 +132,7 @@ void AutoContainer::exit() {
     gui->saveSettings("GUI/guiSettings.xml");
     delete gui;
 #else
-    webView->destroy();
+    view->destroy();
 	delete webCore;
 #endif
 }
@@ -191,15 +189,15 @@ int AutoContainer::getFade() {
 
 
 void AutoContainer::mouseDragged(ofMouseEventArgs &e){
-    #ifdef AWESOMIUM
+#ifdef AWESOMIUM
     webView->injectMouseMove(e->x, e->y);
-    #endif
+#endif
 }
 
 
 void AutoContainer::mousePressed(ofMouseEventArgs &e){
     #ifdef AWESOMIUM
-    webView->injectMouseDown(Awesomium::LEFT_MOUSE_BTN);
+    view->injectMouseDown(Awesomium::LEFT_MOUSE_BTN);
     #endif
 }
 
@@ -207,8 +205,29 @@ void AutoContainer::mousePressed(ofMouseEventArgs &e){
 
 void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
     #ifdef AWESOMIUM
-    webView->injectMouseUp(Awesomium::LEFT_MOUSE_BTN);
+    view->injectMouseUp(Awesomium::LEFT_MOUSE_BTN);
     #endif
 }
 
+ofTexture AutoContainer::getViewTexture(string _url) {
+	ofTexture tex;
+	tex.allocate(w, h, GL_RGBA);
 
+	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
+	view->LoadURL(url);
+
+	while (view->IsLoading())
+		webCore->Update();
+	webCore->Update();
+
+	Awesomium::BitmapSurface *surface = (Awesomium::BitmapSurface *) view->surface();
+
+	if (surface != 0) {
+		tex.loadData(surface->buffer(), tex.getWidth(), tex.getHeight(), GL_BGRA);
+	}
+
+	return tex;
+}
+
+
+//one sec, I have a working Awesomium project here

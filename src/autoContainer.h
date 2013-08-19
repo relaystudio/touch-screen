@@ -16,7 +16,13 @@
 #include "touch.h"
 #include "AboutPage.h" 
 
-//#define AWESOMIUM 1
+#define AWESOMIUM 1
+
+#ifdef AWESOMIUM
+#include "Awesomium\WebCore.h"
+#include "Awesomium\STLHelpers.h"
+#include "Awesomium\BitmapSurface.h"
+#endif
 
 class AutoContainer : public Container, ofEventArgs {
     
@@ -56,7 +62,7 @@ private:
     AboutPage * about;
     
     ofFbo * container;
-    
+    int w,h;
     string url;
     
     ofImage * footer;
@@ -72,8 +78,10 @@ private:
     bool isOpen;
     ofxUICanvas * gui;
 #ifdef AWESOMIUM
-    Awesomium::WebView* webView;
-	Awesomium::WebCore* webCore;
+	Awesomium::WebCore *webCore;
+	Awesomium::WebView *view;
+	ofTexture webView;
+
 #endif
 };
 
