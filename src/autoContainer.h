@@ -15,6 +15,7 @@
 #include "ofxBox2d.h"
 #include "touch.h"
 #include "AboutPage.h" 
+#include "ofxTween.h"
 
 #define AWESOMIUM 1
 
@@ -24,7 +25,7 @@
 #include "Awesomium\BitmapSurface.h"
 #endif
 
-class AutoContainer : public Container, ofEventArgs {
+class AutoContainer : public Container, public ofEventArgs {
     
 public:
     
@@ -78,8 +79,10 @@ private:
 	Awesomium::WebCore *webCore;
 	Awesomium::WebView *view;
 	ofTexture webView;
-
+	//JSObject jsCloseNotifier;
 #endif
+	ofxTween tween;
+	ofxEasingElastic easingElastic;
 };
 
 #endif /* defined(__BCAA__autoContainer__) */

@@ -48,10 +48,10 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 
 	webCore = Awesomium::WebCore::Initialize(Awesomium::WebConfig());
 	view = webCore->CreateWebView(w, h);
+
 	webView.allocate(w, h, GL_RGBA);
 
 #endif
-    
 }
 
 AutoContainer::~AutoContainer() {
@@ -74,6 +74,7 @@ void AutoContainer::update() {
 #else
         webView = getViewTexture(url);
         webView.draw(0,0);
+		//cout << "Javascript Close Notifier " << jsCloseNotifier << endl;
 #endif
     container->end();
 }
@@ -154,6 +155,7 @@ void AutoContainer::guiEvent(ofxUIEventArgs &e) {
 
 void AutoContainer::open() {
     isOpen = true;
+	//tween.setParameters(easingElastic, ofxTween::easeOut, 0, 1, 1000, 0);
 }
 
 void AutoContainer::close() {
@@ -167,6 +169,9 @@ bool AutoContainer::isClosed() {
 
 // Updates the tween animation.
 void AutoContainer::updateAnimation() {
+	//loc.y = tween.update();
+	//cout << loc.y << endl;
+
     int dy = isOpen ? (padding - loc.y) : (padding - (loc.y+30));// * tweenSpeed;
 
     if ( !isOpen && loc.y < totalHeight+10 )
@@ -192,29 +197,30 @@ int AutoContainer::getFade() {
 
 void AutoContainer::mouseMoved(ofMouseEventArgs &e){
 #ifdef AWESOMIUM
-    view->InjectMouseMove(e.x, e.y);
+    view->InjectMouseMove(e.x - loc.x, e.y - loc.y); // Localized position
 #endif
 }
 
 
 void AutoContainer::mousePressed(ofMouseEventArgs &e){
-    #ifdef AWESOMIUM
+#ifdef AWESOMIUM
 	view->InjectMouseDown(kMouseButton_Left);
-    #endif
+#endif
 }
 
 
 
 void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
-    #ifdef AWESOMIUM
+#ifdef AWESOMIUM
 	view->InjectMouseUp(kMouseButton_Left);
-    #endif
+#endif
 }
 
 ofTexture AutoContainer::getViewTexture(string _url) {
 	ofTexture tex;
 	tex.allocate(w, h, GL_RGBA);
 
+	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
 	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
 	view->LoadURL(url);
 

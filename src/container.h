@@ -14,6 +14,7 @@
 #include "page.h"
 #include "settings.h"
 #include "ofxUI.h"
+#include "ofxTween.h"
 
 class Container {
 public:
@@ -47,7 +48,7 @@ public:
     void setupGUI();
     void drawGUI();
     void updateGUI();
-    
+
 private:
     ofFbo * container;
     vector<Page*> pages;
@@ -59,7 +60,6 @@ private:
     ofVec2f size;
     string name;
     bool opening, closing;
-    
 };
 
 #endif /* defined(__BCAA__container__) */
