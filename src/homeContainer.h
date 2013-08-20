@@ -52,6 +52,7 @@ class HomeContainer : public Container {
     HomeIcon * travel;
     HomeIcon * membership;
 
+
     int activeWindow; // Active or queued
 //    int prevWindow; // Still active until -1
     

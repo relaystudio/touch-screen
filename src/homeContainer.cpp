@@ -35,6 +35,9 @@ HomeContainer::HomeContainer() {
     
     setActive(true);
     
+    
+    
+    
     house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mov");
     house->setPhysics(density, bounce, friction);
     house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
@@ -53,6 +56,7 @@ HomeContainer::HomeContainer() {
 
     setActive(true);
     activeWindow = -1;
+    
 }
 
 HomeContainer::~HomeContainer() {
@@ -61,23 +65,30 @@ HomeContainer::~HomeContainer() {
 
 void HomeContainer::addForces() {
     
-    const float rep = 0.1;
+    const float rep = 0.4;
+    const float rep2 = 0.1;
     
-    house->addRepulsionForce(membership->getPosition(),rep);
-    house->addRepulsionForce(car->getPosition(), rep);
-    house->addRepulsionForce(travel->getPosition(), rep);
+    house->addRepulsionForce(membership->getPosition(),rep2);
+    house->addRepulsionForce(car->getPosition(), rep2);
+    house->addRepulsionForce(travel->getPosition(), rep2);
     
-    car->addRepulsionForce(house->getPosition(),rep);
-    car->addRepulsionForce(membership->getPosition(), rep);
-    car->addRepulsionForce(travel->getPosition(), rep);
+    car->addRepulsionForce(house->getPosition(),rep2);
+    car->addRepulsionForce(membership->getPosition(), rep2);
+    car->addRepulsionForce(travel->getPosition(), rep2);
     
-    travel->addRepulsionForce(house->getPosition(),rep);
-    travel->addRepulsionForce(car->getPosition(), rep);
-    travel->addRepulsionForce(membership->getPosition(), rep);
+    travel->addRepulsionForce(house->getPosition(),rep2);
+    travel->addRepulsionForce(car->getPosition(), rep2);
+    travel->addRepulsionForce(membership->getPosition(), rep2);
     
-    membership->addRepulsionForce(house->getPosition(),rep);
-    membership->addRepulsionForce(car->getPosition(), rep);
-    membership->addRepulsionForce(travel->getPosition(), rep);
+    membership->addRepulsionForce(house->getPosition(),rep2);
+    membership->addRepulsionForce(car->getPosition(), rep2);
+    membership->addRepulsionForce(travel->getPosition(), rep2);
+    
+    
+    house->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
+    car->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
+    travel->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
+    membership->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
 }
 
 void HomeContainer::update() {
