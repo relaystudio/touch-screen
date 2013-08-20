@@ -17,7 +17,7 @@
 #include "AboutPage.h" 
 #include "ofxTween.h"
 
-//#define AWESOMIUM 1
+#define AWESOMIUM 1
 
 #ifdef AWESOMIUM
 #include "Awesomium\WebCore.h"
@@ -79,10 +79,11 @@ private:
 	Awesomium::WebCore *webCore;
 	Awesomium::WebView *view;
 	ofTexture webView;
-	//JSObject jsCloseNotifier;
 #endif
 	ofxTween tween;
 	ofxEasingElastic easingElastic;
+
+	string resultClose;
 };
 
 #endif /* defined(__BCAA__autoContainer__) */
