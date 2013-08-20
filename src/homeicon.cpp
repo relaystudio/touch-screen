@@ -67,9 +67,22 @@ void HomeIcon::draw() {
         ofCircle(150,150,150);
         glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA);
         ofSetColor(255,255,255,255);
-        shader.begin();
-        movie.draw(0, 0);
-        shader.end();
+//        shader.begin();
+        ofImage buf; buf.allocate(movie.getWidth(), movie.getHeight(), OF_IMAGE_COLOR);
+        buf = movie.getPixelsRef(); buf.setImageType(OF_IMAGE_COLOR_ALPHA);
+        for(int i=0;i<buf.getPixelsRef().size()-4; i+=4) {
+            if(   buf.getPixelsRef()[i] >= 240
+               && buf.getPixelsRef()[i+1] >= 240
+               && buf.getPixelsRef()[i+2] >= 240)
+            {
+                buf.getPixelsRef()[i+3] = 50;
+            } else {
+                buf.getPixelsRef()[i+3] = 255;
+            }
+        }
+        buf.reloadTexture();
+        buf.draw(0,0);
+  //      shader.end();
     } else {
         bg->draw(0,0);
         ring->draw(0,0);
