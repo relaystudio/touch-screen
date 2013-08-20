@@ -43,15 +43,9 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 #ifndef AWESOMIUM
     setupGUI();
 #else
-	//Awesomium::WebConfig config;
-	//webCore = new Awesomium::WebCore(Awesomium::WebConfig());
-	//webView = webCore->createWebView(_width, _height);
-
 	webCore = Awesomium::WebCore::Initialize(Awesomium::WebConfig());
 	view = webCore->CreateWebView(w, h);
-
 	webView.allocate(w, h, GL_RGBA);
-
 #endif
 }
 
@@ -75,7 +69,7 @@ void AutoContainer::update() {
         footer->draw(0,container->getHeight()-footer->getHeight());
         ofDrawBitmapString(url, 50,50);
 #else
-        webView = getViewTexture(url);
+        webView = getViewTexture();
         webView.draw(0,0);
 		//cout << "Javascript Close Notifier " << jsCloseNotifier << endl;
 #endif
@@ -85,9 +79,10 @@ void AutoContainer::update() {
 void AutoContainer::setPage(string _url) {
     url = _url;
 #ifdef AWESOMIUM
-    //WebURL url(WSLit(_url));
-//	webView->loadURL(_url);
-//	webView->focus();
+	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
+	//cout << "Close Window: " << JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean() << endl;
+	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
+	view->LoadURL(url);
 #endif
 }
 
@@ -138,8 +133,8 @@ void AutoContainer::exit() {
     gui->saveSettings("GUI/guiSettings.xml");
     delete gui;
 #else
-  //  view->destroy();
-//	delete webCore;
+	view->Destroy();
+	WebCore::Shutdown();
 #endif
 }
 
@@ -219,17 +214,11 @@ void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
 #endif
 }
 
-ofTexture AutoContainer::getViewTexture(string _url) {
+ofTexture AutoContainer::getViewTexture() {
 	ofTexture tex;
 	tex.allocate(w, h, GL_RGBA);
 
 #ifdef AWESOMIUM
-	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
-	cout << "Close Window: " << JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean() << endl;
-
-	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
-	view->LoadURL(url);
-
 	while (view->IsLoading())
 		webCore->Update();
 	webCore->Update();

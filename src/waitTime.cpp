@@ -103,7 +103,7 @@ void WaitTimeBar::drawFlipTag() {
             break;
     }
     if(scale <= 1.0f) scale += 0.1f; //else scale = 1.0f;
-    ofLog() << scale;
+    //ofLog() << scale;
     ofPushMatrix();
     ofTranslate(position,0);
     ofScale(1,scale);
@@ -125,7 +125,7 @@ void WaitTimeBar::loadXML() {
          if(XML.loadFile("xml/WaitTime.xml")) ofLog() << "Loaded file";
     }
     lastCheck = ofGetMinutes();
-    ofLog() << (XML.tagExists("WaitTime",0) ? "WaitTime Works!" : "Waittime ain't there homie");
+    //ofLog() << (XML.tagExists("WaitTime",0) ? "WaitTime Works!" : "Waittime ain't there homie");
     XML.pushTag("WaitTime",0);
     XML.pushTag("module",0);
 //    ofLog() << XML.doc;
@@ -154,19 +154,19 @@ void WaitTimeBar::readXML() {
         
         if(XML.getAttribute("service","name", "", 0) == "Auto") {
             carTime = getDiff(XML.getValue("service", "", i));
-            ofLog() << "Car time: " << carTime;
+            //ofLog() << "Car time: " << carTime;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Home") {
             houseTime = XML.getValue("service", 0, i);
-            ofLog() << "Home time: " << houseTime;
+            //ofLog() << "Home time: " << houseTime;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Travel") {
             travelTime = XML.getValue("service", 0, i);
-            ofLog() << "Travel time: " << travelTime;
+            //ofLog() << "Travel time: " << travelTime;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Member") {
             memberTime = XML.getValue("service", 0, i);
-            ofLog() << "Member service time: " << memberTime;
+            //ofLog() << "Member service time: " << memberTime;
         }
     }
     XML.popTag();
@@ -178,19 +178,19 @@ void WaitTimeBar::readXML() {
         
         if(XML.getAttribute("service","name", "", 0) == "Auto") {
             carNum = XML.getValue("service", 0, i);
-            ofLog() << "Car queue: " << carNum;
+            //ofLog() << "Car queue: " << carNum;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Home") {
             houseNum = XML.getValue("service", 0, i);
-            ofLog() << "Home queue: " << houseNum;
+            //ofLog() << "Home queue: " << houseNum;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Travel") {
             travelNum = XML.getValue("service", 0, i);
-            ofLog() << "Travel queue: " << travelNum;
+            //ofLog() << "Travel queue: " << travelNum;
         } else
         if(XML.getAttribute("service","name", "", 0) == "Member") {
             memberNum = XML.getValue("service", 0, i);
-            ofLog() << "Member service queue: " << memberNum;
+            //ofLog() << "Member service queue: " << memberNum;
         }
     }
     
@@ -247,6 +247,6 @@ long WaitTimeBar::getDiff(string _date) {
     buf.tm_year = ofToInt(b[2])+100;
 
     secondsDiff = difftime(now,mktime(&buf));;
-    ofLog() << "Dif:" << secondsDiff;
+    //ofLog() << "Dif:" << secondsDiff;
     return secondsDiff;
 }

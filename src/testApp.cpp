@@ -47,10 +47,10 @@ void testApp::draw(){
 
 void testApp::drawAttract() {
     ofPushStyle();
-    ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-1000;
+    //ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-1000;
     if(touch->getLastMoved() < ofGetUnixTime()-10) {
         attract->update();
-        ofLog() << "Attract mode on!";
+        //ofLog() << "Attract mode on!";
         if(fade <= 1.0f) fade += 0.05;
         ofSetColor(255,255,255, ofMap(fade,0,1,0,255));
         attract->draw(0,0,ofGetWidth(), ofGetHeight());

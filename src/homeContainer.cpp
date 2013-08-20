@@ -43,7 +43,7 @@ HomeContainer::HomeContainer() {
     car->setPhysics(density, bounce, friction);
     car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
     
-    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_trav.mov");
+    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_travel.mov");
     travel->setPhysics(density, bounce, friction);
     travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
     
