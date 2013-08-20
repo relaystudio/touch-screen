@@ -147,8 +147,7 @@ void HomeContainer::setActive(bool _active) {
 }
 
 void HomeContainer::animateIcons() {
-	cout << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl; // Travel always seems to be playing
-    
+	//cout << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl; // Travel always seems to be playing
 	//car->playVideo(); // Calling directly loads the video with no alpha channel
 	// Calling an event when the video stops playing may be more efficient instead of a check every frame.
 

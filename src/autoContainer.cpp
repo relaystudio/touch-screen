@@ -222,9 +222,11 @@ void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
 ofTexture AutoContainer::getViewTexture(string _url) {
 	ofTexture tex;
 	tex.allocate(w, h, GL_RGBA);
-	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
 
 #ifdef AWESOMIUM
+	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
+	cout << "Close Window: " << JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean() << endl;
+
 	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
 	view->LoadURL(url);
 
