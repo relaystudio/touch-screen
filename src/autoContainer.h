@@ -50,7 +50,7 @@ public:
     void drawGUI();
     void updateGUI();
     
-    ofTexture getViewTexture(string _url);
+    ofTexture getViewTexture();
 
 	void mousePressed(ofMouseEventArgs &e);
 	void mouseMoved(ofMouseEventArgs &e);
