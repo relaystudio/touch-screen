@@ -26,10 +26,6 @@ HomeIcon::HomeIcon(string _title,
     bgAlpha = new ofImage();
     bgAlpha->loadImage("img/icon_bg_alpha.png");
     
-    //movie = new ofVideoPlayer();
-    //movie->loadMovie(moviePath);
-    //movie->setLoopState(OF_LOOP_NONE);
-    //movie->setFrame(0);
 	cout << "LoadMovie: " << moviePath << endl;
 	movie.loadMovie(moviePath);
 	movie.setLoopState(OF_LOOP_NONE);
@@ -58,8 +54,6 @@ void HomeIcon::draw() {
     ofEnableAlphaBlending();
     ofTranslate(getPosition().x-150, getPosition().y-150);
 
-	//if(movie->isPlaying()) {
-    //    movie->draw(0,0);
 	if (movie.isPlaying()) {
         glBlendFuncSeparate(GL_ZERO, GL_ONE, GL_SRC_ALPHA, GL_DST_ALPHA);
 //        bgAlpha->draw(0,0);
@@ -108,7 +102,6 @@ void HomeIcon::update(ofxBox2d * world) {
         }
     }
     
-    //movie->update();
 	movie.update();
 	if (movie.getCurrentFrame() == movie.getTotalNumFrames()) {
 		movie.stop();
@@ -118,12 +111,9 @@ void HomeIcon::update(ofxBox2d * world) {
 void HomeIcon::playVideo() {
 	movie.setFrame(0);
 	movie.play();
-    //movie->setFrame(0);
-    //movie->play();
 }
 
 bool HomeIcon::videoStopped() {
-    //return movie->isPlaying();
 	return !movie.isPlaying();
 }
 
