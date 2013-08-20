@@ -30,6 +30,7 @@ HomeIcon::HomeIcon(string _title,
     //movie->loadMovie(moviePath);
     //movie->setLoopState(OF_LOOP_NONE);
     //movie->setFrame(0);
+	cout << "LoadMovie: " << moviePath << endl;
 	movie.loadMovie(moviePath);
 	movie.setLoopState(OF_LOOP_NONE);
 	movie.setFrame(0);
@@ -81,7 +82,7 @@ void HomeIcon::update(ofxBox2d * world) {
     }
     else if (!body->GetJointList() && isActive) {
         touchDistance = getPosition().squareDistance(origin);
-        ofLog() << title << " : " << touchDistance;
+        //ofLog() << title << " : " << touchDistance;
         isActive = false;
         
         if(touchDistance < touchThreshold) {
