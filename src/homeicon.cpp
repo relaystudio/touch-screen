@@ -57,7 +57,8 @@ void HomeIcon::draw() {
     ofPushStyle();
     ofEnableAlphaBlending();
     ofTranslate(getPosition().x-150, getPosition().y-150);
-    //if(movie->isPlaying()) {
+
+	//if(movie->isPlaying()) {
     //    movie->draw(0,0);
 	if (movie.isPlaying()) {
         glBlendFuncSeparate(GL_ZERO, GL_ONE, GL_SRC_ALPHA, GL_DST_ALPHA);
@@ -109,6 +110,9 @@ void HomeIcon::update(ofxBox2d * world) {
     
     //movie->update();
 	movie.update();
+	if (movie.getCurrentFrame() == movie.getTotalNumFrames()) {
+		movie.stop();
+	}
 }
 
 void HomeIcon::playVideo() {
