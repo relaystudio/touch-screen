@@ -1,5 +1,7 @@
 #include "testApp.h"
 
+#define NO_INTERACT_DURATION 60 //Attract mode interaction in s - expose to settings.xml
+
 //--------------------------------------------------------------
 void testApp::setup(){
     ofSetLogLevel(OF_LOG_NOTICE);
@@ -48,7 +50,7 @@ void testApp::draw(){
 void testApp::drawAttract() {
     ofPushStyle();
     //ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-1000;
-    if(touch->getLastMoved() < ofGetUnixTime()-10) {
+	if(touch->getLastMoved() < ofGetUnixTime() - NO_INTERACT_DURATION) {
         attract->update();
         //ofLog() << "Attract mode on!";
         if(fade <= 1.0f) fade += 0.05;

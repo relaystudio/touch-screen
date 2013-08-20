@@ -66,9 +66,9 @@ void HomeIcon::draw() {
         ofImage buf; buf.allocate(movie.getWidth(), movie.getHeight(), OF_IMAGE_COLOR);
         buf = movie.getPixelsRef(); buf.setImageType(OF_IMAGE_COLOR_ALPHA);
         for(int i=0;i<buf.getPixelsRef().size()-4; i+=4) {
-            if(   buf.getPixelsRef()[i] >= 240
-               && buf.getPixelsRef()[i+1] >= 240
-               && buf.getPixelsRef()[i+2] >= 240)
+            if(   buf.getPixelsRef()[i] >= 235
+               && buf.getPixelsRef()[i+1] >= 235
+               && buf.getPixelsRef()[i+2] >= 235)
             {
                 buf.getPixelsRef()[i+3] = 50;
             } else {

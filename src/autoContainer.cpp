@@ -48,7 +48,6 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 	webView.allocate(w, h, GL_RGBA);
 
 #endif
-	resultClose = "FALSE";
 }
 
 AutoContainer::~AutoContainer() {
@@ -73,9 +72,14 @@ void AutoContainer::update() {
 #else
         webView = getViewTexture();
         webView.draw(0,0);
-		JSValue result = view->ExecuteJavascriptWithResult(WSLit("getCloseStatus"), WSLit(""));
-		bool br = result.ToBoolean();
-		resultClose = (br) ? "true" : "false";
+
+		JSValue result = view->ExecuteJavascriptWithResult(WSLit("pageStatus"), WSLit(""));
+		if (result.IsObject()) {
+			JSObject &resultObj = result.ToObject();
+			WebString pageStatus = resultObj.GetProperty(WSLit("state")).ToString();
+			string value = ToString(pageStatus);
+			if (value == "closed") close();
+		}
 #endif
     container->end();
 }
@@ -209,6 +213,7 @@ void AutoContainer::mouseMoved(ofMouseEventArgs &e){
 void AutoContainer::mousePressed(ofMouseEventArgs &e){
 #ifdef AWESOMIUM
 	view->InjectMouseDown(kMouseButton_Left);
+	view->InjectMouseUp(kMouseButton_Left);
 #endif
 }
 
@@ -216,6 +221,8 @@ void AutoContainer::mousePressed(ofMouseEventArgs &e){
 
 void AutoContainer::mouseReleased(ofMouseEventArgs &e) {
 #ifdef AWESOMIUM
+	// This is repetitive, but it seems to become more responsive
+	view->InjectMouseDown(kMouseButton_Left);
 	view->InjectMouseUp(kMouseButton_Left);
 #endif
 }

@@ -161,9 +161,7 @@ void HomeContainer::setActive(bool _active) {
 }
 
 void HomeContainer::animateIcons() {
-	cout << "Videos Stopped: " << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl; // Travel always seems to be playing
-	//car->playVideo(); // Calling directly loads the video with no alpha channel
-	// Calling an event when the video stops playing may be more efficient instead of a check every frame.
+	//cout << "Videos Stopped: " << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl; // Travel always seems to be playing
 
     if(house->videoStopped()
        && car->videoStopped()
@@ -171,7 +169,7 @@ void HomeContainer::animateIcons() {
        && membership->videoStopped())
     {
         int playRandom = ofRandom(0,3);
-		cout << "Select Icon to play: " << playRandom << endl;
+		//cout << "Select Icon to play: " << playRandom << endl;
         switch(playRandom) {
             case 0:
                 car->playVideo();
