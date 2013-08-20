@@ -56,11 +56,14 @@ void HomeIcon::draw() {
     //if(movie->isPlaying()) {
     //    movie->draw(0,0);
 	if (movie.isPlaying()) {
+        glDisable(GL_BLEND);
+        bgAlpha->draw(0,0);
         glEnable(GL_BLEND);
 //        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
+//        glBlendFunc(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA);
         glBlendFuncSeparate(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA, GL_ONE, GL_ONE);
-        bgAlpha->draw(0,0);
         movie.draw(0, 0);
+ //       glBlendFunc(GL_ONE_MINUS_DST_COLOR, GL_DST_COLOR);
 //        glDisable(GL_BLEND);
     } else {
         bg->draw(0,0);
