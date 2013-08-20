@@ -11,7 +11,7 @@
 HomeContainer::HomeContainer() {
     
     const int padding = 20; // Around container
-    const int iconWidth = 150; // Radius of icons
+    const int iconWidth = 160; // Radius of icons
     
     container = new ofFbo();
     container->allocate(ofGetWidth(),ofGetHeight());
@@ -31,21 +31,21 @@ HomeContainer::HomeContainer() {
     box2d->init();
 	box2d->setGravity(0, 0);
 	box2d->setFPS(30.0);
-    box2d->createBounds(0,170,container->getWidth(), container->getHeight());
+    box2d->createBounds(0,170,container->getWidth(), container->getHeight()-170);
     
     setActive(true);
     
     house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mov");
     house->setPhysics(density, bounce, friction);
-    house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
+    house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
     
     car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mov");
     car->setPhysics(density, bounce, friction);
-    car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
+    car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
     
     travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_travel.mov");
     travel->setPhysics(density, bounce, friction);
-    travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
+    travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
     
     membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mov");
     membership->setPhysics(density, bounce, friction);
@@ -61,7 +61,7 @@ HomeContainer::~HomeContainer() {
 
 void HomeContainer::addForces() {
     
-    const float rep = 0.3;
+    const float rep = 0.1;
     
     house->addRepulsionForce(membership->getPosition(),rep);
     house->addRepulsionForce(car->getPosition(), rep);
