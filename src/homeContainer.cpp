@@ -31,25 +31,25 @@ HomeContainer::HomeContainer() {
     box2d->init();
 	box2d->setGravity(0, 0);
 	box2d->setFPS(30.0);
-    box2d->createBounds(0,0,container->getWidth(), container->getHeight());
+    box2d->createBounds(0,170,container->getWidth(), container->getHeight());
     
     setActive(true);
     
     house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mov");
     house->setPhysics(density, bounce, friction);
-    house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
+    house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
     
     car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mov");
     car->setPhysics(density, bounce, friction);
-    car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
+    car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
     
     travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_trav.mov");
     travel->setPhysics(density, bounce, friction);
-    travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
+    travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
     
     membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mov");
     membership->setPhysics(density, bounce, friction);
-    membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth), iconWidth);
+    membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
 
     setActive(true);
     activeWindow = -1;
