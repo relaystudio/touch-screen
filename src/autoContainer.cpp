@@ -46,7 +46,9 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
 	webCore = Awesomium::WebCore::Initialize(Awesomium::WebConfig());
 	view = webCore->CreateWebView(w, h);
 	webView.allocate(w, h, GL_RGBA);
+
 #endif
+	resultClose = "FALSE";
 }
 
 AutoContainer::~AutoContainer() {
@@ -71,7 +73,9 @@ void AutoContainer::update() {
 #else
         webView = getViewTexture();
         webView.draw(0,0);
-		//cout << "Javascript Close Notifier " << jsCloseNotifier << endl;
+		JSValue result = view->ExecuteJavascriptWithResult(WSLit("getCloseStatus"), WSLit(""));
+		bool br = result.ToBoolean();
+		resultClose = (br) ? "true" : "false";
 #endif
     container->end();
 }
@@ -79,8 +83,6 @@ void AutoContainer::update() {
 void AutoContainer::setPage(string _url) {
     url = _url;
 #ifdef AWESOMIUM
-	//jsCloseNotifier = JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean();
-	//cout << "Close Window: " << JSValue(view->CreateGlobalJavascriptObject(WSLit("closeWindow"))).ToBoolean() << endl;
 	Awesomium::WebURL url(Awesomium::WSLit(_url.c_str()));
 	view->LoadURL(url);
 #endif
@@ -88,6 +90,10 @@ void AutoContainer::setPage(string _url) {
 
 void AutoContainer::draw() {
     container->draw(loc.x, loc.y);
+
+	ofSetColor(ofColor::black);
+	ofDrawBitmapString(resultClose, loc);
+	ofSetColor(ofColor::white);
 }
 
 void AutoContainer::setupGUI() {
