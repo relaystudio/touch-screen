@@ -18,8 +18,11 @@ HomeContainer::HomeContainer() {
     
     waitTime = new WaitTimeBar();
     
-    autoBox = new AutoContainer(1500, 510, 210);
-    
+    autoBox = new AutoContainer(1500, 818, 210);
+	ofAddListener(ofEvents().mousePressed, autoBox, &AutoContainer::mousePressed); // Working
+	ofAddListener(ofEvents().mouseDragged, autoBox, &AutoContainer::mouseMoved);
+    ofAddListener(ofEvents().mouseReleased, autoBox, &AutoContainer::mouseReleased);
+
     float density = 4.0;
     float bounce = .3;
     float friction = 2.1;
@@ -95,16 +98,16 @@ void HomeContainer::update() {
     if(activeWindow != -1) {
         switch(activeWindow) {
             case HOME:
-                autoBox->setPage("html/home");
+                autoBox->setPage("http://localhost/InsuranceHome.aspx"); // PROD: http://localhost/Insurance.aspx?section=home
                 break;
             case TRAVEL:
-                autoBox->setPage("html/travel");
+                autoBox->setPage("http://localhost/InsuranceTravel.aspx"); // PROD: http://localhost/Insurance.aspx?section=travel
                 break;
             case AUTO:
-                autoBox->setPage("html/auto");
+                autoBox->setPage("http://localhost/InsuranceCar.aspx"); // PROD: http://localhost/Insurance.aspx?section=car
                 break;
             case MEMBER:
-                autoBox->setPage("html/member");
+                autoBox->setPage("http://localhost/InsuranceMembership.aspx"); // PROD: http://localhost/Insurance.aspx?section=membership
                 break;
             default:
                 break;
@@ -144,15 +147,9 @@ void HomeContainer::setActive(bool _active) {
 }
 
 void HomeContainer::animateIcons() {
-	cout << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl;
-	//you there?
-	// Yup, sorry, had a quick errand I couldn't put off
-	// The videos play in the awesomiumtest project but I can't get them to play here. Travel seems to be playing in the last version but I don't see it on screen.
-	// Let me figure this out on the osx side, it's probably a little thing in the logic. I'll work on that now, is the awesomium side working properly though?
-	// I just get a white screen. I'll see if I can pick up localhost. 
-	// Sounds good. This is a hilarious way to chat, by the way.
-	// Don't worry, I'll commit the log
-	// Awesome.ium.-e
+	//cout << house->videoStopped() << ", " << car->videoStopped() << ", " << travel->videoStopped() << ", " << membership->videoStopped() << endl; // Travel always seems to be playing
+	//car->playVideo(); // Calling directly loads the video with no alpha channel
+	// Calling an event when the video stops playing may be more efficient instead of a check every frame.
 
     if(house->videoStopped()
        && car->videoStopped()
