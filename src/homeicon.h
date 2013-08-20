@@ -45,6 +45,7 @@ private:
     
     string title, apiPath, iconPath, moviePath;
     Container * container;
+    ofShader shader;
     
 };
 

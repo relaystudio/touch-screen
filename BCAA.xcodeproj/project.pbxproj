@@ -61,6 +61,8 @@
 		836DE25117C39FB2004D4390 /* ofxEasingQuint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 836DE23D17C39FB2004D4390 /* ofxEasingQuint.cpp */; };
 		836DE25217C39FB2004D4390 /* ofxEasingSine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 836DE23F17C39FB2004D4390 /* ofxEasingSine.cpp */; };
 		836DE25317C39FB2004D4390 /* ofxTween.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 836DE24117C39FB2004D4390 /* ofxTween.cpp */; };
+		836DE26117C3BD3E004D4390 /* halftrans.frag in Sources */ = {isa = PBXBuildFile; fileRef = 836DE25F17C3BD3E004D4390 /* halftrans.frag */; };
+		836DE26217C3BD3E004D4390 /* nothing.vert in Sources */ = {isa = PBXBuildFile; fileRef = 836DE26017C3BD3E004D4390 /* nothing.vert */; };
 		839175CD1796F1EB0054F2F4 /* page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CB1796F1EB0054F2F4 /* page.cpp */; };
 		839175D01796F2100054F2F4 /* container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175CE1796F2100054F2F4 /* container.cpp */; };
 		839175D31796F32B0054F2F4 /* homeicon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839175D11796F32A0054F2F4 /* homeicon.cpp */; };
@@ -309,6 +311,8 @@
 		836DE24017C39FB2004D4390 /* ofxEasingSine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasingSine.h; sourceTree = "<group>"; };
 		836DE24117C39FB2004D4390 /* ofxTween.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTween.cpp; sourceTree = "<group>"; };
 		836DE24217C39FB2004D4390 /* ofxTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTween.h; sourceTree = "<group>"; };
+		836DE25F17C3BD3E004D4390 /* halftrans.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = halftrans.frag; sourceTree = "<group>"; };
+		836DE26017C3BD3E004D4390 /* nothing.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = nothing.vert; sourceTree = "<group>"; };
 		839175CB1796F1EB0054F2F4 /* page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = page.cpp; sourceTree = "<group>"; };
 		839175CC1796F1EB0054F2F4 /* page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = page.h; sourceTree = "<group>"; };
 		839175CE1796F2100054F2F4 /* container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = container.cpp; sourceTree = "<group>"; };
@@ -789,6 +793,15 @@
 			path = Easings;
 			sourceTree = "<group>";
 		};
+		836DE25E17C3BD3E004D4390 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				836DE25F17C3BD3E004D4390 /* halftrans.frag */,
+				836DE26017C3BD3E004D4390 /* nothing.vert */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 		839175C91796F1B10054F2F4 /* interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				8395A95117BC424E001B3D5E /* .gitkeep */,
+				836DE25E17C3BD3E004D4390 /* shader */,
 				8395A95217BC424E001B3D5E /* font */,
 				8395A96417BC424E001B3D5E /* html */,
 				8395A96517BC424E001B3D5E /* img */,
@@ -1553,6 +1567,8 @@
 				836DE25117C39FB2004D4390 /* ofxEasingQuint.cpp in Sources */,
 				836DE25217C39FB2004D4390 /* ofxEasingSine.cpp in Sources */,
 				836DE25317C39FB2004D4390 /* ofxTween.cpp in Sources */,
+				836DE26117C3BD3E004D4390 /* halftrans.frag in Sources */,
+				836DE26217C3BD3E004D4390 /* nothing.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

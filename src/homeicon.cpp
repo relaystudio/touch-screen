@@ -42,6 +42,9 @@ HomeIcon::HomeIcon(string _title,
     touchTimer = touchDistance = 0;
     origin = ofPoint(-1,-1);
     wasActivated = isActive = false;
+    
+    shader.load("shader/nothing.vert", "shader/halftrans.frag");
+    
 }
 
 HomeIcon::~HomeIcon() {
@@ -57,13 +60,16 @@ void HomeIcon::draw() {
     //if(movie->isPlaying()) {
     //    movie->draw(0,0);
 	if (movie.isPlaying()) {
+        shader.begin();
         glBlendFuncSeparate(GL_ZERO, GL_ONE, GL_SRC_ALPHA, GL_DST_ALPHA);
 //        bgAlpha->draw(0,0);
         ofSetColor(255,255,255,255);
         ofSetCircleResolution(48);
         ofCircle(150,150,150);
         glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA);
+        ofSetColor(255,255,255,255);
         movie.draw(0, 0);
+        shader.end();
     } else {
         bg->draw(0,0);
         ring->draw(0,0);
