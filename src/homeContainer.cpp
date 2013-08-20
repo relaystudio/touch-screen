@@ -122,11 +122,14 @@ void HomeContainer::update() {
         ofClear(0,0,0,0);
         waitTime->draw();
         ofPushStyle();
+  //      glEnable(GL_BLEND);
+//        glBlendFunc(GL_ONE,GL_ZERO);
             ofSetColor(255,255,255,autoBox->getFade());
             house->draw();
             car->draw();
             travel->draw();
             membership->draw();
+    //        glDisable(GL_BLEND);
         ofPopStyle();
     
         autoBox->draw();
