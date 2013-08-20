@@ -60,7 +60,6 @@ void HomeIcon::draw() {
     //if(movie->isPlaying()) {
     //    movie->draw(0,0);
 	if (movie.isPlaying()) {
-        shader.begin();
         glBlendFuncSeparate(GL_ZERO, GL_ONE, GL_SRC_ALPHA, GL_DST_ALPHA);
 //        bgAlpha->draw(0,0);
         ofSetColor(255,255,255,255);
@@ -68,6 +67,7 @@ void HomeIcon::draw() {
         ofCircle(150,150,150);
         glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA);
         ofSetColor(255,255,255,255);
+        shader.begin();
         movie.draw(0, 0);
         shader.end();
     } else {

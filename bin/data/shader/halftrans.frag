@@ -1,14 +1,13 @@
 #version 120
-uniform sampler2D texture;
+uniform sampler2D tex0;
 
 void main(){
 
-    vec4 targetColor = vec4(1.0, 1.0, 1.0, 1.0);
+    vec4 targetColor = vec4(0.9, 0.9, 0.9, 0.9);
 	
-    vec2 pos = gl_TexCoord[0].xy;
-    vec4 color = texture2D(texture, pos);
+    vec4 color = texture2D(tex0, gl_TexCoord[0].xy);
     
-	if( all( equal(gl_Color, targetColor) ) ){
+	if( all( greaterThanEqual(color, targetColor) ) ){
 		gl_FragColor.rgb = color.rgb;
         gl_FragColor.a = 0.5;
     }else{
