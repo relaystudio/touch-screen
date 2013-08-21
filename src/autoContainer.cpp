@@ -96,7 +96,9 @@ void AutoContainer::draw() {
     container->draw(loc.x, loc.y);
 
 	ofSetColor(ofColor::black);
+#ifdef AWESOMIUM
 	//ofDrawBitmapString(resultClose, loc);
+#endif
 	ofSetColor(ofColor::white);
 }
 
