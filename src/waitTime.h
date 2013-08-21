@@ -52,6 +52,7 @@ private:
     ofxHttpUtils web;  
     float scale;
     ofxXmlSettings XML;
+    ofxXmlSettings XMLS;
     ofTrueTypeFont TTF;
     
     string xmlStructure;

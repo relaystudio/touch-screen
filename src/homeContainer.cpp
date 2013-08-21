@@ -10,6 +10,10 @@
 
 HomeContainer::HomeContainer() {
     
+    if(XML.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
+    XML.pushTag("xml");
+    if(XML.pushTag(XML.getValue("Orientation","horizontal"))) ofLog() << "Correctly set orientation";
+    
     const int padding = 20; // Around container
     const int iconWidth = 160; // Radius of icons
     
@@ -18,7 +22,7 @@ HomeContainer::HomeContainer() {
     
     waitTime = new WaitTimeBar();
     
-    autoBox = new AutoContainer(1500, 818, 210);
+    autoBox = new AutoContainer(XML.getValue("cwidth", 1500), XML.getValue("cheight", 818), XML.getValue("cpad", 210));
 	ofAddListener(ofEvents().mousePressed, autoBox, &AutoContainer::mousePressed); // Working
 	ofAddListener(ofEvents().mouseDragged, autoBox, &AutoContainer::mouseMoved);
     ofAddListener(ofEvents().mouseReleased, autoBox, &AutoContainer::mouseReleased);

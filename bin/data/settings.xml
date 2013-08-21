@@ -1,9 +1,24 @@
 <xml>
-    <width>1920</width>
-    <height>1080</height>
     <storeLocation>04</storeLocation>
     <attractLength>60</attractLength>
-    <attractPath>img/attract.mov</attractPath>
-    <!-- Horiz = 0, portrait = 1 -->
-    <orientation>0</orientation>
+    <orientation>horizontal</orientation>
+    <horizontal>
+        <width>1920</width>
+        <height>1080</height>
+        <attractPath>img/attract.mov</attractPath>
+        <bgimg>img/main_bg.jpg</bgimg>
+        <cwidth>1500</cwidth>
+        <cheight>818</cheight>
+        <cpad>210</cpad>
+    </horizontal>
+    
+    <vertical>
+        <width>1080</width>
+        <height>1920</height>
+        <attractPath>img/attract.mov</attractPath>
+        <bgimg>img/vertical_bg.jpg</bgimg>
+        <cwidth>960</cwidth>
+        <cheight>818</cheight>
+        <cpad>510</cpad>
+    </vertical>
 </xml>

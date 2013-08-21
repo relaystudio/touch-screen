@@ -9,8 +9,11 @@
 #include "waitTime.h"
 
 WaitTimeBar::WaitTimeBar() {
-
-    width = 1500;
+    if(XMLS.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
+    XMLS.pushTag("xml");
+    if(XMLS.pushTag(XMLS.getValue("Orientation","horizontal"))) ofLog() << "Correctly set orientation";
+    
+    width = XMLS.getValue("cwidth", 1500);
     height = 50;
     padding = (ofGetWidth() - width) / 2;
     
