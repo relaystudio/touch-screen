@@ -14,10 +14,16 @@ using namespace Awesomium; // Blerg
 const int tweenSpeed = 40;
 
 AutoContainer::AutoContainer(int _width, int _height, int _padding) {
+    
+    if(XML.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
+    XML.pushTag("xml");
+    if(XML.pushTag(XML.getValue("Orientation","horizontal"))) ofLog() << "Correctly set orientation";
+    
+    
 	w = _width;
 	h = _height;
     container = new ofFbo();
-    container->allocate(_width, _height);
+    container->allocate(w, h);
     about = new AboutPage("path");
     about->setName("Auto About Page");
     
@@ -33,11 +39,12 @@ AutoContainer::AutoContainer(int _width, int _height, int _padding) {
     logo = new ofImage();
     logo->loadImage("img/icon_auto_header.png");
     
-    totalHeight = ofGetHeight();
+    totalHeight = XML.getValue("height", 1080);
     padding = _padding;
     setupAnimation();
     loc.y = totalHeight + 10;
-    loc.x = padding;
+    loc.x = (XML.getValue("width", 1920) - XML.getValue("cwidth", 1500)) / 2;
+    ofLog() << "The x loc is " << loc.x;
     easing = 0.05;
     isOpen = false;
 #ifndef AWESOMIUM

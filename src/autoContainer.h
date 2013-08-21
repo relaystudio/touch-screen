@@ -58,7 +58,7 @@ public:
     
 private:
     AboutPage * about;
-    
+    ofxXmlSettings XML;
     ofFbo * container;
     int w,h;
     string url;

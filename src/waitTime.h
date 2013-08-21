@@ -42,12 +42,14 @@ private:
     ofImage * travel;
     ofImage * member;
     
+    ofFbo * fbo;
+    
     int carTime, houseTime, travelTime, memberTime;
     int carNum, houseNum, travelNum, memberNum;
     
     int state;
     
-    long lastCheck;
+    long lastCheck, checktime;
     bool flag;
     ofxHttpUtils web;  
     float scale;

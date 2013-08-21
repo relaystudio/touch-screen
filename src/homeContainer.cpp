@@ -18,7 +18,7 @@ HomeContainer::HomeContainer() {
     const int iconWidth = 160; // Radius of icons
     
     container = new ofFbo();
-    container->allocate(ofGetWidth(),ofGetHeight());
+    container->allocate(XML.getValue("width", 1920), XML.getValue("height", 1080));
     
     waitTime = new WaitTimeBar();
     

@@ -11,11 +11,12 @@
 WaitTimeBar::WaitTimeBar() {
     if(XMLS.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
     XMLS.pushTag("xml");
+    checktime = XMLS.getValue("waittimePoll", 30); // seconds
     if(XMLS.pushTag(XMLS.getValue("Orientation","horizontal"))) ofLog() << "Correctly set orientation";
     
     width = XMLS.getValue("cwidth", 1500);
     height = 50;
-    padding = (ofGetWidth() - width) / 2;
+    padding = (XMLS.getValue("width", 1920) - width) / 2;
     
     background = new ofImage();
     background->loadImage("img/ticker-01.png");
@@ -35,7 +36,6 @@ WaitTimeBar::WaitTimeBar() {
     member = new ofImage();
     member->loadImage("img/icon_member_wait.png");
     
-    
     carTime = carNum = ofRandom(0,5);
     houseTime = houseNum = ofRandom(0,5);
     travelTime = travelNum = ofRandom(0,5);
@@ -44,6 +44,10 @@ WaitTimeBar::WaitTimeBar() {
     tagNum = 0; flag = false;
     loadXML();
     scale = 0.0f;
+    
+    fbo = new ofFbo();
+    fbo->allocate(width, height);
+    
 }
 
 WaitTimeBar::~WaitTimeBar() {
@@ -52,7 +56,7 @@ WaitTimeBar::~WaitTimeBar() {
 
 void WaitTimeBar::update() {
     // Pole the xml side of things every minute
-    if(ofGetMinutes() != lastCheck) loadXML();
+    if(ofGetUnixTime() > lastCheck-checktime) loadXML();
     readXML();
 
     // Flip them tags every 10 seconds
@@ -60,16 +64,20 @@ void WaitTimeBar::update() {
     if(flipTag == 0) flag = true;
     if(flipTag == 1 && flag == true) { tagNum = (tagNum+1) % 4; flag = false; scale = 0.0f; }
 
-}
-
-void WaitTimeBar::draw() {
+    
+    
+    fbo->begin();
     ofPushMatrix();
+    //    if(XMLS.getValue("width", 1920) < XMLS.getValue("height", 1080) ) {
+    //        float scale = XMLS.getValue("width", 1920) / XMLS.getValue("height", 1080);
+    //        ofScale(scale, scale);
+    //    }
     ofTranslate(74,50);
     background->draw(0,0);
     ofPushMatrix();
     ofTranslate(0,30);
     ofTranslate(15,0);
-
+    
     TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 158, 35);
     TTF.drawString(houseTime > 0 ? "It's your turn!" : ofToString(houseTime) + " minutes left!", 529,35);
     
@@ -80,9 +88,11 @@ void WaitTimeBar::draw() {
     ofTranslate(0,17);
     drawFlipTag();
     ofPopMatrix();
+    fbo->end(); 
 }
 
 void WaitTimeBar::drawRed() {
+    fbo->begin();
     ofPushMatrix();
     ofTranslate(74,50);
     ofSetColor(255,100,100);
@@ -101,6 +111,16 @@ void WaitTimeBar::drawRed() {
     ofTranslate(0,17);
     ofSetColor(255,100,100);
     drawFlipTag(true);
+    ofPopMatrix();
+    fbo->end();
+    
+}
+
+void WaitTimeBar::draw() {
+    ofPushMatrix();
+    float sscale = XMLS.getValue("width", 1920) / XMLS.getValue("height", 1080);
+    ofScale(sscale,sscale);
+    fbo->draw(0,0);
     ofPopMatrix();
 }
 
@@ -150,7 +170,7 @@ void WaitTimeBar::loadXML() {
         ofLog() << "Couldn't GET xml";
          if(XML.loadFile("xml/WaitTime.xml")) ofLog() << "Loaded file";
     }
-    lastCheck = ofGetMinutes();
+    lastCheck = ofGetUnixTime();
     //ofLog() << (XML.tagExists("WaitTime",0) ? "WaitTime Works!" : "Waittime ain't there homie");
     XML.pushTag("WaitTime",0);
     XML.pushTag("module",0);

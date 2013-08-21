@@ -1,7 +1,9 @@
 <xml>
     <storeLocation>04</storeLocation>
     <attractLength>60</attractLength>
-    <orientation>horizontal</orientation>
+    <waittimePoll>30</waittimePoll>
+    <Orientation>vertical</Orientation>
+    
     <horizontal>
         <width>1920</width>
         <height>1080</height>
