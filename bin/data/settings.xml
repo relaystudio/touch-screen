@@ -1,0 +1,9 @@
+<xml>
+    <width>1920</width>
+    <height>1080</height>
+    <storeLocation>04</storeLocation>
+    <attractLength>60</attractLength>
+    <attractPath>img/attract.mov</attractPath>
+    <!-- Horiz = 0, portrait = 1 -->
+    <orientation>0</orientation>
+</xml>

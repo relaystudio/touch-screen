@@ -313,6 +313,7 @@
 		836DE24217C39FB2004D4390 /* ofxTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTween.h; sourceTree = "<group>"; };
 		836DE25F17C3BD3E004D4390 /* halftrans.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = halftrans.frag; sourceTree = "<group>"; };
 		836DE26017C3BD3E004D4390 /* nothing.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = nothing.vert; sourceTree = "<group>"; };
+		836DE26417C537D4004D4390 /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = settings.xml; sourceTree = "<group>"; };
 		839175CB1796F1EB0054F2F4 /* page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = page.cpp; sourceTree = "<group>"; };
 		839175CC1796F1EB0054F2F4 /* page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = page.h; sourceTree = "<group>"; };
 		839175CE1796F2100054F2F4 /* container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = container.cpp; sourceTree = "<group>"; };
@@ -830,6 +831,7 @@
 				8395A96417BC424E001B3D5E /* html */,
 				8395A96517BC424E001B3D5E /* img */,
 				8395A97817BC424E001B3D5E /* xml */,
+				836DE26417C537D4004D4390 /* settings.xml */,
 			);
 			name = data;
 			path = bin/data;

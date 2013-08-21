@@ -17,7 +17,7 @@
 class HomeIcon : public ofxBox2dCircle {
 public:
     HomeIcon(string _title,
-             string _apiPath, string _iconPath, string _moviePath);
+             string _apiPath, string _iconPath, string _moviePath, bool _iconOnly);
     ~HomeIcon();
     
     void draw();
@@ -40,7 +40,7 @@ private:
 	ofVideoPlayer movie;
     
     int radius, activityTimer, touchTimer, touchDistance;
-    bool wasActivated, isActive;
+    bool wasActivated, isActive, iconOnly;
     ofPoint origin;
     
     string title, apiPath, iconPath, moviePath;

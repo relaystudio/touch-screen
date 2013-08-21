@@ -5,12 +5,17 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     ofSetLogLevel(OF_LOG_NOTICE);
+    
+    if(XML.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
+    XML.pushTag("xml");
+    ofSetWindowShape(XML.getValue("width", 1920), XML.getValue("height", 1080));
+    
     ofEnableSmoothing();
     ofSetVerticalSync(true);
     ofSetFrameRate(30);
     
     ofHideCursor();
-    
+    waitTime = new WaitTimeBar();
     touch = new Touch(3333);
 //    testContainer = new Container();
     home = new HomeContainer();
@@ -21,10 +26,13 @@ void testApp::setup(){
 //    box2d = home->getBox2d();
 //
     attract = new ofVideoPlayer();
-    attract->loadMovie("img/attract.mov");
+    attract->loadMovie(XML.getValue("attractPath", "img/attract.mov"));
     attract->setLoopState(OF_LOOP_NORMAL);
     attract->play();
     fade = 0.f;
+    
+    
+    
 }
 
 
@@ -37,6 +45,7 @@ void testApp::update(){
     
     touch->update();
     home->update();
+    waitTime->update();
 }
 
 //--------------------------------------------------------------
@@ -49,13 +58,15 @@ void testApp::draw(){
 
 void testApp::drawAttract() {
     ofPushStyle();
-    //ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-1000;
-	if(touch->getLastMoved() < ofGetUnixTime() - NO_INTERACT_DURATION) {
+    ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-10;
+	if(touch->getLastMoved() < ofGetUnixTime() - XML.getValue("attractLength", 60)) {
         attract->update();
         //ofLog() << "Attract mode on!";
         if(fade <= 1.0f) fade += 0.05;
         ofSetColor(255,255,255, ofMap(fade,0,1,0,255));
         attract->draw(0,0,ofGetWidth(), ofGetHeight());
+        ofSetColor(255,127,127, ofMap(fade,0,1,0,255));
+        waitTime->drawRed();
     } else {
         fade = 0;
         attract->setFrame(0);

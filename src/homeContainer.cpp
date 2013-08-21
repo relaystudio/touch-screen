@@ -35,25 +35,31 @@ HomeContainer::HomeContainer() {
     
     setActive(true);
     
-    
-    
-    
-    house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mov");
+    house = new HomeIcon("House", "/api/home", "img/icon_home.png", "img/ani_house.mov", false);
     house->setPhysics(density, bounce, friction);
     house->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
     
-    car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mov");
+    car = new HomeIcon("Car", "/api/car", "img/icon_auto.png","img/ani_car.mov", false);
     car->setPhysics(density, bounce, friction);
     car->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
     
-    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_travel.mov");
+    travel = new HomeIcon("Travel", "/api/travel", "img/icon_travel.png","img/ani_travel.mov", false);
     travel->setPhysics(density, bounce, friction);
     travel->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
     
-    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mov");
+    membership = new HomeIcon("BCAA Membership", "/api/member", "img/icon_membership.png","img/ani_membership.mov", false);
     membership->setPhysics(density, bounce, friction);
     membership->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
 
+    contest = new HomeIcon("Contest", "/api/contest", "img/win_icon.png","img/ani_travel.mov", true);
+    contest->setPhysics(density, bounce, friction);
+    contest->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth-170)+170, iconWidth);
+    
+    evolve = new HomeIcon("Evolve", "/api/evolve", "img/evolve_icon.png","img/ani_membership.mov", true);
+    evolve->setPhysics(density, bounce, friction);
+    evolve->setup(box2d->getWorld(), ofRandom(iconWidth,container->getWidth()-iconWidth), ofRandom(iconWidth,container->getHeight()-iconWidth)+170, iconWidth);
+
+    
     setActive(true);
     activeWindow = -1;
     
@@ -84,11 +90,22 @@ void HomeContainer::addForces() {
     membership->addRepulsionForce(car->getPosition(), rep2);
     membership->addRepulsionForce(travel->getPosition(), rep2);
     
+    contest->addRepulsionForce(house->getPosition(),rep2);
+    contest->addRepulsionForce(car->getPosition(), rep2);
+    contest->addRepulsionForce(travel->getPosition(), rep2);
+    contest->addRepulsionForce(evolve->getPosition(), rep2);
+    
+    evolve->addRepulsionForce(house->getPosition(),rep2);
+    evolve->addRepulsionForce(car->getPosition(), rep2);
+    evolve->addRepulsionForce(travel->getPosition(), rep2);
+    evolve->addRepulsionForce(evolve->getPosition(),rep2);
     
     house->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
     car->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
     travel->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
     membership->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
+    contest->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
+    evolve->addRepulsionForce(ofGetWidth()/2, ofGetHeight()/2, -(rep*2));
 }
 
 void HomeContainer::update() {
@@ -97,10 +114,14 @@ void HomeContainer::update() {
     addForces();
     waitTime->update();
 
+    
     house->update(box2d);
     car->update(box2d);
     travel->update(box2d);
     membership->update(box2d);
+    contest->update(box2d);
+    evolve->update(box2d);
+
     
 //    if(autoBox->isClosed()) activeWindow = -1;
     checkActiveButton();
@@ -140,6 +161,8 @@ void HomeContainer::update() {
             car->draw();
             travel->draw();
             membership->draw();
+            contest->draw();
+            evolve->draw();
     //        glDisable(GL_BLEND);
         ofPopStyle();
     
@@ -216,6 +239,17 @@ void HomeContainer::checkActiveButton() {
     if(membership->isActivated()) {
         ofLog() << "Activating Membership page";
         activeWindow = MEMBER;
+    }
+    
+    
+    if(evolve->isActivated()) {
+        ofLog() << "Activating Travel page";
+        activeWindow = EVOLVE;
+    }
+    
+    if(contest->isActivated()) {
+        ofLog() << "Activating Membership page";
+        activeWindow = CONTEST;
     }
 }
 

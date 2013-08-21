@@ -31,8 +31,10 @@ class testApp : public ofBaseApp{
         ofVideoPlayer * attract;
     
         Touch * touch;
+        WaitTimeBar * waitTime;
         Container * testContainer;
         HomeContainer * home;
         ofImage * mainBackground;
-        float fade;  
+        float fade;
+        ofxXmlSettings XML;
 };

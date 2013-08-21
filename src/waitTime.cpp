@@ -79,7 +79,29 @@ void WaitTimeBar::draw() {
     ofPopMatrix();
 }
 
-void WaitTimeBar::drawFlipTag() {
+void WaitTimeBar::drawRed() {
+    ofPushMatrix();
+    ofTranslate(74,50);
+    ofSetColor(255,100,100);
+    background->draw(0,0);
+    ofPushMatrix();
+    ofTranslate(0,30);
+    ofTranslate(15,0);
+    ofSetColor(255,255,255);
+    TTF.drawString(carTime > 0 ? "It's your turn!" : ofToString(carTime) + " minutes left!", 158, 35);
+    TTF.drawString(houseTime > 0 ? "It's your turn!" : ofToString(houseTime) + " minutes left!", 529,35);
+    
+    TTF.drawString(travelTime > 0 ? "It's your turn!" : ofToString(travelTime) + " minutes left!", 1048, 35);
+    
+    TTF.drawString(memberTime > 0 ? "It's your turn!" : ofToString(memberTime) + " minutes left!", 1469, 35);
+    ofPopMatrix();
+    ofTranslate(0,17);
+    ofSetColor(255,100,100);
+    drawFlipTag(true);
+    ofPopMatrix();
+}
+
+void WaitTimeBar::drawFlipTag(bool red) {
     int position;
     int * ppl;
     switch(tagNum) {
@@ -108,6 +130,7 @@ void WaitTimeBar::drawFlipTag() {
     ofTranslate(position,0);
     ofScale(1,scale);
     flipImg->draw(0,0);
+    if(red) ofSetColor(255, 255, 255);
     TTF.drawString(*ppl == 0 ? "You're next" : ofToString(*ppl) + " people ahead of you", 10, 45);
     ofPopMatrix();
 }
@@ -118,7 +141,7 @@ void WaitTimeBar::setState(int _transparency) {
 
 void WaitTimeBar::loadXML() {
 //	XML.loadFile("xml/WaitTime.xml");
-    ofxHttpResponse resp = web.getUrl("http://google.com");
+    ofxHttpResponse resp = web.getUrl("http://localhost/WaitTime.aspx");
     if(XML.loadFromBuffer(resp.responseBody)) ofLog() << "Loaded XML";
     else {
         ofLog() << "Couldn't GET xml";

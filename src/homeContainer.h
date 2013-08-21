@@ -26,7 +26,8 @@ class HomeContainer : public Container {
         AUTO = 1,
         TRAVEL = 2,
         MEMBER = 3,
-        CONTEST = 4
+        CONTEST = 4,
+        EVOLVE = 5
     } State;
     
     public:
@@ -44,6 +45,7 @@ class HomeContainer : public Container {
     
     void setupGUI();
     
+    
     private:
     ofFbo * container;
     
@@ -51,6 +53,8 @@ class HomeContainer : public Container {
     HomeIcon * car;
     HomeIcon * travel;
     HomeIcon * membership;
+    HomeIcon * contest;
+    HomeIcon * evolve;
 
 
     int activeWindow; // Active or queued

@@ -11,11 +11,12 @@
 const int touchThreshold = 30;
 
 HomeIcon::HomeIcon(string _title,
-                   string _apiPath, string _iconPath, string _moviePath) {
+                   string _apiPath, string _iconPath, string _moviePath, bool _iconOnly) {
     title = _title;
     apiPath = _apiPath;
     iconPath = _iconPath;
     moviePath = _moviePath;
+    iconOnly = _iconOnly;
     
     bg = new ofImage();
     bg->loadImage("img/icon_bg.png");
@@ -79,8 +80,10 @@ void HomeIcon::draw() {
         buf.draw(0,0);
   //      shader.end();
     } else {
-        bg->draw(0,0);
-        ring->draw(0,0);
+        if(!iconOnly) {
+            bg->draw(0,0);
+            ring->draw(0,0);
+        }
         icon->draw(0,0);
     }
     ofPopStyle();

@@ -24,12 +24,13 @@ public:
     
     void update();
     void draw();
+    void drawRed();
     void setState(int _transparency);
     
     void fetchData();
     void loadXML();
     void readXML();
-    void drawFlipTag();
+    void drawFlipTag(bool red=false);
     long getDiff(string _date);
     
 private:
