@@ -8,6 +8,7 @@ void testApp::setup(){
     
     if(XML.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
     XML.pushTag("xml");
+    if(XML.pushTag(XML.getValue("Orientation","horizontal"))) ofLog() << "Correctly set orientation";
     ofSetWindowShape(XML.getValue("width", 1920), XML.getValue("height", 1080));
     
     ofEnableSmoothing();
@@ -31,7 +32,7 @@ void testApp::setup(){
     attract->play();
     fade = 0.f;
     
-    
+    XML.popTag();
     
 }
 

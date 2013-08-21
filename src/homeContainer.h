@@ -55,7 +55,7 @@ class HomeContainer : public Container {
     HomeIcon * membership;
     HomeIcon * contest;
     HomeIcon * evolve;
-
+    ofxXmlSettings XML; 
 
     int activeWindow; // Active or queued
 //    int prevWindow; // Still active until -1
