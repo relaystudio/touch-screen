@@ -96,7 +96,7 @@ void AutoContainer::draw() {
     container->draw(loc.x, loc.y);
 
 	ofSetColor(ofColor::black);
-	ofDrawBitmapString(resultClose, loc);
+	//ofDrawBitmapString(resultClose, loc);
 	ofSetColor(ofColor::white);
 }
 
