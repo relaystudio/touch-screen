@@ -167,7 +167,10 @@ void WaitTimeBar::setState(int _transparency) {
 
 void WaitTimeBar::loadXML() {
 //	XML.loadFile("xml/WaitTime.xml");
-    ofxHttpResponse resp = web.getUrl("http://localhost/WaitTime.aspx");
+    
+    string _url = "http://localhost/WaitTime.aspx?loc=" + XMLS.getValue("storeLocation", "04");
+    
+    ofxHttpResponse resp = web.getUrl(_url);
     if(XML.loadFromBuffer(resp.responseBody)) ofLog() << "Loaded XML";
     else {
         ofLog() << "Couldn't GET xml";
