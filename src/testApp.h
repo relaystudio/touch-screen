@@ -36,5 +36,6 @@ class testApp : public ofBaseApp{
         HomeContainer * home;
         ofImage * mainBackground;
         float fade;
+        bool debug;
         ofxXmlSettings XML;
 };

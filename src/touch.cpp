@@ -60,6 +60,7 @@ void Touch::tuioAdded(ofxTuioCursor &tuioCursor){
     ofPoint loc = ofPoint(tuioCursor.getX()*ofGetWidth(),tuioCursor.getY()*ofGetHeight());
 	ofLog(OF_LOG_VERBOSE) << "Point n" << tuioCursor.getSessionId() << " add at " << loc << endl;
     ofNotifyMousePressed(loc.x, loc.y, 0);
+   lastMoved = ofGetUnixTime();
 }
 
 void Touch::tuioUpdated(ofxTuioCursor &tuioCursor){
@@ -73,4 +74,5 @@ void Touch::tuioRemoved(ofxTuioCursor &tuioCursor){
     ofPoint loc = ofPoint(tuioCursor.getX()*ofGetWidth(),tuioCursor.getY()*ofGetHeight());
     ofLog(OF_LOG_VERBOSE) << "Point n" << tuioCursor.getSessionId() << " remove at " << loc << endl;
      ofNotifyMouseReleased(loc.x, loc.y, 0);
+   lastMoved = ofGetUnixTime();
 }

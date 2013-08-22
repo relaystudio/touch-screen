@@ -8,6 +8,7 @@ void testApp::setup(){
     
     if(XML.loadFile("settings.xml")) ofLog() << "Loaded Settings successfully.";
     XML.pushTag("xml");
+    debug = XML.getValue("debug",0) == 1 ? true : false;
     if(XML.pushTag(XML.getValue("Orientation","horizontal"))) ofLog() << "Correctly set orientation";
     ofSetWindowShape(XML.getValue("width", 1920), XML.getValue("height", 1080));
     
@@ -53,7 +54,7 @@ void testApp::update(){
 void testApp::draw(){
     mainBackground->draw(0,0,ofGetWidth(),ofGetHeight());
     home->draw();
-    touch->draw();
+    if(debug) touch->draw();
     drawAttract();
 }
 
