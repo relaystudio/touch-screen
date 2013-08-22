@@ -33,7 +33,10 @@ void Touch::update() {
 }
 
 void Touch::draw() {
+    ofPushStyle();
+    ofSetColor(0,0,0,0);
     tuioClient.drawCursors();
+    ofPopStyle();
 }
 
 vector<ofPoint> * Touch::getPoints() {

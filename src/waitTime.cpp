@@ -46,7 +46,7 @@ WaitTimeBar::WaitTimeBar() {
     scale = 0.0f;
     
     fbo = new ofFbo();
-    fbo->allocate(width, height);
+    fbo->allocate(1920, 300);
     
 }
 
@@ -67,6 +67,7 @@ void WaitTimeBar::update() {
     
     
     fbo->begin();
+    ofClear(0,0,0,0);
     ofPushMatrix();
     //    if(XMLS.getValue("width", 1920) < XMLS.getValue("height", 1080) ) {
     //        float scale = XMLS.getValue("width", 1920) / XMLS.getValue("height", 1080);
@@ -93,6 +94,7 @@ void WaitTimeBar::update() {
 
 void WaitTimeBar::drawRed() {
     fbo->begin();
+    ofClear(0,0,0,0);
     ofPushMatrix();
     ofTranslate(74,50);
     ofSetColor(255,100,100);
@@ -118,7 +120,8 @@ void WaitTimeBar::drawRed() {
 
 void WaitTimeBar::draw() {
     ofPushMatrix();
-    float sscale = XMLS.getValue("width", 1920) / XMLS.getValue("height", 1080);
+    float sscale = width < 1400 ? .56 : 1.0;
+    ofLog() << sscale;
     ofScale(sscale,sscale);
     fbo->draw(0,0);
     ofPopMatrix();

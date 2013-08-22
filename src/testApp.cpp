@@ -60,7 +60,7 @@ void testApp::draw(){
 
 void testApp::drawAttract() {
     ofPushStyle();
-    ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-10;
+    // ofLog() << "touch: " << touch->getLastMoved() << "cur: " << ofGetUnixTime()-10;
 	if(touch->getLastMoved() < ofGetUnixTime() - XML.getValue("attractLength", 60)) {
         attract->update();
         //ofLog() << "Attract mode on!";

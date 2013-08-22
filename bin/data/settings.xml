@@ -3,7 +3,7 @@
     <attractLength>60</attractLength>
     <waittimePoll>30</waittimePoll>
     <debug>0</debug>
-    <Orientation>vertical</Orientation>
+    <Orientation>horizontal</Orientation>
     
     <horizontal>
         <width>1920</width>
