@@ -77,14 +77,14 @@ void HomeIcon::draw() {
             }
         }
         buf.reloadTexture();
-        buf.draw(0,0);
+        buf.draw(0,0,0);
   //      shader.end();
     } else {
         if(!iconOnly) {
-            bg->draw(0,0);
-            ring->draw(0,0);
+            bg->draw(0,0,1);
+            ring->draw(0,0,1);
         }
-        icon->draw(0,0);
+        icon->draw(0,0,1);
     }
     ofPopStyle();
 	ofPopMatrix();
