@@ -119,6 +119,7 @@ void HomeContainer::update() {
     waitTime->update();
 
     
+
     house->update(box2d);
     car->update(box2d);
     travel->update(box2d);
@@ -161,12 +162,22 @@ void HomeContainer::update() {
   //      glEnable(GL_BLEND);
 //        glBlendFunc(GL_ONE,GL_ZERO);
             ofSetColor(255,255,255,autoBox->getFade());
-            house->draw();
-            car->draw();
-            travel->draw();
-            membership->draw();
-            contest->draw();
-            evolve->draw();
+    
+            // Draw movie first
+            if(!house->videoStopped()) house->draw();
+            if(!car->videoStopped()) car->draw();
+            if(!travel->videoStopped()) travel->draw();
+            if(!membership->videoStopped()) membership->draw();
+            if(!contest->videoStopped()) contest->draw();
+            if(!evolve->videoStopped()) evolve->draw();
+    
+            // draw others later
+            if(house->videoStopped()) house->draw();
+            if(car->videoStopped()) car->draw();
+            if(travel->videoStopped()) travel->draw();
+            if(membership->videoStopped()) membership->draw();
+            if(contest->videoStopped()) contest->draw();
+            if(evolve->videoStopped()) evolve->draw();
     //        glDisable(GL_BLEND);
         ofPopStyle();
     
